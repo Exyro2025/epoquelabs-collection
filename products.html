@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Collection | Époque Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body {
+      margin: 0;
+      background: #fefaf6;
+      color: #2b1d1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+    }
+    header {
+      background: #eaded2;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    .products {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product {
+      background: #fffdfb;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .product p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    footer {
+      background: #2b1d1a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Collection</h1>
+    <p>Scientific Formulas Guided by Ritual</p>
+  </header>
+
+  <section class="products">
+
+    <div class="product">
+      <img src="/assets/images/baignelle.jpg" alt="Époquelle Baignelle">
+      <h3>Époquelle™ Baignelle – É No.1</h3>
+      <p>A veil of fire. Vanilla, neroli, and sandalwood. Worn like silk. A regenerative body oil ritual that restores tone and sensual radiance.</p>
+    </div>
+
+    <div class="product">
+      <img src="/assets/images/formula6.jpg" alt="Formula No.6">
+      <h3>Formula No.6 – Le Sérum Contour Yeux</h3>
+      <p>Brightens and firms the delicate eye area with peptides, caffeine, and micro-lift botanicals. Designed for Phase II: Signal.</p>
+    </div>
+
+    <div class="product">
+      <img src="/assets/images/formula9.jpg" alt="Formula No.9">
+      <h3>Formula No.9 – Voile Réparateur</h3>
+      <p>A potent nighttime repair veil with Bakuchiol and Sea Buckthorn. Smoothes texture and calms inflammation while you sleep.</p>
+    </div>
+
+    <div class="product">
+      <img src="/assets/images/formula12.jpg" alt="Formula No.12">
+      <h3>Formula No.12 – Revive Crème</h3>
+      <p>Our signature Phase III treatment. Restores bounce, softness, and structure with plant ceramides, ectoin, and collagen boosters.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Époque Labs | All rights reserved.
+  </footer>
+
+</body>
+</html>
