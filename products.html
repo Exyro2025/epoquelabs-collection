@@ -104,27 +104,6 @@
   />
 </div>
 
-
-  </section>
-  <div style="text-align:center; margin-top: 2rem;">
-  <button onclick="toggleAudio()" style="
-    background:#2b1d1a;
-    color:#fff;
-    border:none;
-    padding:0.6rem 1.7rem;
-    border-radius:40px;
-    font-size:0.95rem;
-    font-weight: 500;
-    cursor:pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background 0.3s ease;">
-    <span id="soundIcon">🔊</span> <span id="soundText">Toggle Sound</span>
-  </button>
-</div>
-
-
 <!-- 🔈 Background Audio (autoplay, loop, hidden) -->
 <audio autoplay loop preload="auto" style="display:none;" id="spaAudio">
   <source src="/assets/audio/serenity-spa-track.mp3" type="audio/mpeg">
@@ -159,27 +138,9 @@
   </div>
 </section>
 
-
-
   <footer>
     © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
   </footer>
-  <script>
-  const audio = document.getElementById("spaAudio");
-  const icon = document.getElementById("soundIcon");
-  const text = document.getElementById("soundText");
-
-  function toggleAudio() {
-    if (audio.paused) {
-      audio.play();
-      icon.textContent = "🔊";
-    } else {
-      audio.pause();
-      icon.textContent = "🔇";
-    }
-  }
-</script>
-
 
 </body>
 </html>
