@@ -129,7 +129,7 @@
     align-items: center;
     gap: 0.5rem;
     transition: background 0.3s ease;">
-    <span>🔊</span> Toggle Sound
+    <span id="soundIcon">🔊</span> <span id="soundText">Toggle Sound</span>
   </button>
 </div>
 
@@ -146,14 +146,20 @@
   </footer>
   <script>
   const audio = document.getElementById("spaAudio");
+  const icon = document.getElementById("soundIcon");
+  const text = document.getElementById("soundText");
+
   function toggleAudio() {
     if (audio.paused) {
       audio.play();
+      icon.textContent = "🔊";
     } else {
       audio.pause();
+      icon.textContent = "🔇";
     }
   }
 </script>
+
 
 </body>
 </html>
