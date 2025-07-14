@@ -116,10 +116,23 @@
 
   </section>
   <div style="text-align:center; margin-top: 2rem;">
-  <button onclick="toggleAudio()" style="background:#2b1d1a; color:#fff; border:none; padding:0.6rem 1.5rem; border-radius:30px; font-size:0.9rem; cursor:pointer;">
-    🔊 Toggle Sound
+  <button onclick="toggleAudio()" style="
+    background:#2b1d1a;
+    color:#fff;
+    border:none;
+    padding:0.6rem 1.7rem;
+    border-radius:40px;
+    font-size:0.95rem;
+    font-weight: 500;
+    cursor:pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;">
+    <span>🔊</span> Toggle Sound
   </button>
 </div>
+
 
 <!-- 🔈 Background Audio (autoplay, loop, hidden) -->
 <audio autoplay loop preload="auto" style="display:none;" id="spaAudio">
