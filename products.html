@@ -115,10 +115,32 @@
     </div>
 
   </section>
+  <div style="text-align:center; margin-top: 2rem;">
+  <button onclick="toggleAudio()" style="background:#2b1d1a; color:#fff; border:none; padding:0.6rem 1.5rem; border-radius:30px; font-size:0.9rem; cursor:pointer;">
+    🔊 Toggle Sound
+  </button>
+</div>
+
+<!-- 🔈 Background Audio (autoplay, loop, hidden) -->
+<audio autoplay loop preload="auto" style="display:none;" id="spaAudio">
+  <source src="/assets/audio/serenity-spa-track.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
   <footer>
     © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
   </footer>
+  <script>
+  const audio = document.getElementById("spaAudio");
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
 
 </body>
 </html>
