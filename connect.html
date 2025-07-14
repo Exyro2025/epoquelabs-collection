@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect | Époque Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body {
+      margin: 0;
+      background: #fefaf6;
+      color: #2b1d1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+    }
+    header {
+      background: #eadfd3;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+    button {
+      background: #2b1d1a;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #3a2824;
+    }
+    .credit {
+      text-align: center;
+      margin-top: 3rem;
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #2b1d1a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Connect with Époque Labs</h1>
+    <p>We welcome your inquiries, collaborations, and curiosity.</p>
+  </header>
+
+  <nav style="background:#f3ece4; padding: 1.5rem; text-align: center;">
+    <a href="index.html" style="margin: 0 1rem;">Home</a>
+    <a href="archives.html" style="margin: 0 1rem;">Archives</a>
+    <a href="compendium.html" style="margin: 0 1rem;">Compendium</a>
+    <a href="method.html" style="margin: 0 1rem;">Méthode</a>
+    <a href="products.html" style="margin: 0 1rem;">Collection</a>
+    <a href="connect.html" style="margin: 0 1rem;">Connect</a>
+  </nav>
+
+  <div class="form-container">
+    <form name="epoquelle-connect" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="epoquelle-connect" />
+      <label for="name">Name</label>
+      <input type="text" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" required />
+
+      <label for="message">Message or Interest</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="credit">
+      Soundscape collaboration: Jerailian House × Époque Labs
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
+  </footer>
+
+</body>
+</html>
