@@ -93,20 +93,27 @@
     <a href="connect.html" style="margin: 0 1rem;">Connect</a>
   </nav>
 
-  <div class="form-container">
-    <form name="epoquelle-connect" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="epoquelle-connect" />
-      <label for="name">Name</label>
-      <input type="text" name="name" required />
+  
+  <div class="form-container" style="max-width: 600px; margin: 0 auto; font-family: 'Georgia', serif;">
+  <form action="https://formsubmit.co/lelaabrams@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
 
-      <label for="email">Email</label>
-      <input type="email" name="email" required />
+    <label for="name">Name</label>
+    <input type="text" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-      <label for="message">Message or Interest</label>
-      <textarea name="message" rows="5" required></textarea>
+    <label for="email">Email</label>
+    <input type="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-      <button type="submit">Send Message</button>
-    </form>
+    <label for="message">Message or Interest</label>
+    <textarea name="message" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 20px;"></textarea>
+
+    <button type="submit" style="background: #2b1d1a; color: white; padding: 12px 24px; border: none; border-radius: 4px;">
+      Send Message
+    </button>
+  </form>
+</div>
+
 
     </div>
     <footer>
