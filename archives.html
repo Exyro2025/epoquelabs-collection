@@ -6,8 +6,6 @@
   <title>Époque Archives™ | The Émile d’Aragon Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
- 
-
   <style>
     body {
       margin: 0;
@@ -31,52 +29,53 @@
       opacity: 0.85;
       font-size: 1.1rem;
     }
+    nav {
+      background: #f3ece4;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #2b1d1a;
+      font-weight: 600;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 3rem 0 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid #2b1d1a;
+      background: transparent;
+      border-radius: 30px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .tab.active {
+      background: #2b1d1a;
+      color: white;
+    }
     .section {
       max-width: 850px;
-      margin: 4rem auto;
+      margin: 2rem auto 5rem;
       padding: 0 1.5rem;
+      display: none;
     }
-    .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .section p {
-      margin-bottom: 1.5rem;
-    }
-    .portrait {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .portrait img {
-      width: 200px;
-      border-radius: 8px;
-      opacity: 0.9;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .cta a {
-      background: #2b1d1a;
-      color: #fff;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .cta a:hover {
-      background: #3a2824;
+    .section.active {
+      display: block;
     }
     footer {
       background: #2b1d1a;
-      color: #fff;
+      color: white;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      margin-top: 5rem;
     }
   </style>
 </head>
@@ -86,88 +85,71 @@
     <h1>Époque Archives™</h1>
     <p>The Legacy of Émile d’Aragon (1887–1929)</p>
   </header>
-   <nav style="background:#f3ece4; padding: 1.5rem; text-align: center;">
-    <a href="index.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Home</a>
-    <a href="archives.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Archives</a>
-    <a href="compendium.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Compendium</a>
-    <a href="method.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Méthode</a>
-    <a href="products.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Collection</a>
-    <a href="connect.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Connect</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="archives.html">Archives</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="method.html">Méthode</a>
+    <a href="products.html">Collection</a>
+    <a href="connect.html">Connect</a>
   </nav>
 
-  <div class="section">
-    <h2>Chapter I – The Forgotten Apothecary</h2>
+  <div class="tabs">
+    <div class="tab active" data-tab="bio">Biography</div>
+    <div class="tab" data-tab="glossary">Glossary</div>
+    <div class="tab" data-tab="bibliography">Bibliography</div>
+  </div>
+
+  <div class="section active" id="bio">
+    <h2>Émile d’Aragon: The Apothecary of Time</h2>
     <p>
-      Émile d’Aragon was a quiet theorist of the skin — an apothecary working in the shadows of Provence. 
-      He believed that skin was more than tissue; it was a memory, a rhythm, a response. From 1919 to 1929, 
-      he compiled over 200 regenerative treatments inside a sealed leather-bound ledger, later known as the <em>Compendium d’Aragon</em>.
+      Born in 1887 in Avignon, Émile d’Aragon was a quiet observer of botanical life and its effects upon the skin. He lived privately, studying the regenerative capacities of plants in a time when dermatology barely existed. He believed skin was not simply tissue, but memory — that every blemish held a biography and every recovery a rhythm. In 1919, he began documenting skin formulas in what would become the legendary <em>Compendium d’Aragon</em>.
     </p>
-    <div class="portrait" style="text-align: center; margin-top: 2rem;">
-      <img src="assets emile-daragon-sketch.png" alt="Portrait of Émile d’Aragon" style="max-width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      <p style="margin-top: 0.8rem; font-style: italic; color: #4c3a36;">
-       “The original pen-and-ink rendering of Émile d’Aragon, recovered from early Époque Archives.”
-     </p>
-   </div>
-
-  </div>
-  <div class="timeline-section" style="background: #f9f4ef; padding: 3rem 2rem; text-align: center;">
-  <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: #4c3a36;">The Evolution of the Compendium</h3>
-  
-  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-family: Georgia, serif;">
-    <div style="flex: 1 1 120px;">
-      <h4 style="font-size: 1.2rem;">1919</h4>
-      <p style="font-style: italic;">The first handwritten entries</p>
-    </div>
-    <div style="flex: 1 1 120px;">
-      <h4 style="font-size: 1.2rem;">1929</h4>
-      <p style="font-style: italic;">Sealed for archival safekeeping</p>
-    </div>
-    <div style="flex: 1 1 120px;">
-      <h4 style="font-size: 1.2rem;">2025</h4>
-      <p style="font-style: italic;">Rediscovered by Époque Labs</p>
-    </div>
-    <div style="flex: 1 1 120px;">
-      <h4 style="font-size: 1.2rem;">Today</h4>
-      <p style="font-style: italic;">Formulas reimagined through Époquelle™</p>
-    </div>
-  </div>
-</div>
-
-
-  <div class="section">
-    <h2>Chapter II – A Discovery in Dust</h2>
     <p>
-      In the spring of 2025, Époque Labs acquired a private estate archive in Aix-en-Provence. 
-      Inside: botanical sketches, vintage suspensions, and Émile’s handwritten epidermal theory — 
-      decades ahead of modern regenerative science. These pages became the foundation of Époque’s rebirth.
+      His theories were decades ahead. He postulated that cellular signaling through scent and touch could stimulate regenerative behavior — foreshadowing discoveries in neurocosmetics and biomimetic peptides. Despite ridicule, he persisted in his remote lab in Aix-en-Provence until his sudden passing in 1929.
+    </p>
+    <p>
+      His writings, believed lost, were unearthed in 2025 and now form the scientific and poetic basis of Époque Labs’ skincare philosophy.
     </p>
   </div>
 
-  <div class="section">
-    <h2>Chapter III – La Méthode Émile™</h2>
-    <p>
-      His treatment system, now called <strong>La Méthode Émile™</strong>, follows a precise 4-phase ritual:  
-      <em>Purify. Signal. Revive. Shield.</em>  
-      Every Époque formula is built on this timeless choreography — blending clinical-grade ingredients with poetic application.
-    </p>
+  <div class="section" id="glossary">
+    <h2>Glossary of Terms</h2>
+    <p><strong>Actif régénératif:</strong> A regenerative active compound designed to stimulate skin renewal.</p>
+    <p><strong>Compendium:</strong> A carefully curated collection of Émile’s formula notes, treatments, and philosophies.</p>
+    <p><strong>Derme sonore:</strong> “Sonic skin” — Émile’s belief that skin responds to sound and rhythm.</p>
+    <p><strong>La Méthode Émile™:</strong> The four-phase ritual of Époque: Purify, Signal, Revive, Shield.</p>
+    <p><strong>Suspension florale:</strong> A floral infusion designed to stabilize active botanicals.</p>
+    <!-- Add more terms if desired -->
   </div>
 
-  <div class="section">
-    <h2>Chapter IV – The Compendium Lives</h2>
-    <p>
-      For the first time in history, the <em>Compendium d’Aragon</em> has been restored, annotated, and protected.  
-      Époque Labs now brings his vision to the world — through formulas, rituals, and intellectual property unlike any other.
-    </p>
-
-    <div class="cta">
-      <a href="compendium.html">View the Compendium</a>
-    </div>
-
+  <div class="section" id="bibliography">
+    <h2>Bibliographic Records</h2>
+    <p><em>Les Formules d’Avignon</em> (Émile d’Aragon, 1921)</p>
+    <p><em>Botanique & Épiderme</em> (Édition Privée, 1925)</p>
+    <p><em>Archives de la Régénération</em> (Restored by Époque Labs, 2025)</p>
+    <p><em>Compendium d’Aragon</em> (First English Edition, 2025)</p>
+  </div>
 
   <footer>
-   © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
+    © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
   </footer>
 
-</body>
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
 
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
 </html>
