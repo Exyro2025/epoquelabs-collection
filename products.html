@@ -29,7 +29,18 @@
       font-size: 1.1rem;
       opacity: 0.85;
     }
-    .products {
+    nav {
+      background: #f3ece4;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #2b1d1a;
+      font-weight: 600;
+    }
+    .products-grid {
       max-width: 1100px;
       margin: 4rem auto;
       padding: 0 1.5rem;
@@ -37,7 +48,7 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    .product {
+    .product-card {
       background: #fffdfb;
       padding: 2rem;
       border-radius: 12px;
@@ -45,23 +56,79 @@
       text-align: center;
       transition: transform 0.3s ease;
     }
-    .product:hover {
+    .product-card:hover {
       transform: translateY(-5px);
     }
-    .product h3 {
+    .product-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
-    .product p {
+    .product-card p {
       font-size: 0.95rem;
       opacity: 0.9;
     }
-    .product img {
+    .product-card img {
       max-width: 100%;
       height: auto;
       margin-bottom: 1rem;
       border-radius: 8px;
+    }
+    .comparison-section {
+      padding: 80px 20px;
+      background-color: #fff;
+    }
+    .comparison-section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #1a1a1a;
+      font-family: 'Playfair Display', serif;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .comparison-table thead tr {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 12px;
+      text-align: left;
+      border-top: 1px solid #ddd;
+    }
+    .spa-music-section {
+      text-align:center;
+      padding: 4rem 1rem;
+      background-color: #f8f5f2;
+    }
+    .spa-music-section h2 {
+      font-family:'Playfair Display',serif;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .spa-music-section h2 span {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #5e5e5e;
+    }
+    .spa-music-section p {
+      font-size: 1rem;
+      color: #4a3b2f;
+      margin-bottom: 2.5rem;
+    }
+    .spa-music-section h3 {
+      font-size:1.2rem;
+      font-family:'Playfair Display',serif;
+    }
+    .spa-music-section audio {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
     }
     footer {
       background: #2b1d1a;
@@ -80,19 +147,18 @@
     <p>Scientific Formulas Guided by Ritual</p>
   </header>
 
-  <nav style="background:#f3ece4; padding: 1.5rem; text-align: center;">
-    <a href="index.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Home</a>
-    <a href="archives.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Archives</a>
-    <a href="compendium.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Compendium</a>
-    <a href="method.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Méthode</a>
-    <a href="products.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Collection</a>
-    <a href="connect.html" style="margin: 0 1rem; text-decoration: none; color: #2b1d1a; font-weight: 600;">Connect</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="archives.html">Archives</a>
+    <a href="compendium.html">Compendium</a>
+    <a href="methode.html">Méthode</a>
+    <a href="products.html">Collection</a>
+    <a href="connect.html">Connect</a>
   </nav>
 
-<!-- Époquelle Product Highlight – Styled Cards Version -->
-<section style="padding: 80px 20px; background-color: #fdf8f3; font-family: 'Georgia', serif;">
+<section style="padding: 80px 20px; background-color: #fdf8f3;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 20px; color: #1a1a1a;">
+    <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 20px; color: #1a1a1a; font-family: 'Playfair Display', serif;">
       The Époquelle™ Signature Collection
     </h2>
 
@@ -100,29 +166,26 @@
       Designed as a modern extension of the <em>Compendium d’Aragon</em>, the Époquelle™ Signature Collection merges ancient dermal theory with precision clinical actives. Each formula is crafted to awaken the skin’s regenerative intelligence—layer by layer, moment by moment.
     </p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+    <div class="products-grid">
       
-      <!-- No.6 -->
-      <div style="background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 12px 28px rgba(0,0,0,0.05);">
-        <h3 style="font-size: 1.3em; margin-bottom: 10px; color: #111;">No.6 – Le Sérum Contour Yeux</h3>
+      <div class="product-card">
+        <h3>No.6 – Le Sérum Contour Yeux</h3>
         <p style="font-style: italic; color: #7a7a7a;">Ultra-Lift Eye Serum</p>
         <p style="font-size: 0.95em; color: #444; margin-top: 10px;">
           Reduces puffiness, crow’s feet, and under-eye fatigue using precision neuropeptides and botanical actives.
         </p>
       </div>
 
-      <!-- No.9 -->
-      <div style="background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 12px 28px rgba(0,0,0,0.05);">
-        <h3 style="font-size: 1.3em; margin-bottom: 10px; color: #111;">No.9 – Crème de Renaissance</h3>
+      <div class="product-card">
+        <h3>No.9 – Crème de Renaissance</h3>
         <p style="font-style: italic; color: #7a7a7a;">Regenerative Face Cream</p>
         <p style="font-size: 0.95em; color: #444; margin-top: 10px;">
           Visibly reduces deep wrinkles and fine lines with neuro-lifting peptides and cellular renewal factors.
         </p>
       </div>
 
-      <!-- No.13 -->
-      <div style="background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 12px 28px rgba(0,0,0,0.05);">
-        <h3 style="font-size: 1.3em; margin-bottom: 10px; color: #111;">No.13 – Le Voile Hydrofermé™</h3>
+      <div class="product-card">
+        <h3>No.13 – Le Voile Hydrofermé™</h3>
         <p style="font-style: italic; color: #7a7a7a;">Hydrating Cleansing Veil</p>
         <p style="font-size: 0.95em; color: #444; margin-top: 10px;">
           A soft oil-to-milk cleanser that melts away impurities while restoring hydration to the skin barrier.
@@ -132,98 +195,89 @@
   </div>
 </section>
 
-<!-- Époque Labs Comparison Chart -->
-<section style="padding: 80px 20px; background-color: #fff;">
-  <div style="max-width: 1100px; margin: 0 auto; font-family: 'Georgia', serif;">
-    <h2 style="text-align: center; font-size: 2em; margin-bottom: 40px; color: #1a1a1a;">
+<section class="comparison-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <h2 class="comparison-section-title">
       How Époque Labs Compares
     </h2>
 
-    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+    <table class="comparison-table">
       <thead>
-        <tr style="background-color: #f4f4f4; color: #333;">
-          <th style="padding: 12px; text-align: left;">Feature</th>
-          <th style="padding: 12px; text-align: left;">Époque Labs</th>
-          <th style="padding: 12px; text-align: left;">Luxury Indie Brand</th>
-          <th style="padding: 12px; text-align: left;">Prestige Retail Brand</th>
+        <tr>
+          <th>Feature</th>
+          <th>Époque Labs</th>
+          <th>Luxury Indie Brand</th>
+          <th>Prestige Retail Brand</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">Clinical-Grade Actives</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️</td>
+          <td>Clinical-Grade Actives</td>
+          <td>✔️</td>
+          <td>❌</td>
+          <td>✔️</td>
         </tr>
         <tr>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">Patent-Level Peptides</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️ Proprietary Clinical Complex</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
+          <td>Patent-Level Peptides</td>
+          <td>✔️ Proprietary Clinical Complex</td>
+          <td>❌</td>
+          <td>❌</td>
         </tr>
 
         <tr>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">Fragrance-Free Skincare</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️ / ❌</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
+          <td>Fragrance-Free Skincare</td>
+          <td>✔️</td>
+          <td>✔️ / ❌</td>
+          <td>❌</td>
         </tr>
         <tr>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">Inspired by Dermal Philosophy</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️ Compendium d’Aragon</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">❌</td>
+          <td>Inspired by Dermal Philosophy</td>
+          <td>✔️ Compendium d’Aragon</td>
+          <td>❌</td>
+          <td>❌</td>
         </tr>
         <tr>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">Sustainable + Ethical Ingredients</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️ ECOCERT / COSMOS Approved</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️ / ❌</td>
-          <td style="padding: 12px; border-top: 1px solid #ddd;">✔️</td>
+          <td>Sustainable + Ethical Ingredients</td>
+          <td>✔️ ECOCERT / COSMOS Approved</td>
+          <td>✔️ / ❌</td>
+          <td>✔️</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-  <!-- 🔈 Hidden Autoplay Audio -->
-  <audio autoplay loop preload="auto" style="display:none;" id="spaAudio">
-    <source src="/assets/audio/serenity-spa-track.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+<section class="spa-music-section">
+  <h2>
+    Spa Compositions by Tarvona<br>
+    <span>
+      A Jerailian House® Label
+    </span>
+  </h2>
+  <p>
+    Discover our immersive spa soundtracks, composed in collaboration with Époque Labs x Tarvona.
+  </p>
 
-  <!-- Spa Music Section -->
-  <section style="text-align:center; padding: 4rem 1rem; background-color: #f8f5f2;">
-    <h2 style="font-family:'Georgia',serif; font-size: 2rem; margin-bottom: 1.2rem;">
-      Spa Compositions by Tarvona<br>
-      <span style="font-size: 1rem; font-weight: normal; color: #5e5e5e;">
-        A Jerailian House® Label
-      </span>
-    </h2>
-    <p style="font-size: 1rem; color: #4a3b2f; margin-bottom: 2.5rem;">
-      Discover our immersive spa soundtracks, composed in collaboration with Époque Labs x Tarvona.
-    </p>
+  <div style="margin-bottom: 2rem;">
+    <h3>Bréthisse</h3>
+    <audio controls>
+      <source src="Bréthisse.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-    <div style="margin-bottom: 2rem;">
-      <h3 style="font-size:1.2rem;">Bréthisse</h3>
-      <audio controls style="width: 90%; max-width: 400px; margin: 0 auto; display: block;">
-        <source src="Bréthisse.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+  <div>
+    <h3>Tessaréve</h3>
+    <audio controls>
+      <source src="Tessaréve.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</section>
 
-    <div>
-      <h3 style="font-size:1.2rem;">Tessaréve</h3>
-      <audio controls style="width: 90%; max-width: 400px; margin: 0 auto; display: block;">
-        <source src="Tessaréve.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
-  </footer>
+<footer>
+  © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
+</footer>
 
 </body>
 </html>
