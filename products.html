@@ -256,17 +256,22 @@
     Gentle harmonies to accompany your daily ritual and care.
   </p>
 
-<!-- Music List -->
-<div style="max-width: 600px; margin: 0 auto; text-align: center;">
+<!-- Music List: The Listening Heart -->
+<div style="max-width: 640px; margin: 0 auto; text-align: center;">
 
+  <!-- Optional Album Art -->
+  <img src="listening-heart-album-art.jpg" alt="The Listening Heart - Tarvona Soundscape" style="width: 100%; max-width: 480px; margin: 0 auto 2rem; display: block; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.1);">
+
+  <!-- Track 1 - With autoplay & fade-in -->
   <div style="margin-bottom: 2rem;">
     <h4 style="margin-bottom: 0.5rem;">A Soul’s Soft Hum</h4>
-    <audio controls style="width: 100%;">
+    <audio id="audio1" autoplay controls style="width: 100%;">
       <source src="a-souls-soft-hum.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
   </div>
 
+  <!-- Remaining tracks -->
   <div style="margin-bottom: 2rem;">
     <h4 style="margin-bottom: 0.5rem;">Essence of Being</h4>
     <audio controls style="width: 100%;">
@@ -298,19 +303,29 @@
       Your browser does not support the audio element.
     </audio>
   </div>
-
 </div>
 
-
-
-
+<!-- Optional JS for fade-in -->
+<script>
+  const audio = document.getElementById('audio1');
+  audio.volume = 0;
+  audio.addEventListener('play', () => {
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.02;
+        audio.volume = vol;
+      } else {
+        clearInterval(fadeIn);
+      }
+    }, 120); // Smooth fade over ~6 sec
+  });
+</script>
 
 <footer>
   © 2025 Époque Labs™ · A Vorai-Owned Entity · All rights reserved.
 </footer>
 
-</body>
-</html>
 
 
 
