@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/ritual-of-light-sonate-I", "destination": "/ritual-of-light-sonate-I.html" }
+  ]
+}
