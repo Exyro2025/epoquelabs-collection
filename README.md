@@ -8,9 +8,11 @@ Hosted on **Vercel**, this site includes:
 - ✧ **Époque Archives™** – Brand lore, scientific legacy, and discovery timeline  
 - ✧ **Compendium d’Aragon** – Copyrighted masterwork  
 - ✧ **Époquelle™ & Formulas** – Clinical skincare collection (No.6, No.9, No.12)  
-- ✧ **The Émile Protocol** – Licensed partner experience for spas & clinics
+- ✧ **The Émile Protocol** – Licensed partner experience for spas & clinics  
+- ✧ **Ritual of Light** – A sonic essay in ten acts commissioned for sacred restoration
 
 ---
 
 ## 📁 Structure Overview
+
 
