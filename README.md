@@ -10,7 +10,7 @@ Hosted on **Vercel**, this site includes:
 - ✧ **Époquelle™ & Formulas** – Clinical skincare collection (No.6, No.9, No.12)  
 - ✧ **The Émile Protocol** – Licensed partner experience for spas & clinics  
 - ✧ **Ritual of Light** – A sonic essay in ten acts commissioned for sacred restoration
-- ✧ **Époque Sanctuaire™ – A sanctuary of curated recovery suites, offering spa-inspired environments, concierge care, and Époque’s signature focus on restoration.
+- ✧   Époque Sanctuaire™ – A sanctuary of curated recovery suites, offering spa-inspired environments, concierge care, and Époque’s signature focus on restoration.
 
 ---
 
