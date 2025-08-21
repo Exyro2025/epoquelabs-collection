@@ -127,3 +127,60 @@ footer {
   font-style: italic;
   font-size: 0.95rem;
 }
+
+/* Sanctuaire Lock-up */
+.lockup-classic {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto 1.5rem;
+}
+
+.lockup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: .01em;
+  color: #2b1d1a;
+}
+
+.lockup-title span {
+  font-size: .55em;
+  vertical-align: super;
+  margin-left: .02em;
+}
+
+.lockup-rule {
+  display: block;
+  width: 72px;
+  height: 1px;
+  background: #cfc6be;
+  margin: 12px auto 14px;
+  opacity: .9;
+}
+
+.lockup-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  letter-spacing: .04em;
+  color: #4b433c;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Optional: Stamp version for footer or decks */
+.lockup-stamp {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(.98rem, 1.6vw, 1.05rem);
+  letter-spacing: .03em;
+  color: #f3ece4; /* softer off-white for dark footer */
+  margin: 10px auto 0;
+  white-space: nowrap;
+}
+
+.lockup-stamp span {
+  font-size: .7em;
+  vertical-align: super;
+}
+
