@@ -187,18 +187,19 @@ footer {
 /* === Collection backdrop === */
 .collection-hero {
   background:
-    url('../assets/assets/images/wax-seal-e.svg') no-repeat right 6% top 120px, /* moved down */
-    url('../assets/assets/images/blueprint-pattern.svg') repeat,
-    radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,0.10), transparent 55%),
-    linear-gradient(180deg, rgba(0,0,0,0.015), rgba(0,0,0,0)),
-    #fdf8f3;
+    url('../assets/images/wax-seal-e.svg') no-repeat right 4% bottom 3%, /* lowered É */
+    url('../assets/images/blueprint-pattern.svg') repeat,
+    radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,0.08), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.00)),
+    #FDF8F3;
   background-size:
-    360px auto,   /* seal */
-    520px auto,   /* pattern */
+    340px auto,   /* seal size */
+    420px auto,   /* pattern size */
     100% 100%,
     100% 100%,
     auto;
 }
+
 
 
 
