@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <defs>
+    <style>
+      .g{stroke:#c7b8a8;stroke-opacity:.18;fill:none}
+      .dot{fill:#c7b8a8;fill-opacity:.18}
+    </style>
+  </defs>
+  <g class="g">
+    <path d="M0 0H480V480H0Z"/>
+    <g opacity=".35">
+      <path d="M40 0V480M80 0V480M120 0V480M160 0V480M200 0V480M240 0V480M280 0V480M320 0V480M360 0V480M400 0V480M440 0V480"/>
+      <path d="M0 40H480M0 80H480M0 120H480M0 160H480M0 200H480M0 240H480M0 280H480M0 320H480M0 360H480M0 400H480M0 440H480"/>
+    </g>
+    <circle cx="120" cy="140" r="64"/>
+    <circle cx="350" cy="320" r="48"/>
+    <circle cx="300" cy="120" r="22"/>
+    <path d="M300 120L350 320M120 140L300 120M120 140L350 320"/>
+  </g>
+  <circle class="dot" cx="300" cy="120" r="3"/>
+  <circle class="dot" cx="350" cy="320" r="3"/>
+  <circle class="dot" cx="120" cy="140" r="3"/>
+</svg>
