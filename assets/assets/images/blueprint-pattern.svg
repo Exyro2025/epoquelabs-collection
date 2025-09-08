@@ -1,22 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
   <defs>
+    <!-- soft gold for lines; tweak to #c9b08a for stronger, #decfbf for softer -->
     <style>
-      .g{stroke:#c7b8a8;stroke-opacity:.18;fill:none}
-      .dot{fill:#c7b8a8;fill-opacity:.18}
+      .l{stroke:#cdb69c;stroke-opacity:.38;fill:none;stroke-width:1}
+      .d{fill:#cdb69c;fill-opacity:.25}
+      .g{stroke:#cdb69c;stroke-opacity:.18;fill:none;stroke-width:.8}
     </style>
   </defs>
-  <g class="g">
-    <path d="M0 0H480V480H0Z"/>
-    <g opacity=".35">
-      <path d="M40 0V480M80 0V480M120 0V480M160 0V480M200 0V480M240 0V480M280 0V480M320 0V480M360 0V480M400 0V480M440 0V480"/>
-      <path d="M0 40H480M0 80H480M0 120H480M0 160H480M0 200H480M0 240H480M0 280H480M0 320H480M0 360H480M0 400H480M0 440H480"/>
-    </g>
-    <circle cx="120" cy="140" r="64"/>
-    <circle cx="350" cy="320" r="48"/>
-    <circle cx="300" cy="120" r="22"/>
-    <path d="M300 120L350 320M120 140L300 120M120 140L350 320"/>
+
+  <!-- light grid -->
+  <g class="g" opacity=".9">
+    <!-- verticals -->
+    <path d="M40 0V520M80 0V520M120 0V520M160 0V520M200 0V520M240 0V520M280 0V520M320 0V520M360 0V520M400 0V520M440 0V520M480 0V520"/>
+    <!-- horizontals -->
+    <path d="M0 40H520M0 80H520M0 120H520M0 160H520M0 200H520M0 240H520M0 280H520M0 320H520M0 360H520M0 400H520M0 440H520M0 480H520"/>
   </g>
-  <circle class="dot" cx="300" cy="120" r="3"/>
-  <circle class="dot" cx="350" cy="320" r="3"/>
-  <circle class="dot" cx="120" cy="140" r="3"/>
+
+  <!-- molecular / diagram nodes -->
+  <g class="l">
+    <circle cx="110" cy="110" r="75"/>
+    <circle cx="390" cy="130" r="58"/>
+    <circle cx="420" cy="390" r="80"/>
+    <circle cx="160" cy="380" r="52"/>
+    <line x1="110" y1="110" x2="390" y2="130"/>
+    <line x1="390" y1="130" x2="420" y2="390"/>
+    <line x1="110" y1="110" x2="160" y2="380"/>
+    <line x1="160" y1="380" x2="420" y2="390"/>
+  </g>
+
+  <!-- connection dots -->
+  <circle class="d" cx="110" cy="110" r="3"/>
+  <circle class="d" cx="390" cy="130" r="3"/>
+  <circle class="d" cx="420" cy="390" r="3"/>
+  <circle class="d" cx="160" cy="380" r="3"/>
 </svg>
+
