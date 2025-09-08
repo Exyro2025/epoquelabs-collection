@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#b38b59" stroke-width="8"/>
+  <text x="50%" y="55%" text-anchor="middle" font-family="Playfair Display, serif" font-size="120" fill="#b38b59">É</text>
+</svg>
