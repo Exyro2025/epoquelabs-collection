@@ -185,20 +185,21 @@ footer {
 }
 
 /* === Collection backdrop === */
-.collection-hero {
+.collection-hero{
   background:
-    url('../assets/assets/images/wax-seal-e.svg') no-repeat right 6% top 20px, /* moved up */
+    url('../assets/assets/images/wax-seal-e.svg') no-repeat right 6% top 20px,
     url('../assets/assets/images/blueprint-pattern.svg') repeat,
     radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,0.12), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,0.015), rgba(0,0,0,0)),
     #fdf8f3;
   background-size:
-    360px auto,  /* seal size */
-    420px auto,  /* pattern size */
+    360px auto,     /* É seal */
+    520px auto,     /* PATTERN SIZE ↑ so diagrams show */
     100% 100%,
     100% 100%,
     auto;
 }
+
 
 
 
