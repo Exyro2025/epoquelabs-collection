@@ -184,3 +184,37 @@ footer {
   vertical-align: super;
 }
 
+/* === Collection backdrop === */
+.collection-hero{
+  /* layered backgrounds: top → bottom */
+  background:
+    url('assets/images/wax-seal-e.svg') no-repeat right 4% bottom 6%,  /* watermark */
+    url('assets/images/blueprint-pattern.svg') repeat,                 /* biotech pattern */
+    radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,0.10), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.00)),
+    #FDF8F3; /* parchment base already used site-wide */
+  background-size:
+    340px auto,   /* seal size; tweak if too big/small */
+    420px auto,   /* pattern tile size */
+    100% 100%,
+    100% 100%,
+    auto;
+}
+
+/* Keep mobile super clean: hide the seal under 600px wide */
+@media (max-width: 600px){
+  .collection-hero{
+    background:
+      url('assets/images/blueprint-pattern.svg') repeat,
+      radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,0.10), transparent 55%),
+      linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.00)),
+      #FDF8F3;
+    background-size:
+      420px auto,
+      100% 100%,
+      100% 100%,
+      auto;
+  }
+}
+
+
