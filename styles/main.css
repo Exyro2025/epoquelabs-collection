@@ -210,5 +210,13 @@ footer {
     background-size:
       340px auto, 420px auto, 100% 100%, 100% 100%, auto;
   }
+  /* Scellé official tagline style */
+.scelle-tagline {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #7a5a3a;
+  margin: 0.3rem 0 0.8rem;
+}
+
 }
 
