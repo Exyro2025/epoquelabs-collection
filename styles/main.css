@@ -305,4 +305,16 @@ footer {
   .product-card { padding: 1.6rem 1.35rem; }
   .product-card p { max-width: 100%; }
 }
+/* === Product Eyebrow (unified style) === */
+.product-card .eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #6b625c;             /* lighter neutral tone */
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  letter-spacing: .01em;
+  margin: .5rem 0 1rem;
+  opacity: 0.95;
+}
+
 
