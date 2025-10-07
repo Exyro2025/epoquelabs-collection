@@ -236,6 +236,41 @@ details.reservation-terms .rt-body{
 .product-card .hairline + details.reservation-terms summary{
   border-top:0 !important; padding-top:0 !important;
 }
+/* === FIX 1: Make the card wrapper a grid (works for either class) === */
+.products-grid,
+.collection-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 22px !important;
+  align-items: start;
+}
+
+/* === FIX 2: Remove extra line around the Terms accordion === */
+details.reservation-terms {
+  border: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  margin-top: 12px;
+}
+details.reservation-terms summary {
+  border: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+}
+details.reservation-terms .rt-body {
+  border-top: 0 !important;
+  padding-top: .6rem;
+  margin-top: .4rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: .96rem;
+}
+
+/* When a hairline is just above the Terms, keep spacing tidy */
+.product-card .hairline + details.reservation-terms {
+  margin-top: .6rem !important;
+}
+
 
 
 
