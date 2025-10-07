@@ -399,5 +399,24 @@ a.btn:active {
   align-self: center;
   margin-top: 0.6rem;
 }
+  .collection-grid .product-card .btn {
+  align-self: center;
+  margin-top: 0.6rem;
+}
+  /* Subtle champagne hover refinement */
+.btn.primary:hover {
+  background: #c4a463; /* soft gold tone */
+  border-color: #c4a463;
+  color: #fff;
+  filter: none;
+}
+
+.btn.outline:hover {
+  background: #c4a463;
+  border-color: #c4a463;
+  color: #fff;
+}
+
+
 
 
