@@ -7,141 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
   <style>
-    body {
-      margin: 0;
-      background: #fefaf6;
-      color: #2b1d1a;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.7;
+    body{margin:0;background:#fefaf6;color:#2b1d1a;font-family:'Inter',sans-serif;line-height:1.7;}
+    header{background:#eaded2;padding:3rem 1.5rem 2rem;text-align:center;}
+    header h1{font-family:'Playfair Display',serif;font-size:2.6rem;margin-bottom:.5rem;}
+    header p{font-style:italic;font-size:1.1rem;opacity:.85;}
+    nav{background:#f3ece4;padding:1.5rem;text-align:center;}
+    nav a{margin:0 1rem;text-decoration:none;color:#2b1d1a;font-weight:600;}
+
+    /* GRID WRAPPER (keeps cards side-by-side) */
+    .products-grid{
+      max-width:1100px;margin:4rem auto;padding:0 1.5rem;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;
     }
-    header {
-      background: #eaded2;
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-style: italic;
-      font-size: 1.1rem;
-      opacity: 0.85;
-    }
-    nav {
-      background: #f3ece4;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #2b1d1a;
-      font-weight: 600;
-    }
-    .products-grid {
-      max-width: 1100px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .product-card {
-      background: #fffdfb;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-    .product-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-    .product-card p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-    .product-card img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-    .comparison-section {
-      padding: 80px 20px;
-      background-color: #fff;
-    }
-    .comparison-section h2 {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 40px;
-      color: #1a1a1a;
-      font-family: 'Playfair Display', serif;
-    }
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-    }
-    .comparison-table thead tr {
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    .comparison-table th, .comparison-table td {
-      padding: 12px;
-      text-align: left;
-      border-top: 1px solid #ddd;
-    }
-    .spa-music-section {
-      text-align:center;
-      padding: 4rem 1rem;
-      background-color: #f8f5f2;
-    }
-    .spa-music-section h2 {
-      font-family:'Playfair Display',serif;
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .spa-music-section h2 span {
-      font-size: 1rem;
-      font-weight: normal;
-      color: #5e5e5e;
-    }
-    .spa-music-section p {
-      font-size: 1rem;
-      color: #4a3b2f;
-      margin-bottom: 2.5rem;
-    }
-    .spa-music-section h3 {
-      font-size:1.2rem;
-      font-family:'Playfair Display',serif;
-    }
-    .spa-music-section audio {
-      width: 90%;
-      max-width: 400px;
-      margin: 0 auto;
-      display: block;
-    }
-    footer {
-      background: #2b1d1a;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-    }
+
+    .product-card{background:#fffdfb;padding:2rem;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06);text-align:center;transition:transform .3s ease;}
+    .product-card:hover{transform:translateY(-5px);}
+    .product-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem;}
+    .product-card p{font-size:.95rem;opacity:.9;}
+    .product-card .hairline{height:1px;background:linear-gradient(90deg,transparent,#eadfd3,transparent);margin:.5rem 0 1rem;}
+    a.btn{display:inline-block;text-decoration:none;cursor:pointer;padding:12px 20px;border-radius:999px;font-weight:600;letter-spacing:.02em;transition:transform .08s ease, background .2s ease, color .2s ease, border-color .2s ease;}
+    a.btn:active{transform:translateY(1px);}
+    .btn.primary{background:#1a1a1a;color:#fff;border:1px solid #1a1a1a;}
+    .btn.primary:hover{filter:brightness(1.05);}
+    .btn.outline{background:transparent;border:1px solid #1a1a1a;color:#1a1a1a;}
+    .btn.outline:hover{background:#1a1a1a;color:#fff;}
+
+    /* Terms accordion tidy */
+    details.reservation-terms{margin-top:12px}
+    details.reservation-terms summary{cursor:pointer;font-weight:600;color:#2b1d1a;list-style:none;position:relative;padding-left:1rem}
+    details.reservation-terms summary::-webkit-details-marker{display:none}
+    details.reservation-terms summary::before{content:"▸";position:absolute;left:0;top:.05rem;line-height:1;transition:transform .2s ease}
+    details.reservation-terms[open] summary::before{transform:rotate(90deg)}
+    details.reservation-terms .rt-body{margin-top:.6rem;padding-top:.4rem;color:#4a4a4a;line-height:1.6;font-size:.96rem}
+    .rt-list{margin:0;padding-left:1.1rem;display:grid;gap:.45rem}
+    @media (min-width:980px){.rt-list{column-count:2;column-gap:2rem}}
+
+    .comparison-section{padding:80px 20px;background:#fff}
+    .comparison-section h2{text-align:center;font-size:2em;margin-bottom:40px;color:#1a1a1a;font-family:'Playfair Display',serif}
+    .comparison-table{width:100%;border-collapse:collapse;font-size:.95rem;font-family:'Inter',sans-serif}
+    .comparison-table thead tr{background:#f4f4f4;color:#333}
+    .comparison-table th,.comparison-table td{padding:12px;text-align:left;border-top:1px solid #ddd}
+
+    .spa-music-section{text-align:center;padding:4rem 1rem;background:#f8f5f2}
+    .spa-music-section h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:1.2rem}
+    .spa-music-section p{font-size:1rem;color:#4a3b2f;margin-bottom:2.5rem}
+    footer{background:#2b1d1a;color:#fff;text-align:center;padding:2rem 1rem;font-size:.9rem;margin-top:4rem}
   </style>
 </head>
 <body>
-
   <header>
     <h1>The Collection</h1>
     <p>Scientific Formulas Guided by Ritual</p>
@@ -157,307 +70,200 @@
     <a href="connect.html">Connect</a>
   </nav>
 
-<!-- ========================= -->
-<!-- Signature Collection Grid -->
-<!-- ========================= -->
-<section class="collection-hero" style="padding: 80px 20px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 20px; color: #1a1a1a; font-family: 'Playfair Display', serif;">
-      The Époquelle™ Signature Collection
-    </h2>
+  <!-- Signature Collection -->
+  <section class="collection-hero" style="padding:80px 20px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h2 style="text-align:center;font-size:2.2em;margin-bottom:20px;color:#1a1a1a;font-family:'Playfair Display',serif;">
+        The Époquelle™ Signature Collection
+      </h2>
+      <p style="max-width:800px;margin:0 auto 1.25rem;text-align:center;font-size:1.05rem;color:#3d3d3d;">
+        Designed as a modern extension of the <em>Compendium d’Aragon</em>, the Époquelle™ Signature Collection merges ancient dermal theory with precision clinical actives. Each formula is crafted to awaken the skin’s regenerative intelligence—layer by layer, moment by moment.
+      </p>
 
-    <p style="max-width: 800px; margin: 0 auto 1.25rem auto; text-align: center; font-size: 1.05rem; color: #3d3d3d;">
-      Designed as a modern extension of the <em>Compendium d’Aragon</em>, the Époquelle™ Signature Collection merges ancient dermal theory with precision clinical actives. Each formula is crafted to awaken the skin’s regenerative intelligence—layer by layer, moment by moment.
-    </p>
+      <!-- GRID WRAPPER -->
+      <div class="products-grid">
 
-    <div class="products-grid">
+        <!-- Scellé — Finishing Serum -->
+        <div class="product-card" id="scelle">
+          <h3>Scellé<span style="font-size:0.6em;vertical-align:super;">™</span> — Finishing Serum</h3>
+          <p class="tagline"><em>Where the clinic ends, your ritual begins.</em></p>
+          <div class="hairline"></div>
+          <p>The silken seal applied in-clinic—now for home. Locks in actives, reinforces the barrier, and extends results from No. 6 &amp; No. 9. Dermatologist tested for sensitive skin.</p>
+          <p class="date">Coming Spring 2026</p>
+          <a class="btn outline" href="/connect.html?topic=scelle-waitlist">Join Waitlist · Scellé™</a>
+        </div>
 
-     <!-- Scellé — Finishing Serum -->
-    <div class="product-card">
-  <h3>Scellé<span style="font-size:0.6em; vertical-align:super;">™</span> — Finishing Serum</h3>
-  <p class="tagline"><em>Where the clinic ends, your ritual begins.</em></p>
-  <div class="hairline"></div>
+        <!-- No. 6 -->
+        <div class="product-card" id="no6">
+          <h3>No. 6 — Concentré Réparateur — Mémoire Voûtée™</h3>
+          <div class="eyebrow">Precision Peptide Eye Concentrate</div>
+          <div class="hairline"></div>
+          <p>Reawakens the skin’s vaulted memory with precision peptides and BIO-Placenta for visible line softening and dermal repair. Formulated specifically for the orbital area—delicate, precise, and clinically potent.</p>
 
-  <p>
-    The silken seal applied in-clinic—now for home. Locks in actives, reinforces the barrier, 
-    and extends results from No. 6 &amp; No. 9. Dermatologist tested for sensitive skin.
-  </p>
+          <a class="btn primary" href="#reserve-no6" aria-label="Reserve No. 6 — $75 Deposit">Reserve No. 6 — $75 Deposit</a>
 
-        <p class="date">Coming Spring 2026</p>
-        <a class="btn outline" href="/connect.html?topic=scelle-waitlist">
-         Join Waitlist · Scellé™
-       </a>
+          <div class="reservation-policy">
+            <p><strong>Reservation Policy</strong><br>
+              A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch. Deposits are <strong>non-refundable once production begins</strong> (estimated within 60 days of order).<br><br>
+              The remaining balance will be automatically billed <strong>30 days before shipment</strong> to your payment method on file. Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
+              Each batch ships within <strong>4–5 months</strong> of reservation — crafted for stability, potency, and precision.
+            </p>
+          </div>
 
+          <details class="reservation-terms">
+            <summary>Terms of Reservation &amp; Purchase</summary>
+            <div class="rt-body">
+              <ul class="rt-list">
+                <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
+                <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
+                <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
+                <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
+                <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
+                <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:support@epoquelabs.com">support@epoquelabs.com</a>.</li>
+              </ul>
+            </div>
+          </details>
+        </div><!-- END No.6 card -->
 
+        <!-- No. 9 -->
+        <div class="product-card" id="no9">
+          <h3>No. 9 — Le Rituel Renouveau™</h3>
+          <div class="eyebrow">Regenerative Ritual Serum</div>
+          <div class="hairline"></div>
+          <p>A regenerative peptide serum for face + neck. Syn-Ake and Matrixyl® 3000 refine micro-tension and structure. Delivery is optimized by Pro-Lipo Neo; a refining complex enhances tone and contour.</p>
+
+          <a class="btn primary" href="#reserve-no9" aria-label="Reserve No. 9 — $75 Deposit">Reserve No. 9 — $75 Deposit</a>
+
+          <div class="reservation-policy">
+            <p><strong>Reservation Policy</strong><br>
+              A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch. Deposits are <strong>non-refundable once production begins</strong> (estimated within 60 days of order).<br><br>
+              The remaining balance will be automatically billed <strong>30 days before shipment</strong> to your payment method on file. Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
+              Each batch ships within <strong>4–5 months</strong> of reservation — handcrafted for stability, potency, and precision.
+            </p>
+          </div>
+
+          <details class="reservation-terms">
+            <summary>Terms of Reservation &amp; Purchase</summary>
+            <div class="rt-body">
+              <ul class="rt-list">
+                <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
+                <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
+                <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
+                <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
+                <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
+                <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:support@epoquelabs.com">support@epoquelabs.com</a>.</li>
+              </ul>
+            </div>
+          </details>
+        </div><!-- END No.9 card -->
+
+        <!-- No. 13 -->
+        <div class="product-card" id="no13">
+          <h3>No. 13 — Crème de l’Hydrofermé™</h3>
+          <div class="eyebrow">Transforming Cleansing Cream</div>
+          <div class="hairline"></div>
+          <p>A cream-to-oil-to-milk cleanser that dissolves impurities while sealing hydration within the skin’s barrier. Crafted for those who believe cleansing should feel ceremonial — a sensorial prelude to regeneration.</p>
+
+          <a class="btn outline" href="/connect.html?topic=hydroferme-waitlist">Join Waitlist · Crème de l’Hydrofermé™</a>
+
+          <div class="waitlist-policy">
+            <p><strong>Waitlist Information</strong><br>
+              Be among the first notified when <em>Crème de l’Hydrofermé™</em> opens for pre-order. Early waitlist members receive exclusive first-access and a complimentary deluxe mini from Époque Labs upon full reservation.<br><br>
+              Estimated release: <strong>Spring 2026</strong>.
+            </p>
+          </div>
+        </div><!-- END No.13 card -->
+
+      </div><!-- /products-grid -->
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="comparison-section">
+    <div style="max-width:1100px;margin:0 auto;">
+      <h2 class="comparison-section-title">How Époque Labs Compares</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Feature</th><th>Époque Labs</th><th>Luxury Indie Brand</th><th>Prestige Retail Brand</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Clinically Validated Active Concentrations</td><td>✔️</td><td>❌</td><td>✔️</td></tr>
+          <tr><td>Patent-Level Peptides</td><td>✔️ Exclusive Clinical Peptide Complex</td><td>❌</td><td>❌</td></tr>
+          <tr><td>Pure, Fragrance-Free Formulations</td><td>✔️</td><td>✔️ / ❌</td><td>❌</td></tr>
+          <tr><td>Inspired by Dermal Philosophy</td><td>✔️ Rooted in the Compendium d’Aragon™</td><td>❌</td><td>❌</td></tr>
+          <tr><td>Sustainable + Ethical Ingredients</td><td>✔️ ECOCERT / COSMOS Certified Botanicals</td><td>✔️ / ❌</td><td>✔️</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Soundscape -->
+  <section class="spa-music-section">
+    <h2>The Listening Heart</h2>
+    <p>A Tarvona Soundscape · Curated for Époque Labs™<br>Gentle harmonies to accompany your daily ritual and care.</p>
+
+    <div style="max-width:640px;margin:0 auto;text-align:center;">
+      <img src="the-listening-heart-cover.png" alt="The Listening Heart - Tarvona Soundscape" style="width:100%;max-width:480px;margin:0 auto 2rem;display:block;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.1);">
+
+      <div style="margin-bottom:2rem;">
+        <h4 style="margin-bottom:.5rem;">A Soul’s Soft Hum</h4>
+        <audio id="audio1" autoplay controls style="width:100%;">
+          <source src="a-souls-soft-hum.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
       </div>
 
+      <div style="margin-bottom:2rem;">
+        <h4 style="margin-bottom:.5rem;">Essence of Being</h4>
+        <audio controls style="width:100%;">
+          <source src="essence-of-being.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
+      </div>
 
+      <div style="margin-bottom:2rem;">
+        <h4 style="margin-bottom:.5rem;">Intrinsic Rhythm</h4>
+        <audio controls style="width:100%;">
+          <source src="intrinsic-rhythm.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
+      </div>
 
-      <!-- No. 6 -->
-<div class="product-card" id="no6">
-  <h3>No. 6 — Concentré Réparateur — Mémoire Voûtée™</h3>
-  <div class="eyebrow">Precision Peptide Eye Concentrate</div>
-  <div class="hairline"></div>
+      <div style="margin-bottom:2rem;">
+        <h4 style="margin-bottom:.5rem;">The Soul’s Echo</h4>
+        <audio controls style="width:100%;">
+          <source src="the-souls-echo.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
+      </div>
 
-  <p>
-    Reawakens the skin’s vaulted memory with precision peptides and BIO-Placenta
-    for visible line softening and dermal repair. Formulated specifically for the
-    orbital area—delicate, precise, and clinically potent.
-  </p>
-
-  <!-- Reserve CTA -->
-  <a class="btn primary" href="#reserve-no6" aria-label="Reserve No. 6 — $75 Deposit">
-    Reserve No. 6 — $75 Deposit
-  </a>
-
-  <!-- Reservation Policy -->
-  <div class="reservation-policy">
-    <p>
-      <strong>Reservation Policy</strong><br>
-      A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch.
-      Deposits are <strong>non-refundable once production begins</strong>
-      (estimated within 60 days of order).<br><br>
-      The remaining balance will be automatically billed
-      <strong>30 days before shipment</strong> to your payment method on file.
-      Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
-      Each batch ships within <strong>4–5 months</strong> of reservation — crafted for
-      stability, potency, and precision.
-    </p>
-  </div>
-
-  <!-- Expandable Legal Terms -->
-  <details class="reservation-terms">
-  <summary>Terms of Reservation &amp; Purchase</summary>
-  <div class="rt-body">
-    <ul class="rt-list">
-      <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
-      <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
-      <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
-      <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
-      <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
-      <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:support@epoquelabs.com">support@epoquelabs.com</a>.</li>
-    </ul>
-  </div>
-</details>
-
-
-
-
-<div class="product-card" id="no9">
-  <h3>No. 9 — Le Rituel Renouveau™</h3>
-  <div class="eyebrow">Regenerative Ritual Serum</div>
-  <div class="hairline"></div>
-
-  <p>
-    A regenerative peptide serum for face + neck. Syn-Ake and Matrixyl® 3000 refine
-    micro-tension and structure. Delivery is optimized by Pro-Lipo Neo; a refining complex
-    enhances tone and contour.
-  </p>
-
-  <!-- Reserve CTA -->
-  <a class="btn primary" href="#reserve-no9" aria-label="Reserve No. 9 — $75 Deposit">
-    Reserve No. 9 — $75 Deposit
-  </a>
-
-  <!-- Policy (visible, concise) -->
-  <div class="reservation-policy">
-    <p>
-      <strong>Reservation Policy</strong><br>
-      A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch.
-      Deposits are <strong>non-refundable once production begins</strong> (estimated within 60 days of order).<br><br>
-      The remaining balance will be automatically billed <strong>30 days before shipment</strong> to your payment method on file.
-      Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
-      Each batch ships within <strong>4–5 months</strong> of reservation — handcrafted for stability, potency, and precision.
-    </p>
-  </div>
-
-  <!-- Expandable legal terms -->
-  <details class="reservation-terms">
-  <summary>Terms of Reservation &amp; Purchase</summary>
-  <div class="rt-body">
-    <ul class="rt-list">
-      <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
-      <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
-      <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
-      <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
-      <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
-      <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:support@epoquelabs.com">support@epoquelabs.com</a>.</li>
-    </ul>
-  </div>
-</details>
-
-
-
-      <!-- No. 13 -->
-     <div class="product-card" id="no13">
-  <h3>No. 13 — Crème de l’Hydrofermé™</h3>
-  <div class="eyebrow">Transforming Cleansing Cream</div>
-  <div class="hairline"></div>
-
-  <p>
-    A cream-to-oil-to-milk cleanser that dissolves impurities while sealing hydration within
-    the skin’s barrier. Crafted for those who believe cleansing should feel ceremonial —
-    a sensorial prelude to regeneration.
-  </p>
-
-  <!-- Waitlist CTA -->
-  <a class="btn outline" href="/connect.html?topic=hydroferme-waitlist">
-  Join Waitlist · Crème de l’Hydrofermé™
-</a>
-
-
-  <!-- Waitlist Info -->
-  <div class="waitlist-policy">
-    <p>
-      <strong>Waitlist Information</strong><br>
-      Be among the first notified when <em>Crème de l’Hydrofermé™</em> opens for pre-order.
-      Early waitlist members receive exclusive first-access and a complimentary deluxe
-      mini from Époque Labs upon full reservation.<br><br>
-      Estimated release: <strong>Spring 2026</strong>.
-    </p>
-  </div>
-</div>
-
-  </div>
-</section>
-
-
-
+      <div style="margin-bottom:2rem;">
+        <h4 style="margin-bottom:.5rem;">The Quiet Bloom</h4>
+        <audio controls style="width:100%;">
+          <source src="the-quiet-bloom.mp3" type="audio/mpeg">Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="comparison-section">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <h2 class="comparison-section-title">
-      How Époque Labs Compares
-    </h2>
+  <script>
+    const audio = document.getElementById('audio1');
+    if (audio){
+      audio.volume = 0;
+      audio.addEventListener('play', () => {
+        let vol = 0;
+        const fadeIn = setInterval(() => {
+          vol += 0.02; audio.volume = Math.min(vol, 1);
+          if (vol >= 1) clearInterval(fadeIn);
+        }, 120);
+      });
+    }
+  </script>
 
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Époque Labs</th>
-          <th>Luxury Indie Brand</th>
-          <th>Prestige Retail Brand</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Clinically Validated Active Concentrations</td>
-          <td>✔️</td>
-          <td>❌</td>
-          <td>✔️</td>
-        </tr>
-        <tr>
-          <td>Patent-Level Peptides</td>
-          <td>✔️ Exclusive Clinical Peptide Complex</td>
-          <td>❌</td>
-          <td>❌</td>
-        </tr>
+  <footer>
+    © 2025 Époque Labs™ · All rights reserved.  
+    La Méthode Émile™ and Compendium d’Aragon™ are protected literary works and registered trademarks.
+  </footer>
+</body>
+</html>
 
-        <tr>
-          <td>Pure, Fragrance-Free Formulations</td>
-          <td>✔️</td>
-          <td>✔️ / ❌</td>
-          <td>❌</td>
-        </tr>
-        <tr>
-          <td>Inspired by Dermal Philosophy</td>
-          <td>✔️ Rooted in the Compendium d’Aragon™</td>
-          <td>❌</td>
-          <td>❌</td>
-        </tr>
-        <tr>
-          <td>Sustainable + Ethical Ingredients</td>
-          <td>✔️ ECOCERT / COSMOS Certified Botanicals</td>
-          <td>✔️ / ❌</td>
-          <td>✔️</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
 
-<section style="text-align:center; padding: 2rem 1rem; background-color: #f8f5f2;">
-  <h2 style="font-family:'Georgia',serif; font-size: 2rem; margin-bottom: 1rem;">
-    The Listening Heart
-  </h2>
-  <p style="font-size: 1rem; color: #4a3b2f; margin-bottom: 2rem;">
-    A Tarvona Soundscape · Curated for Époque Labs™<br>
-    Gentle harmonies to accompany your daily ritual and care.
-  </p>
-
-<!-- Music List: The Listening Heart -->
-<div style="max-width: 640px; margin: 0 auto; text-align: center;">
-
-  <!-- Optional Album Art -->
-  <img src="the-listening-heart-cover.png" alt="The Listening Heart - Tarvona Soundscape" style="width: 100%; max-width: 480px; margin: 0 auto 2rem; display: block; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.1);">
-
-  <!-- Track 1 - With autoplay & fade-in -->
-  <div style="margin-bottom: 2rem;">
-    <h4 style="margin-bottom: 0.5rem;">A Soul’s Soft Hum</h4>
-    <audio id="audio1" autoplay controls style="width: 100%;">
-      <source src="a-souls-soft-hum.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <!-- Remaining tracks -->
-  <div style="margin-bottom: 2rem;">
-    <h4 style="margin-bottom: 0.5rem;">Essence of Being</h4>
-    <audio controls style="width: 100%;">
-      <source src="essence-of-being.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <div style="margin-bottom: 2rem;">
-    <h4 style="margin-bottom: 0.5rem;">Intrinsic Rhythm</h4>
-    <audio controls style="width: 100%;">
-      <source src="intrinsic-rhythm.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <div style="margin-bottom: 2rem;">
-    <h4 style="margin-bottom: 0.5rem;">The Soul’s Echo</h4>
-    <audio controls style="width: 100%;">
-      <source src="the-souls-echo.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <div style="margin-bottom: 2rem;">
-    <h4 style="margin-bottom: 0.5rem;">The Quiet Bloom</h4>
-    <audio controls style="width: 100%;">
-      <source src="the-quiet-bloom.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-</div>
-
-<!-- Optional JS for fade-in -->
-<script>
-  const audio = document.getElementById('audio1');
-  audio.volume = 0;
-  audio.addEventListener('play', () => {
-    let vol = 0;
-    const fadeIn = setInterval(() => {
-      if (vol < 1) {
-        vol += 0.02;
-        audio.volume = vol;
-      } else {
-        clearInterval(fadeIn);
-      }
-    }, 120); // Smooth fade over ~6 sec
-  });
-</script>
-
-<footer>
-       © 2025 Époque Labs™ · All rights reserved.  
-La Méthode Émile™ and Compendium d’Aragon™ are protected literary works and registered trademarks.
-    </footer>
 
 
 
