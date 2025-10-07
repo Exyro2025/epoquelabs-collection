@@ -39,15 +39,15 @@
     <a href="connect.html">Connect</a>
   </nav>
 
-  <!-- Anchor target for ?topic=... links -->
+  <!-- Anchor target for smooth scroll -->
   <div id="waitlist"></div>
 
   <div class="form-container" style="max-width: 600px; margin: 0 auto; font-family: 'Georgia', serif;">
     <form id="contact-form" action="https://formsubmit.co/lelaabrams@gmail.com" method="POST">
       <!-- Formsubmit settings -->
       <input type="text" name="_honey" style="display:none">
-      <!-- IMPORTANT: replace with your real full URL, Formsubmit requires absolute -->
-      <input type="hidden" name="_next" value="https://epoquelabs-collection.vercel.app/thank-you.html?topic=scelle-waitlist">
+      <!-- Dummy value; script will overwrite with the correct absolute URL + topic -->
+      <input type="hidden" name="_next" value="">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_subject" id="subject" value="New message from Époque Labs site">
@@ -55,64 +55,69 @@
       <input type="hidden" name="topic" id="topic">
 
       <label for="name">Name</label>
-      <input id="name" type="text" name="name" required style="width:100%; padding:10px; margin-bottom:15px;">
+      <input id="name" type="text" name="name" autocomplete="name" required style="width:100%; padding:10px; margin-bottom:15px;">
 
       <label for="email">Email</label>
-      <input id="email" type="email" name="email" required style="width:100%; padding:10px; margin-bottom:15px;">
+      <input id="email" type="email" name="_replyto" autocomplete="email" required style="width:100%; padding:10px; margin-bottom:15px;">
 
       <label for="message">Message or Interest</label>
       <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; margin-bottom:20px;"></textarea>
 
-      <button type="submit" style="background:#2b1d1a; color:white; padding:12px 24px; border:none; border-radius:4px;">
-        Send Message
-      </button>
+      <button class="btn primary" type="submit">Send Message</button>
     </form>
   </div>
 
   <footer>
-    © 2025 Époque Labs™ · All rights reserved.  
-    La Méthode Émile™ and Compendium d’Aragon™ are protected literary works and registered trademarks.
+    © 2025 Époque Labs LLC · All rights reserved.  
+    Époquelle™, La Méthode Émile™, and Compendium d’Aragon™ are protected trademarks.
   </footer>
 
-  <!-- Prefill + smooth scroll based on ?topic=... -->
+  <!-- Prefill + dynamic thank-you redirect based on ?topic=... -->
   <script>
     (function () {
       const params = new URLSearchParams(location.search);
-      const topicKey = params.get("topic"); // e.g., scelle-waitlist
+      const topicKey = params.get("topic"); // e.g., scelle-waitlist, hydroferme-waitlist
 
-      // map short codes to a friendly label
+      // Map short codes to friendly labels
       const labels = {
-        "scelle-waitlist": "Scellé — Waitlist"
-        // add more mappings here as needed
+        "scelle-waitlist": "Scellé — Waitlist",
+        "hydroferme-waitlist": "Crème de l’Hydrofermé™ — Waitlist"
       };
 
-      if (topicKey) {
-        const label = labels[topicKey] || topicKey.replace(/-/g, " ");
-        // capture topic
-        const hidden = document.getElementById("topic");
-        if (hidden) hidden.value = label;
+      if (!topicKey) return;
 
-        // tweak header
-        const h1 = document.querySelector("header h1");
-        if (h1) h1.textContent = "Join the " + label;
+      const label = labels[topicKey] || topicKey.replace(/-/g, " ");
 
-        const p = document.querySelector("header p");
-        if (p) p.textContent = "We saved you a place. Add your name and email below.";
+      // Fill hidden topic field for FormSubmit
+      const topicInput = document.getElementById("topic");
+      if (topicInput) topicInput.value = label;
 
-        // prefill message if empty
-        const msg = document.getElementById("message");
-        if (msg && !msg.value) {
-          msg.value = "Please add me to the " + label + ".";
-        }
+      // Better subject line for your inbox
+      const subj = document.getElementById("subject");
+      if (subj) subj.value = "[" + label + "] New submission from Époque Labs site";
 
-        // better subject line for your inbox
-        const subj = document.getElementById("subject");
-        if (subj) subj.value = "[" + label + "] New submission from Époque Labs site";
-
-        // scroll to form anchor
-        const anchor = document.getElementById("waitlist");
-        if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Dynamically set the thank-you redirect with the SAME topic, using current origin
+      const next = document.querySelector('input[name="_next"]');
+      if (next) {
+        const base = (location && location.origin) ? location.origin : "https://epoquelabs-collection.vercel.app";
+        next.value = base + "/thank-you.html?topic=" + encodeURIComponent(topicKey);
       }
+
+      // Tweak header + prefill message
+      const h1 = document.querySelector("header h1");
+      if (h1) h1.textContent = "Join the " + label;
+
+      const p = document.querySelector("header p");
+      if (p) p.textContent = "We saved you a place. Add your name and email below.";
+
+      const msg = document.getElementById("message");
+      if (msg && !msg.value) {
+        msg.value = "Please add me to the " + label + ".";
+      }
+
+      // Smooth scroll to the form anchor
+      const anchor = document.getElementById("waitlist");
+      if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
     })();
   </script>
 </body>
