@@ -437,6 +437,29 @@ a.btn:active {
 @media (prefers-reduced-motion: reduce){
   .product-card .hairline{animation:none}
 }
+  /* ——— Reservation Terms ——— */
+details.reservation-terms { margin-top: 12px; }
+details.reservation-terms summary{
+  cursor:pointer; font-weight:600; color:#2b1d1a; letter-spacing:.01em;
+  list-style:none; position:relative; padding-left:1rem;
+}
+details.reservation-terms summary::-webkit-details-marker{ display:none; }
+details.reservation-terms summary::before{
+  content:"▸"; position:absolute; left:0; top:0.05rem; line-height:1;
+  transition:transform .2s ease;
+}
+details.reservation-terms[open] summary::before{ transform:rotate(90deg); }
+
+details.reservation-terms .rt-body{
+  border-top:1px solid #e6e0da; margin-top:.6rem; padding-top:.75rem;
+  color:#4a4a4a; line-height:1.6; font-size:.96rem;
+}
+.rt-list{ margin:0; padding-left:1.1rem; display:grid; gap:.45rem; }
+.rt-list li{ margin:0; break-inside:avoid; }
+@media (min-width: 980px){
+  .rt-list{ column-count:2; column-gap:2rem; }
+}
+
 
 
 
