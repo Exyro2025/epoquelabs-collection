@@ -178,40 +178,108 @@
   Époquelle™, La Méthode Émile™, and Compendium d’Aragon™ are protected trademarks.
 </footer>
 
-  <script>
-(function(){
-  // Checks if Chatbase is already loaded
-  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+ <!-- Époque Labs Concierge™ — Privacy-first Chatbase Embed (All-in-One) -->
+<!-- 1) Privacy + Reset Logic -->
+<script>
+  // Remove any Chatbase session data (covers current & future keys)
+  function clearChatbaseState() {
+    try {
+      const keys = Object.keys(localStorage);
+      for (const k of keys) {
+        if (k.toLowerCase().includes('chatbase')) {
+          localStorage.removeItem(k);
+        }
+      }
+    } catch (e) {
+      console.warn('Chatbase clear error:', e);
+    }
+  }
 
-    // Defines Chatbase queue to process commands before the script fully loads
-    window.chatbase=(...arguments)=>{
-      if(!window.chatbase.q){window.chatbase.q=[]}
-      window.chatbase.q.push(arguments)
+  // Clear when the visitor leaves/reloads the page
+  window.addEventListener('beforeunload', clearChatbaseState);
+
+  // Also clear after 10 minutes of inactivity (adjust as needed)
+  (function inactivityReset(minutes = 10) {
+    let timer;
+    const restart = () => {
+      clearTimeout(timer);
+      timer = setTimeout(clearChatbaseState, minutes * 60 * 1000);
+    };
+    ['click','scroll','keydown','mousemove','touchstart'].forEach(ev =>
+      window.addEventListener(ev, restart, { passive: true })
+    );
+    restart();
+  })();
+</script>
+
+<!-- 2) Hide "Recent chats" UI + force clean start on bubble open -->
+<script>
+  (function privacyUI(){
+    // Hide Recents icon/panel whenever it appears
+    const hideRecents = () => {
+      // Hide buttons/icons labeled as "Recent"
+      document.querySelectorAll(
+        '[aria-label*="Recent"], [title*="Recent"], [data-testid*="recent"]'
+      ).forEach(el => {
+        const btn = el.closest('button') || el;
+        btn.style.setProperty('display', 'none', 'important');
+        btn.style.setProperty('visibility', 'hidden', 'important');
+      });
+
+      // If a "Recent chats" drawer exists, remove it
+      [...document.querySelectorAll('*')].forEach(node => {
+        if ((node.textContent || '').trim() === 'Recent chats') {
+          const panel = node.closest('[role="dialog"], [class*="recent"], [class*="drawer"]');
+          if (panel) panel.remove();
+        }
+      });
     };
 
-    // Proxy allows Chatbase calls like chatbase("open") to still work
+    // Observe DOM for widget mount/updates
+    const mo = new MutationObserver(hideRecents);
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+    hideRecents();
+
+    // Start fresh every time the chat bubble is opened
+    document.addEventListener('click', (e) => {
+      const bubble = e.target.closest('[id*="chatbase"][class*="bubble"], [class*="cb-"]');
+      if (bubble) {
+        clearChatbaseState();
+        // Let the widget re-initialize cleanly
+        setTimeout(() => {}, 0);
+      }
+    });
+  })();
+</script>
+
+<!-- 3) Chatbase Widget -->
+<script>
+(function(){
+  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...args)=>{
+      if(!window.chatbase.q){window.chatbase.q=[]}
+      window.chatbase.q.push(args)
+    };
     window.chatbase=new Proxy(window.chatbase,{
       get(target,prop){
         if(prop==="q"){return target.q}
         return(...args)=>target(prop,...args)
       }
-    })
+    });
   }
 
-  // Loads the Chatbase embed script dynamically after the window loads
   const onLoad=function(){
-    const script=document.createElement("script");
-    script.src="https://www.chatbase.co/embed.min.js";
-    script.id="-J10pm9ReTGdJUJW7Y_ai"; // <-- Your unique chatbot ID
-    script.domain="www.chatbase.co";
-    document.body.appendChild(script)
+    const s=document.createElement("script");
+    s.src="https://www.chatbase.co/embed.min.js";
+    s.id="-J10pm9ReTGdJUJW7Y_ai";      /* ← keep your exact Chatbase Agent ID */
+    s.domain="www.chatbase.co";
+    document.body.appendChild(s);
   };
 
-  // Ensures it runs after the page is ready
   if(document.readyState==="complete"){onLoad()}
   else{window.addEventListener("load",onLoad)}
 })();
 </script>
-  
+ 
 </body>
 </html>
