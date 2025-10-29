@@ -214,42 +214,50 @@
 
 <!-- 2) Hide "Recent chats" UI + force clean start on bubble open -->
 <script>
-  (function privacyUI(){
-    // Hide Recents icon/panel whenever it appears
-    const hideRecents = () => {
-      // Hide buttons/icons labeled as "Recent"
-      document.querySelectorAll(
-        '[aria-label*="Recent"], [title*="Recent"], [data-testid*="recent"]'
-      ).forEach(el => {
-        const btn = el.closest('button') || el;
-        btn.style.setProperty('display', 'none', 'important');
-        btn.style.setProperty('visibility', 'hidden', 'important');
-      });
+(function privacyUI(){
+  function clearChatbaseState() {
+    try {
+      const keys = Object.keys(localStorage);
+      for (const k of keys) {
+        if (k.toLowerCase().includes('chatbase')) localStorage.removeItem(k);
+      }
+    } catch(_) {}
+  }
 
-      // If a "Recent chats" drawer exists, remove it
-      [...document.querySelectorAll('*')].forEach(node => {
-        if ((node.textContent || '').trim() === 'Recent chats') {
-          const panel = node.closest('[role="dialog"], [class*="recent"], [class*="drawer"]');
-          if (panel) panel.remove();
-        }
-      });
-    };
+  const hideRecents = () => {
+    document.querySelectorAll(
+      '[aria-label*="Recent"], [title*="Recent"], [data-testid*="recent"], [aria-label*="history"], [title*="history"]'
+    ).forEach(el => {
+      const btn = el.closest('button') || el;
+      btn.style.setProperty('display', 'none', 'important');
+      btn.style.setProperty('visibility', 'hidden', 'important');
+    });
 
-    // Observe DOM for widget mount/updates
-    const mo = new MutationObserver(hideRecents);
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-    hideRecents();
-
-    // Start fresh every time the chat bubble is opened
-    document.addEventListener('click', (e) => {
-      const bubble = e.target.closest('[id*="chatbase"][class*="bubble"], [class*="cb-"]');
-      if (bubble) {
-        clearChatbaseState();
-        // Let the widget re-initialize cleanly
-        setTimeout(() => {}, 0);
+    // Remove the "Recent chats" drawer itself
+    document.querySelectorAll('[role="dialog"], [class*="recent"], [class*="drawer"]').forEach(panel => {
+      if ((panel.textContent || '').includes('Recent chats')) {
+        panel.remove();
       }
     });
-  })();
+  };
+
+  // Observe DOM changes after Chatbase loads
+  const observer = new MutationObserver(() => hideRecents());
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Run again on scroll or click (covers late rendering)
+  window.addEventListener('click', hideRecents);
+  window.addEventListener('scroll', hideRecents);
+
+  // Clear when new session opens
+  document.addEventListener('click', e => {
+    const bubble = e.target.closest('[id*="chatbase"][class*="bubble"], [class*="cb-"]');
+    if (bubble) {
+      clearChatbaseState();
+      setTimeout(hideRecents, 2000);
+    }
+  });
+})();
 </script>
 
 <!-- 3) Chatbase Widget -->
