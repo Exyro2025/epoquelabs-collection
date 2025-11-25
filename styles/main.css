@@ -25,6 +25,19 @@ nav a{
 }
 nav a:hover{ color:#7d5c4b; }
 
+.logo-mark {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #2A1F1C;
+  letter-spacing: 0.3px;
+  display: block;
+  text-align: center;
+  padding: 40px 0 10px;
+}
+
+
 /* --------------------------------
    HEADER
 --------------------------------- */
