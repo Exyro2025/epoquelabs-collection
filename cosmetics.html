@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Époque Labs – Clinical Skincare & Cosmetics</title>
+  <title>Époque Labs – Makeup Collection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Uses your existing global stylesheet -->
+  <!-- Global styles -->
   <link rel="stylesheet" href="styles/main.css">
-  <style>
-    /* Page-specific styling layered on top of main.css */
 
+  <style>
     body {
       background-color: #F7F3EE;
-      color: #202024;
+      color: #201711;
     }
 
     .page-wrap {
@@ -20,7 +19,7 @@
       padding: 4rem 1.5rem 5rem;
     }
 
-    .cosmetics-hero {
+    .hero {
       background: #EFE2D4;
       border-radius: 24px;
       padding: 3rem 2.5rem;
@@ -33,25 +32,25 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #8A6B3D;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
-    .cosmetics-hero h1 {
+    .hero h1 {
       font-size: 2.6rem;
       margin-bottom: 0.75rem;
     }
 
-    .cosmetics-hero p.lead {
-      font-size: 1.05rem;
-      max-width: 640px;
-      line-height: 1.7;
+    .hero p.lead {
+      font-size: 1.02rem;
+      max-width: 650px;
+      line-height: 1.75;
       margin-bottom: 1.5rem;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.8rem;
       margin-top: 1rem;
     }
 
@@ -59,7 +58,7 @@
     .btn-ghost {
       border-radius: 999px;
       padding: 0.7rem 1.6rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
@@ -79,37 +78,40 @@
       color: #8A6B3D;
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
+    .section-header {
+      margin-bottom: 2rem;
     }
 
-    .section-intro {
-      max-width: 640px;
-      font-size: 0.98rem;
+    .section-header h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header p {
+      max-width: 620px;
+      font-size: 0.95rem;
       line-height: 1.7;
-      margin-bottom: 2.25rem;
     }
 
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
+      gap: 1.8rem;
       margin-bottom: 3.5rem;
     }
 
     .product-card {
       background: #FFF7EE;
       border-radius: 20px;
-      padding: 1.5rem 1.6rem 1.6rem;
+      padding: 1.6rem 1.7rem 1.7rem;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(201, 164, 106, 0.15);
+      border: 1px solid rgba(201, 164, 106, 0.16);
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
     }
 
-    .product-badge {
+    .product-chip {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -117,64 +119,56 @@
     }
 
     .product-name {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .product-tagline {
       font-size: 0.9rem;
-      color: #4F4940;
+      color: #4D433A;
     }
 
-    .product-benefits {
-      margin: 0.3rem 0 0.3rem 1.1rem;
-      font-size: 0.9rem;
-      color: #3A352E;
-    }
-
-    .product-actives {
-      font-size: 0.8rem;
-      font-style: italic;
-      color: #7B6A55;
+    .product-notes {
+      font-size: 0.88rem;
+      line-height: 1.7;
     }
 
     .product-footer {
-      margin-top: 0.9rem;
+      margin-top: 0.8rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
 
-    .product-note {
-      font-size: 0.7rem;
+    .product-footer span {
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: #9B8570;
     }
 
-    .btn-text {
-      border: none;
-      background: none;
-      padding: 0;
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid #C9A46A;
+      background: transparent;
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #8A6B3D;
-      cursor: pointer;
-    }
-
-    .btn-text[disabled] {
-      opacity: 0.55;
+      padding: 0.45rem 1.2rem;
       cursor: default;
+      color: #8A6B3D;
+      opacity: 0.7;
     }
 
-    .clinical-band {
+    .note-band {
       background: #E4D8CB;
       border-radius: 20px;
-      padding: 2rem 2rem;
-      margin-bottom: 3.2rem;
+      padding: 2rem;
       border: 1px solid rgba(201, 164, 106, 0.25);
+      margin-bottom: 3.2rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
     }
 
     .bottom-links {
@@ -191,7 +185,7 @@
     .link-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .link-row a {
@@ -203,239 +197,191 @@
     }
 
     @media (max-width: 720px) {
-      .cosmetics-hero {
+      .hero {
         padding: 2.3rem 1.7rem;
       }
-      .cosmetics-hero h1 {
+      .hero h1 {
         font-size: 2.1rem;
       }
       .page-wrap {
         padding-top: 3rem;
       }
-      .clinical-band {
+      .note-band {
         padding: 1.7rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- reuse your existing Époque Labs header + nav here -->
+  <!-- include your existing Époque Labs header + nav here -->
 
   <main class="page-wrap">
     <!-- HERO -->
-    <section class="cosmetics-hero">
-      <div class="section-label">Cosmetics · Clinical Skincare</div>
-      <h1>Clinical skincare, designed to be lived in.</h1>
+    <section class="hero">
+      <div class="section-label">Époque Labs · Makeup</div>
+      <h1>Color, written in quiet light.</h1>
       <p class="lead">
-        Époque Labs translates lab-grade formulations into daily rituals—bridging dermal
-        science, texture, and time. Skincare that belongs in your life, not just on your shelf.
-      </p>
-      <p class="lead" style="font-size:0.9rem; opacity:0.9;">
-        Every product on this page is selected for visible change, long-term use,
-        and compatibility with clinical protocols.
+        The Époque Labs makeup edit is intentionally small: eyes, lips, and holiday sets
+        that feel collected rather than crowded. Soft neutrals, modern shimmer, and velvet
+        finishes designed to live beside Époquelle™—never compete with it.
       </p>
       <div class="hero-buttons">
-        <a href="#clinical-skincare" class="btn-gold">Shop Clinical Skincare</a>
-        <!-- This points to your existing Époquelle / Collection page -->
-        <a href="products.html" class="btn-ghost">View Époquelle™ Collection</a>
+        <a href="#holiday-sets" class="btn-gold">Explore Holiday Collection</a>
+        <a href="#eyes-lips" class="btn-ghost">Eyes &amp; Lips</a>
       </div>
     </section>
 
-    <!-- CLINICAL SKINCARE GRID -->
-    <section id="clinical-skincare">
-      <div class="section-label">Clinical Skincare</div>
-      <h2 class="section-title">Seven essentials. One intelligent ritual.</h2>
-      <p class="section-intro">
-        Our clinical range begins with seven foundational products formulated in partnership with
-        laboratory specialists. Each one earns its place in your routine—no filler products,
-        no redundant steps.
-      </p>
+    <!-- HOLIDAY SETS -->
+    <section id="holiday-sets">
+      <div class="section-header">
+        <div class="section-label">Holiday 2025 Collection</div>
+        <h2>Curated sets for eyes and lips.</h2>
+        <p>
+          Limited-release pieces created for the first Époque Labs holiday season—
+          easy to gift, effortless to keep. Each set is built around wearable tones
+          and textures that layer seamlessly with your existing ritual.
+        </p>
+      </div>
 
       <div class="product-grid">
-        <!-- Product 1 -->
         <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Clinical Renewal Cleanser</h3>
-          <p class="product-tagline">Gentle daily cleanser for barrier-first routines.</p>
-          <ul class="product-benefits">
-            <li>Lifts impurities without stripping.</li>
-            <li>Supports a calm, hydrated canvas.</li>
-            <li>Prepares skin for clinical actives.</li>
-          </ul>
-          <p class="product-actives">
-            Balanced surfactant system with hydrating agents to support the skin’s natural moisture factor.
+          <div class="product-chip">Eyes · Palette</div>
+          <h3 class="product-name">3-Well Eyeshadow Palette · Prefilled</h3>
+          <p class="product-tagline">Three curated shades, one quietly decisive compact.</p>
+          <p class="product-notes">
+            A pre-edited trio of shadows designed for lid, contour, and soft definition.
+            Build from a sheer wash to sculpted depth without harsh lines.
           </p>
           <div class="product-footer">
-            <span class="product-note">Formulated in clinical laboratories.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
+            <span>Holiday 2025 release</span>
+            <button class="btn-outline">Future Buy</button>
           </div>
         </article>
 
-        <!-- Product 2 -->
         <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Micro-Polish Enzyme Exfoliant</h3>
-          <p class="product-tagline">Refines texture without the “over-exfoliated” look.</p>
-          <ul class="product-benefits">
-            <li>Softens rough patches and dry build-up.</li>
-            <li>Brightens the overall tone over time.</li>
-            <li>Keeps skin receptive to serums.</li>
-          </ul>
-          <p class="product-actives">
-            Enzyme + AHA blend designed for controlled resurfacing.
+          <div class="product-chip">Lips · Treatment Set</div>
+          <h3 class="product-name">Lip Treatment Ensemble</h3>
+          <p class="product-tagline">Care, color, and soft architecture for the lips.</p>
+          <p class="product-notes">
+            A holiday set that pairs conditioning care with flattering, everyday tones.
+            Created for those who want their lip color to feel protective, not performative.
           </p>
           <div class="product-footer">
-            <span class="product-note">Dermatologist-compatible.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
+            <span>Holiday 2025 release</span>
+            <button class="btn-outline">Future Buy</button>
           </div>
         </article>
 
-        <!-- Product 3 -->
         <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Hydrolift Serum Concentrate</h3>
-          <p class="product-tagline">Layerable hydration with clinical elasticity support.</p>
-          <ul class="product-benefits">
-            <li>Saturates skin with multi-level hydration.</li>
-            <li>Softens dehydration lines.</li>
-            <li>Glides under SPF and makeup.</li>
-          </ul>
-          <p class="product-actives">
-            Hyaluronic complexes and supportive actives to visibly plump and smooth.
+          <div class="product-chip">Eyes · Shimmer Set</div>
+          <h3 class="product-name">Eye Shimmer Collection</h3>
+          <p class="product-tagline">Soft light, placed precisely where you want it.</p>
+          <p class="product-notes">
+            A trio of luminous shades that catch the light without glitter fallout.
+            Wear alone for a veil of radiance or layer over matte tones for dimension.
           </p>
           <div class="product-footer">
-            <span class="product-note">Evidence-led actives.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
+            <span>Holiday 2025 release</span>
+            <button class="btn-outline">Future Buy</button>
           </div>
         </article>
 
-        <!-- Product 4 -->
         <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Firming Peptide Treatment</h3>
-          <p class="product-tagline">Targeted peptide care for your skin’s “holding structure.”</p>
-          <ul class="product-benefits">
-            <li>Visibly firms over time with consistent use.</li>
-            <li>Complements in-clinic procedures.</li>
-            <li>Soft, non-greasy finish.</li>
-          </ul>
-          <p class="product-actives">
-            Peptide blend selected to support the look of firmness and skin density.
+          <div class="product-chip">Lips · Gloss Set</div>
+          <h3 class="product-name">Gloss Beauty Lipgloss Set</h3>
+          <p class="product-tagline">Glass-like shine with Époque-level restraint.</p>
+          <p class="product-notes">
+            A selection of glosses that sit comfortably on the lip—never sticky, never loud.
+            Layer over lipstick or wear alone for a sheer, light-catching finish.
           </p>
           <div class="product-footer">
-            <span class="product-note">Clinic-grade textures.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
+            <span>Holiday 2025 release</span>
+            <button class="btn-outline">Future Buy</button>
           </div>
         </article>
 
-        <!-- Product 5 -->
         <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Barrier Comfort Cream</h3>
-          <p class="product-tagline">Daily moisture for sensitized or post-treatment skin.</p>
-          <ul class="product-benefits">
-            <li>Calms visible redness and tightness.</li>
-            <li>Rebuilds comfort after procedures.</li>
-            <li>Creates a breathable, protective veil.</li>
-          </ul>
-          <p class="product-actives">
-            Barrier-supportive lipids and soothing agents for everyday resilience.
+          <div class="product-chip">Lips · Mini Set</div>
+          <h3 class="product-name">Mini Lip Set Kit</h3>
+          <p class="product-tagline">Pocket-sized tones for rotation and ritual.</p>
+          <p class="product-notes">
+            A wardrobe of miniature lip shades—neutrals, depth, and one quiet statement tone.
+            Ideal for testing your signature color or keeping one in every bag.
           </p>
           <div class="product-footer">
-            <span class="product-note">Post-procedure friendly.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 6 -->
-        <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Night Repair Emulsion</h3>
-          <p class="product-tagline">Night-focused formula for surface renewal.</p>
-          <ul class="product-benefits">
-            <li>Supports overnight skin recovery.</li>
-            <li>Softens the look of fine lines.</li>
-            <li>Wakes skin with a rested, less-dull appearance.</li>
-          </ul>
-          <p class="product-actives">
-            Gentle resurfacing and repair-support ingredients for the night hours.
-          </p>
-          <div class="product-footer">
-            <span class="product-note">Designed for nightly use.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Product 7 -->
-        <article class="product-card">
-          <div class="product-badge">Clinical Essential</div>
-          <h3 class="product-name">Époque Defense SPF Veil</h3>
-          <p class="product-tagline">Daily photo-defense that respects your skincare underneath.</p>
-          <ul class="product-benefits">
-            <li>Broad-spectrum UVA/UVB protection.</li>
-            <li>Works with makeup, not against it.</li>
-            <li>Lightweight, no heavy cast.</li>
-          </ul>
-          <p class="product-actives">
-            Advanced filters and antioxidants for daily environmental defense.
-          </p>
-          <div class="product-footer">
-            <span class="product-note">Everyday essential.</span>
-            <div>
-              <button class="btn-text">View Details</button>
-              <button class="btn-text" disabled>Future Buy</button>
-            </div>
+            <span>Holiday 2025 release</span>
+            <button class="btn-outline">Future Buy</button>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- CLINICAL POSITIONING -->
-    <section class="clinical-band">
-      <div class="section-label">Clinical-Grade Positioning</div>
-      <h2 class="section-title" style="font-size:1.6rem;">What we mean by “clinical-grade.”</h2>
+    <!-- EYES & LIPS CORE -->
+    <section id="eyes-lips">
+      <div class="section-header">
+        <div class="section-label">Eyes &amp; Lips</div>
+        <h2>Core pieces for daily wear.</h2>
+        <p>
+          Beyond the holiday sets, these are the staples: single shadows and liquid velvet
+          lip color crafted to feel like part of your skin story, not a costume.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-chip">Eyes · Singles</div>
+          <h3 class="product-name">Époque Eyeshadow Singles</h3>
+          <p class="product-tagline">Neutral maps for lids, crease, and liner.</p>
+          <p class="product-notes">
+            Build a bespoke palette from individual pans—matte, satin, and refined shimmer finishes.
+            Designed to blend softly while maintaining depth of tone.
+          </p>
+          <div class="product-footer">
+            <span>Everyday staple</span>
+            <button class="btn-outline">Future Buy</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-chip">Lips · Liquid Velvet</div>
+          <h3 class="product-name">Liquid Velvet Lipstick</h3>
+          <p class="product-tagline">Color that settles like fabric, not paint.</p>
+          <p class="product-notes">
+            A plush, semi-matte liquid lipstick with a soft-focus finish—highly pigmented,
+            yet forgiving on lived-in lips. Comfortable for long wear, elegant for brief appearances.
+          </p>
+          <div class="product-footer">
+            <span>Everyday staple</span>
+            <button class="btn-outline">Future Buy</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- POSITIONING NOTE -->
+    <section class="note-band">
+      <div class="section-label">Positioning</div>
       <p>
-        “Clinical-grade” is more than a phrase. For Époque Labs, it means working with laboratories
-        experienced in professional treatment back bars, using actives at purposeful levels—not just
-        label mentions—and prioritizing tolerance and long-term use over single-use drama.
-        Every formula on this page is designed to sit comfortably beside your dermatologist’s and
-        aesthetician’s protocols.
+        The Époque Labs makeup collection exists to frame the skin, not overshadow it.
+        Every formula is selected to complement Époquelle™ and your clinical ritual—
+        wearable color, thoughtful textures, and finishes that feel considered instead of crowded.
       </p>
     </section>
 
-    <!-- CROSS-LINKS (no portal; Époquelle lives in Collection) -->
+    <!-- FOOTER LINKS -->
     <section class="bottom-links">
       <p>
-        Want the story behind each formula? Skincare Without Surgery™ is our conversation space,
-        where we unpack ingredients, protocols, and real-world skin decisions.
+        For the formulations behind the face, explore the Époquelle™ Collection or join
+        us inside Skincare Without Surgery™ for weekly conversations about skin decisions.
       </p>
       <div class="link-row">
-        <a href="podcast.html">Listen to the Podcast</a>
-        <a href="products.html">View Époquelle™ Collection</a>
-        <a href="compendium.html">Return to Compendium</a>
+        <a href="products.html">Époquelle™ Collection</a>
+        <a href="podcast.html">Skincare Without Surgery™</a>
+        <a href="index.html">Return Home</a>
       </div>
     </section>
   </main>
 
-  <!-- your existing footer here -->
+  <!-- existing Époque Labs footer here -->
 </body>
 </html>
-
