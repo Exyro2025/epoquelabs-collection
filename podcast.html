@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skincare Without Surgery™ – Podcast by Époque Labs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    body {
+      background-color: #F7F3EE;
+      color: #201711;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .hero {
+      background: #EFE2D4;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8A6B3D;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: #514538;
+      margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .btn-gold,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #C9A46A;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-gold {
+      background: #C9A46A;
+      color: #FFF8ED;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #8A6B3D;
+    }
+
+    .host-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .host-card {
+      background: #FFF7EE;
+      border-radius: 20px;
+      padding: 1.6rem 1.7rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      border: 1px solid rgba(201,164,106,0.16);
+    }
+
+    .host-name {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .host-role {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8A6B3D;
+      margin-bottom: 0.7rem;
+    }
+
+    .host-bio {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .episodes-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .episodes-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .episodes-header p {
+      font-size: 0.94rem;
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    .episode-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 3.2rem;
+    }
+
+    .episode-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem 1.2rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+      border: 1px solid rgba(201,164,106,0.14);
+    }
+
+    .episode-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #8A6B3D;
+      margin-bottom: 0.3rem;
+    }
+
+    .episode-title {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .episode-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+    }
+
+    .episode-audio {
+      margin-top: 0.2rem;
+    }
+
+    .episode-audio audio {
+      width: 100%;
+    }
+
+    .coming-note {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9B8570;
+    }
+
+    .schedule-band {
+      background: #E4D8CB;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(201,164,106,0.25);
+      margin-bottom: 3.2rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .bottom-links {
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .link-row a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #8A6B3D;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 2.3rem 1.7rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .page-wrap {
+        padding-top: 3rem;
+      }
+      .schedule-band {
+        padding: 1.7rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- existing Époque Labs header + nav here -->
+
+  <main class="page-wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="section-label">Époque Labs · Podcast</div>
+      <h1 class="hero-title">Skincare Without Surgery™</h1>
+      <p class="hero-subtitle">
+        A weekly conversation where skin becomes less about panic and more about pattern.
+        Elise and André sit at the intersection of clinical knowledge and lived experience—
+        helping you decide what belongs on your face, what belongs in the clinic, and what
+        can be left behind entirely.
+      </p>
+      <p class="hero-meta">
+        New episodes weekly · Practical, clinic-aligned skincare without the scalpel.
+      </p>
+      <div class="hero-buttons">
+        <a href="#episodes" class="btn-gold">Listen to Episodes</a>
+        <!-- Replace these with real links when live -->
+        <a href="#" class="btn-ghost">Apple · Coming Soon</a>
+        <a href="#" class="btn-ghost">Spotify · Coming Soon</a>
+      </div>
+    </section>
+
+    <!-- HOSTS -->
+    <section>
+      <div class="section-label">Hosts</div>
+      <div class="host-grid">
+        <article class="host-card">
+          <h2 class="host-name">Elise</h2>
+          <div class="host-role">Clinical Ritual · Co-Host</div>
+          <p class="host-bio">
+            Elise brings a calm, clinical lens to every episode—grounded in results-driven
+            skincare and long-term skin health. She speaks the language of ingredients,
+            protocols, and what actually happens between the treatment room and your bathroom sink.
+          </p>
+        </article>
+
+        <article class="host-card">
+          <h2 class="host-name">André</h2>
+          <div class="host-role">Perspective &amp; Practice · Co-Host</div>
+          <p class="host-bio">
+            André balances the conversation with lived experience, curious questions, and a
+            focus on how real people navigate skin decisions. He asks what you would ask—and
+            occasionally what you didn’t know you needed to hear.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EPISODES -->
+    <section id="episodes">
+      <div class="episodes-header">
+        <div class="section-label">Episodes</div>
+        <h2>Season One · Foundations</h2>
+        <p>
+          The first season of Skincare Without Surgery™ focuses on foundations: skin barriers,
+          realistic routines, in-clinic vs. at-home decisions, and how to think about aging
+          without fear. Episodes will appear here as they are released each week.
+        </p>
+      </div>
+
+      <div class="episode-list">
+        <!-- Episode 1 -->
+        <article class="episode-card">
+          <div class="episode-meta">Episode 01</div>
+          <h3 class="episode-title">Title to be added</h3>
+          <p class="episode-desc">
+            Description for Episode 01 will be added once the final cut and show notes are ready.
+          </p>
+          <div class="episode-audio">
+            <!-- replace src with your hosted file path when ready -->
+            <audio controls src="assets/episode-01.mp3">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </article>
+
+        <!-- Episode 2 -->
+        <article class="episode-card">
+          <div class="episode-meta">Episode 02</div>
+          <h3 class="episode-title">Title to be added</h3>
+          <p class="episode-desc">
+            Description for Episode 02 will be added once the final cut and show notes are ready.
+          </p>
+          <div class="episode-audio">
+            <audio controls src="assets/episode-02.mp3">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </article>
+
+        <!-- Episode 3 -->
+        <article class="episode-card">
+          <div class="episode-meta">Episode 03</div>
+          <h3 class="episode-title">Title to be added</h3>
+          <p class="episode-desc">
+            Description for Episode 03 will be added once the final cut and show notes are ready.
+          </p>
+          <div class="episode-audio">
+            <audio controls src="assets/episode-03.mp3">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </article>
+
+        <!-- Future episodes 4–15 placeholders -->
+        <article class="episode-card">
+          <div class="episode-meta">Episodes 04–15</div>
+          <h3 class="episode-title">Coming Weekly</h3>
+          <p class="episode-desc">
+            As new episodes are recorded and mixed, they will appear here with full titles,
+            descriptions, and audio players. Season One is planned for fifteen episodes.
+          </p>
+          <p class="coming-note">Future episodes · To be released</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCHEDULE / POSITIONING -->
+    <section class="schedule-band">
+      <div class="section-label">Release Rhythm</div>
+      <p>
+        Skincare Without Surgery™ releases new episodes weekly. The show is designed to sit
+        alongside your Époquelle™ ritual and clinic visits—something you can listen to while
+        masking, cleansing, or simply pausing between the day and the night.
+      </p>
+    </section>
+
+    <!-- FOOTER LINKS -->
+    <section class="bottom-links">
+      <p>
+        Ready to see the products behind the conversations? Explore the Époquelle™ Collection
+        or discover the Époque Labs makeup edit.
+      </p>
+      <div class="link-row">
+        <a href="products.html">Époquelle™ Collection</a>
+        <a href="makeup.html">Makeup Collection</a>
+        <a href="index.html">Return Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- existing Époque Labs footer here -->
+</body>
+</html>
