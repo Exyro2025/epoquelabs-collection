@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Époque Labs – Clinical Skincare & Cosmetics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Uses your existing global stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* Page-specific styling layered on top of main.css */
+
+    body {
+      background-color: #F7F3EE;
+      color: #202024;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .cosmetics-hero {
+      background: #EFE2D4;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8A6B3D;
+      margin-bottom: 0.4rem;
+    }
+
+    .cosmetics-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cosmetics-hero p.lead {
+      font-size: 1.05rem;
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .btn-gold,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #C9A46A;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-gold {
+      background: #C9A46A;
+      color: #FFF8ED;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #8A6B3D;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      max-width: 640px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-card {
+      background: #FFF7EE;
+      border-radius: 20px;
+      padding: 1.5rem 1.6rem 1.6rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(201, 164, 106, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .product-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8A6B3D;
+    }
+
+    .product-name {
+      font-size: 1.1rem;
+    }
+
+    .product-tagline {
+      font-size: 0.9rem;
+      color: #4F4940;
+    }
+
+    .product-benefits {
+      margin: 0.3rem 0 0.3rem 1.1rem;
+      font-size: 0.9rem;
+      color: #3A352E;
+    }
+
+    .product-actives {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7B6A55;
+    }
+
+    .product-footer {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .product-note {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9B8570;
+    }
+
+    .btn-text {
+      border: none;
+      background: none;
+      padding: 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A6B3D;
+      cursor: pointer;
+    }
+
+    .btn-text[disabled] {
+      opacity: 0.55;
+      cursor: default;
+    }
+
+    .clinical-band {
+      background: #E4D8CB;
+      border-radius: 20px;
+      padding: 2rem 2rem;
+      margin-bottom: 3.2rem;
+      border: 1px solid rgba(201, 164, 106, 0.25);
+    }
+
+    .bottom-links {
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .link-row a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #8A6B3D;
+    }
+
+    @media (max-width: 720px) {
+      .cosmetics-hero {
+        padding: 2.3rem 1.7rem;
+      }
+      .cosmetics-hero h1 {
+        font-size: 2.1rem;
+      }
+      .page-wrap {
+        padding-top: 3rem;
+      }
+      .clinical-band {
+        padding: 1.7rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- reuse your existing Époque Labs header + nav here -->
+
+  <main class="page-wrap">
+    <!-- HERO -->
+    <section class="cosmetics-hero">
+      <div class="section-label">Cosmetics · Clinical Skincare</div>
+      <h1>Clinical skincare, designed to be lived in.</h1>
+      <p class="lead">
+        Époque Labs translates lab-grade formulations into daily rituals—bridging dermal
+        science, texture, and time. Skincare that belongs in your life, not just on your shelf.
+      </p>
+      <p class="lead" style="font-size:0.9rem; opacity:0.9;">
+        Every product on this page is selected for visible change, long-term use,
+        and compatibility with clinical protocols.
+      </p>
+      <div class="hero-buttons">
+        <a href="#clinical-skincare" class="btn-gold">Shop Clinical Skincare</a>
+        <!-- This points to your existing Époquelle / Collection page -->
+        <a href="products.html" class="btn-ghost">View Époquelle™ Collection</a>
+      </div>
+    </section>
+
+    <!-- CLINICAL SKINCARE GRID -->
+    <section id="clinical-skincare">
+      <div class="section-label">Clinical Skincare</div>
+      <h2 class="section-title">Seven essentials. One intelligent ritual.</h2>
+      <p class="section-intro">
+        Our clinical range begins with seven foundational products formulated in partnership with
+        laboratory specialists. Each one earns its place in your routine—no filler products,
+        no redundant steps.
+      </p>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Clinical Renewal Cleanser</h3>
+          <p class="product-tagline">Gentle daily cleanser for barrier-first routines.</p>
+          <ul class="product-benefits">
+            <li>Lifts impurities without stripping.</li>
+            <li>Supports a calm, hydrated canvas.</li>
+            <li>Prepares skin for clinical actives.</li>
+          </ul>
+          <p class="product-actives">
+            Balanced surfactant system with hydrating agents to support the skin’s natural moisture factor.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Formulated in clinical laboratories.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Micro-Polish Enzyme Exfoliant</h3>
+          <p class="product-tagline">Refines texture without the “over-exfoliated” look.</p>
+          <ul class="product-benefits">
+            <li>Softens rough patches and dry build-up.</li>
+            <li>Brightens the overall tone over time.</li>
+            <li>Keeps skin receptive to serums.</li>
+          </ul>
+          <p class="product-actives">
+            Enzyme + AHA blend designed for controlled resurfacing.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Dermatologist-compatible.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Hydrolift Serum Concentrate</h3>
+          <p class="product-tagline">Layerable hydration with clinical elasticity support.</p>
+          <ul class="product-benefits">
+            <li>Saturates skin with multi-level hydration.</li>
+            <li>Softens dehydration lines.</li>
+            <li>Glides under SPF and makeup.</li>
+          </ul>
+          <p class="product-actives">
+            Hyaluronic complexes and supportive actives to visibly plump and smooth.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Evidence-led actives.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Firming Peptide Treatment</h3>
+          <p class="product-tagline">Targeted peptide care for your skin’s “holding structure.”</p>
+          <ul class="product-benefits">
+            <li>Visibly firms over time with consistent use.</li>
+            <li>Complements in-clinic procedures.</li>
+            <li>Soft, non-greasy finish.</li>
+          </ul>
+          <p class="product-actives">
+            Peptide blend selected to support the look of firmness and skin density.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Clinic-grade textures.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 5 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Barrier Comfort Cream</h3>
+          <p class="product-tagline">Daily moisture for sensitized or post-treatment skin.</p>
+          <ul class="product-benefits">
+            <li>Calms visible redness and tightness.</li>
+            <li>Rebuilds comfort after procedures.</li>
+            <li>Creates a breathable, protective veil.</li>
+          </ul>
+          <p class="product-actives">
+            Barrier-supportive lipids and soothing agents for everyday resilience.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Post-procedure friendly.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 6 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Night Repair Emulsion</h3>
+          <p class="product-tagline">Night-focused formula for surface renewal.</p>
+          <ul class="product-benefits">
+            <li>Supports overnight skin recovery.</li>
+            <li>Softens the look of fine lines.</li>
+            <li>Wakes skin with a rested, less-dull appearance.</li>
+          </ul>
+          <p class="product-actives">
+            Gentle resurfacing and repair-support ingredients for the night hours.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Designed for nightly use.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 7 -->
+        <article class="product-card">
+          <div class="product-badge">Clinical Essential</div>
+          <h3 class="product-name">Époque Defense SPF Veil</h3>
+          <p class="product-tagline">Daily photo-defense that respects your skincare underneath.</p>
+          <ul class="product-benefits">
+            <li>Broad-spectrum UVA/UVB protection.</li>
+            <li>Works with makeup, not against it.</li>
+            <li>Lightweight, no heavy cast.</li>
+          </ul>
+          <p class="product-actives">
+            Advanced filters and antioxidants for daily environmental defense.
+          </p>
+          <div class="product-footer">
+            <span class="product-note">Everyday essential.</span>
+            <div>
+              <button class="btn-text">View Details</button>
+              <button class="btn-text" disabled>Future Buy</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLINICAL POSITIONING -->
+    <section class="clinical-band">
+      <div class="section-label">Clinical-Grade Positioning</div>
+      <h2 class="section-title" style="font-size:1.6rem;">What we mean by “clinical-grade.”</h2>
+      <p>
+        “Clinical-grade” is more than a phrase. For Époque Labs, it means working with laboratories
+        experienced in professional treatment back bars, using actives at purposeful levels—not just
+        label mentions—and prioritizing tolerance and long-term use over single-use drama.
+        Every formula on this page is designed to sit comfortably beside your dermatologist’s and
+        aesthetician’s protocols.
+      </p>
+    </section>
+
+    <!-- CROSS-LINKS (no portal; Époquelle lives in Collection) -->
+    <section class="bottom-links">
+      <p>
+        Want the story behind each formula? Skincare Without Surgery™ is our conversation space,
+        where we unpack ingredients, protocols, and real-world skin decisions.
+      </p>
+      <div class="link-row">
+        <a href="podcast.html">Listen to the Podcast</a>
+        <a href="products.html">View Époquelle™ Collection</a>
+        <a href="compendium.html">Return to Compendium</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- your existing footer here -->
+</body>
+</html>
+
