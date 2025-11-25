@@ -284,6 +284,334 @@ details.reservation-terms .rt-body {
   margin-top: .6rem !important;
 }
 
+<style>
+  /* ==============
+     ÉPOQUE · LIPS
+     ============== */
+
+  .el-lips-page {
+    padding: 4.5rem 0 6rem;
+    background: #fefaf6;
+  }
+
+  .el-lips-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.75rem 0;
+  }
+
+  .el-lips-kicker {
+    font-size: .8rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #b28a5c;
+    margin-bottom: 1.25rem;
+  }
+
+  .el-lips-hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.6rem, 4vw, 3.1rem);
+    line-height: 1.14;
+    color: #2b1d1a;
+    margin-bottom: 1.25rem;
+  }
+
+  .el-lips-hero-lede {
+    max-width: 46rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a332e;
+    margin-bottom: 1.25rem;
+  }
+
+  .el-lips-hero-subtle {
+    max-width: 46rem;
+    font-size: .98rem;
+    line-height: 1.7;
+    color: #7b5a4d;
+    margin-bottom: 2.5rem;
+  }
+
+  .el-lips-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .el-btn-pill {
+    border-radius: 999px;
+    padding: .9rem 1.9rem;
+    font-size: .9rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  }
+
+  .el-btn-gold {
+    background: #d3a763;
+    color: #fff;
+    box-shadow: 0 14px 34px rgba(0,0,0,.08);
+  }
+
+  .el-btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.12);
+  }
+
+  .el-btn-outline {
+    background: transparent;
+    border: 1px solid rgba(178,138,92,.45);
+    color: #7b5a4d;
+  }
+
+  .el-btn-outline:hover {
+    background: rgba(255,255,255,.7);
+  }
+
+  .el-lips-tagline {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    color: #b28a5c;
+    margin-bottom: .85rem;
+  }
+
+  .el-lips-house-line {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    color: #2b1d1a;
+    margin-bottom: 2.25rem;
+  }
+
+  /* Pillar wrapper */
+
+  .el-lips-pillars {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.15fr);
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  @media (max-width: 960px) {
+    .el-lips-pillars {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .el-card-soft {
+    background: #f7ebdf;
+    border-radius: 28px;
+    padding: 2.1rem 2.3rem 2.2rem;
+    box-shadow: 0 22px 60px rgba(0,0,0,.06);
+  }
+
+  .el-card-title-kicker {
+    font-size: .78rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #b28a5c;
+    margin-bottom: .65rem;
+  }
+
+  .el-card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    color: #2b1d1a;
+    margin-bottom: 1.2rem;
+  }
+
+  .el-card-body {
+    font-size: .98rem;
+    color: #4a332e;
+    line-height: 1.75;
+    margin-bottom: 1.45rem;
+  }
+
+  .el-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-bottom: .85rem;
+  }
+
+  .el-pill {
+    border-radius: 999px;
+    padding: .45rem .9rem;
+    font-size: .8rem;
+    background: rgba(255,255,255,.85);
+    color: #7b5a4d;
+    border: 1px solid rgba(209,177,132,.55);
+    white-space: nowrap;
+  }
+
+  .el-pill strong {
+    font-weight: 600;
+  }
+
+  .el-lips-note {
+    font-size: .85rem;
+    color: #8d6d5a;
+    margin-top: .4rem;
+  }
+
+  /* Treatment grid */
+
+  .el-lips-section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    margin-bottom: .4rem;
+    color: #2b1d1a;
+  }
+
+  .el-lips-section-sub {
+    font-size: .98rem;
+    color: #6a4a3e;
+    margin-bottom: 1.8rem;
+    max-width: 40rem;
+  }
+
+  .el-treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.6rem;
+    margin-bottom: 2.6rem;
+  }
+
+  @media (max-width: 1120px) {
+    .el-treatment-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .el-treatment-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .el-treat-card {
+    background: #fcf3ea;
+    border-radius: 22px;
+    padding: 1.4rem 1.5rem 1.5rem;
+  }
+
+  .el-treat-kicker {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: #b28a5c;
+    margin-bottom: .45rem;
+  }
+
+  .el-treat-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.05rem;
+    margin-bottom: .5rem;
+    color: #2b1d1a;
+  }
+
+  .el-treat-copy {
+    font-size: .9rem;
+    color: #624237;
+    line-height: 1.6;
+    margin-bottom: .7rem;
+  }
+
+  .el-treat-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+
+  .el-tag {
+    border-radius: 999px;
+    padding: .28rem .7rem;
+    font-size: .78rem;
+    background: #f0dfcf;
+    color: #7b5a4d;
+  }
+
+  /* Shade rails */
+
+  .el-shade-rail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+    gap: 2.25rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 900px) {
+    .el-shade-rail {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .el-rail-copy {
+    font-size: .95rem;
+    color: #624237;
+    line-height: 1.75;
+  }
+
+  .el-shade-group-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+    margin-bottom: .5rem;
+    color: #2b1d1a;
+  }
+
+  .el-chip-list {
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+  }
+
+  .el-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .5rem .85rem .5rem .55rem;
+    border-radius: 999px;
+    background: #fcf3ea;
+    border: 1px solid rgba(209,177,132,.6);
+    font-size: .86rem;
+    color: #6a4a3e;
+  }
+
+  .el-chip-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.8), 0 0 0 4px rgba(0,0,0,.06);
+  }
+
+  .el-chip-name {
+    font-weight: 600;
+  }
+
+  /* imagined tones – adjust if needed */
+  .swatch-rose   { background: #b86a6d; }
+  .swatch-clear  { background: linear-gradient(135deg,#fefefe,#f6ece1); }
+  .swatch-nude   { background: #d59d7b; }
+  .swatch-wine   { background: #4d121c; }
+
+  .el-lips-footer-note {
+    font-size: .88rem;
+    color: #876653;
+    max-width: 46rem;
+    border-top: 1px solid rgba(194,158,114,.35);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+</style>
+
+
 
 
 
