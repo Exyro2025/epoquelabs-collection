@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Époque Labs – Makeup Collection</title>
+  <title>Époque Labs – Cosmetics Collection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Global styles -->
+  <!-- Global styles for Époque Labs -->
   <link rel="stylesheet" href="styles/main.css">
 
   <style>
@@ -18,6 +18,8 @@
       margin: 0 auto;
       padding: 4rem 1.5rem 5rem;
     }
+
+    /* HERO */
 
     .hero {
       background: #EFE2D4;
@@ -37,29 +39,36 @@
 
     .hero h1 {
       font-size: 2.6rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .hero p.lead {
       font-size: 1.02rem;
-      max-width: 650px;
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p.sub {
+      font-size: 0.92rem;
+      max-width: 620px;
+      line-height: 1.7;
+      opacity: 0.9;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-top: 1rem;
+      margin-top: 1.4rem;
     }
 
     .btn-gold,
     .btn-ghost {
       border-radius: 999px;
       padding: 0.7rem 1.6rem;
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       border: 1px solid #C9A46A;
@@ -78,6 +87,8 @@
       color: #8A6B3D;
     }
 
+    /* SECTIONS */
+
     .section-header {
       margin-bottom: 2rem;
     }
@@ -88,10 +99,12 @@
     }
 
     .section-header p {
-      max-width: 620px;
-      font-size: 0.95rem;
-      line-height: 1.7;
+      max-width: 640px;
+      font-size: 0.94rem;
+      line-height: 1.8;
     }
+
+    /* GRID */
 
     .product-grid {
       display: grid;
@@ -161,6 +174,8 @@
       opacity: 0.7;
     }
 
+    /* POSITIONING BAND */
+
     .note-band {
       background: #E4D8CB;
       border-radius: 20px;
@@ -170,6 +185,8 @@
       font-size: 0.95rem;
       line-height: 1.8;
     }
+
+    /* FOOTER LINKS */
 
     .bottom-links {
       border-top: 1px solid rgba(0,0,0,0.06);
@@ -200,12 +217,15 @@
       .hero {
         padding: 2.3rem 1.7rem;
       }
+
       .hero h1 {
         font-size: 2.1rem;
       }
+
       .page-wrap {
         padding-top: 3rem;
       }
+
       .note-band {
         padding: 1.7rem 1.5rem;
       }
@@ -213,37 +233,39 @@
   </style>
 </head>
 <body>
-
+  <!-- SITE HEADER / NAV -->
   <header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-mark">Époque Labs</a>
+    <div class="header-inner">
+      <a href="index.html" class="logo-mark">Époque Labs</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="archives.html">Archives</a>
-      <a href="compendium.html">Compendium</a>
-      <a href="method.html">Méthode</a>
-      <a href="products.html">Collection</a>
-      <a href="cosmetics.html">Cosmetics</a>
-      <a href="podcast.html">Podcast</a>
-      <a href="ritual-of-light-sonate-l.html">Ritual of Light</a>
-      <a href="sanctuaire.html">Sanctuaire</a>
-      <a href="connect.html">Connect</a>
-    </nav>
-  </div>
-</header>
-
-  <!-- include your existing Époque Labs header + nav here -->
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="archives.html">Archives</a>
+        <a href="compendium.html">Compendium</a>
+        <a href="method.html">Méthode</a>
+        <a href="products.html">Collection</a>
+        <a href="cosmetics.html">Cosmetics</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="ritual-of-light-sonate-l.html">Ritual of Light</a>
+        <a href="sanctuaire.html">Sanctuaire</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="page-wrap">
     <!-- HERO -->
     <section class="hero">
-      <div class="section-label">Époque Labs · Makeup</div>
+      <div class="section-label">Époque Labs · Cosmetics</div>
       <h1>Color, written in quiet light.</h1>
       <p class="lead">
-        The Époque Labs makeup edit is intentionally small: eyes, lips, and holiday sets
-        that feel collected rather than crowded. Soft neutrals, modern shimmer, and velvet
-        finishes designed to live beside Époquelle™—never compete with it.
+        The Époque Labs cosmetics collection is intentionally edited—eyes, lips, and curated
+        sets that feel collected rather than crowded. Shades are chosen to sit beside your
+        skincare, not compete with it.
+      </p>
+      <p class="sub">
+        Every piece is designed for lived-in elegance: soft neutrals, modern shimmer, and velvet
+        finishes that feel like an extension of the Époque ritual.
       </p>
       <div class="hero-buttons">
         <a href="#holiday-sets" class="btn-gold">Explore Holiday Collection</a>
@@ -257,20 +279,21 @@
         <div class="section-label">Holiday 2025 Collection</div>
         <h2>Curated sets for eyes and lips.</h2>
         <p>
-          Limited-release pieces created for the first Époque Labs holiday season—
-          easy to gift, effortless to keep. Each set is built around wearable tones
-          and textures that layer seamlessly with your existing ritual.
+          The first Époque Labs holiday release focuses on sets—thoughtful combinations designed
+          to be gifted or kept. Each one is built around wearable tones and textures that layer
+          easily into your existing routine.
         </p>
       </div>
 
       <div class="product-grid">
+        <!-- 3-Well Palette -->
         <article class="product-card">
           <div class="product-chip">Eyes · Palette</div>
           <h3 class="product-name">3-Well Eyeshadow Palette · Prefilled</h3>
-          <p class="product-tagline">Three curated shades, one quietly decisive compact.</p>
+          <p class="product-tagline">Three curated shades, one decisive compact.</p>
           <p class="product-notes">
-            A pre-edited trio of shadows designed for lid, contour, and soft definition.
-            Build from a sheer wash to sculpted depth without harsh lines.
+            A pre-edited trio for lid, contour, and definition. The tones are designed to move
+            from a sheer daytime veil to evening depth without harsh edges or heavy fallout.
           </p>
           <div class="product-footer">
             <span>Holiday 2025 release</span>
@@ -278,13 +301,14 @@
           </div>
         </article>
 
+        <!-- Lip Treatment Set -->
         <article class="product-card">
           <div class="product-chip">Lips · Treatment Set</div>
           <h3 class="product-name">Lip Treatment Ensemble</h3>
-          <p class="product-tagline">Care, color, and soft architecture for the lips.</p>
+          <p class="product-tagline">Care and color in one quiet gesture.</p>
           <p class="product-notes">
-            A holiday set that pairs conditioning care with flattering, everyday tones.
-            Created for those who want their lip color to feel protective, not performative.
+            A lip-focused set that pairs conditioning care with soft, wearable tones. Created
+            for those who want color that feels protective rather than performative.
           </p>
           <div class="product-footer">
             <span>Holiday 2025 release</span>
@@ -292,13 +316,14 @@
           </div>
         </article>
 
+        <!-- Eye Shimmer Set -->
         <article class="product-card">
           <div class="product-chip">Eyes · Shimmer Set</div>
           <h3 class="product-name">Eye Shimmer Collection</h3>
           <p class="product-tagline">Soft light, placed precisely where you want it.</p>
           <p class="product-notes">
-            A trio of luminous shades that catch the light without glitter fallout.
-            Wear alone for a veil of radiance or layer over matte tones for dimension.
+            A trio of refined shimmer shades that catch the light without glitter. Wear alone
+            for a sheer wash or layer over matte tones for subtle dimension.
           </p>
           <div class="product-footer">
             <span>Holiday 2025 release</span>
@@ -306,13 +331,14 @@
           </div>
         </article>
 
+        <!-- Gloss Set -->
         <article class="product-card">
           <div class="product-chip">Lips · Gloss Set</div>
           <h3 class="product-name">Gloss Beauty Lipgloss Set</h3>
-          <p class="product-tagline">Glass-like shine with Époque-level restraint.</p>
+          <p class="product-tagline">Glass-like shine with Époque restraint.</p>
           <p class="product-notes">
-            A selection of glosses that sit comfortably on the lip—never sticky, never loud.
-            Layer over lipstick or wear alone for a sheer, light-catching finish.
+            A selection of glosses that feel smooth, not sticky. Layer over lipstick for extra
+            dimension or wear alone for a clean, light-catching finish.
           </p>
           <div class="product-footer">
             <span>Holiday 2025 release</span>
@@ -320,13 +346,14 @@
           </div>
         </article>
 
+        <!-- Mini Lip Set -->
         <article class="product-card">
           <div class="product-chip">Lips · Mini Set</div>
           <h3 class="product-name">Mini Lip Set Kit</h3>
-          <p class="product-tagline">Pocket-sized tones for rotation and ritual.</p>
+          <p class="product-tagline">A small wardrobe of tones.</p>
           <p class="product-notes">
-            A wardrobe of miniature lip shades—neutrals, depth, and one quiet statement tone.
-            Ideal for testing your signature color or keeping one in every bag.
+            Miniature lip shades arranged as a rotation: neutrals, deeper tones, and one quiet
+            statement color. Easy for testing, travel, or leaving one in every bag.
           </p>
           <div class="product-footer">
             <span>Holiday 2025 release</span>
@@ -342,19 +369,20 @@
         <div class="section-label">Eyes &amp; Lips</div>
         <h2>Core pieces for daily wear.</h2>
         <p>
-          Beyond the holiday sets, these are the staples: single shadows and liquid velvet
-          lip color crafted to feel like part of your skin story, not a costume.
+          Beyond the sets, these are the staples—single eyeshadows and liquid velvet lip color
+          designed to become part of your everyday language. Quietly expressive, firmly adult.
         </p>
       </div>
 
       <div class="product-grid">
+        <!-- Eyeshadow Singles -->
         <article class="product-card">
           <div class="product-chip">Eyes · Singles</div>
           <h3 class="product-name">Époque Eyeshadow Singles</h3>
           <p class="product-tagline">Neutral maps for lids, crease, and liner.</p>
           <p class="product-notes">
-            Build a bespoke palette from individual pans—matte, satin, and refined shimmer finishes.
-            Designed to blend softly while maintaining depth of tone.
+            Individual pans in matte, satin, and refined shimmer finishes. Build your own
+            palette from tones that blend softly yet hold their structure on the eye.
           </p>
           <div class="product-footer">
             <span>Everyday staple</span>
@@ -362,13 +390,15 @@
           </div>
         </article>
 
+        <!-- Liquid Velvet Lipstick -->
         <article class="product-card">
           <div class="product-chip">Lips · Liquid Velvet</div>
           <h3 class="product-name">Liquid Velvet Lipstick</h3>
           <p class="product-tagline">Color that settles like fabric, not paint.</p>
           <p class="product-notes">
-            A plush, semi-matte liquid lipstick with a soft-focus finish—highly pigmented,
-            yet forgiving on lived-in lips. Comfortable for long wear, elegant for brief appearances.
+            A plush, semi-matte liquid lipstick with a soft-focus finish. High pigment with
+            a forgiving texture—comfortable enough for long days, polished enough for brief,
+            important moments.
           </p>
           <div class="product-footer">
             <span>Everyday staple</span>
@@ -382,17 +412,17 @@
     <section class="note-band">
       <div class="section-label">Positioning</div>
       <p>
-        The Époque Labs makeup collection exists to frame the skin, not overshadow it.
-        Every formula is selected to complement Époquelle™ and your clinical ritual—
-        wearable color, thoughtful textures, and finishes that feel considered instead of crowded.
+        The Époque Labs cosmetics collection is designed as a frame, not a mask. These pieces
+        are selected to work beside your skincare and Époquelle™ ritual—soft structure for the
+        face you already have, rather than a costume for a different one.
       </p>
     </section>
 
     <!-- FOOTER LINKS -->
     <section class="bottom-links">
       <p>
-        For the formulations behind the face, explore the Époquelle™ Collection or join
-        us inside Skincare Without Surgery™ for weekly conversations about skin decisions.
+        For the formulations beneath the finish, explore the Époquelle™ Collection or step
+        into Skincare Without Surgery™ for weekly conversations around real skin decisions.
       </p>
       <div class="link-row">
         <a href="products.html">Époquelle™ Collection</a>
@@ -402,6 +432,7 @@
     </section>
   </main>
 
-  <!-- existing Époque Labs footer here -->
+  <!-- Existing Époque Labs footer (if you have one) -->
 </body>
 </html>
+
