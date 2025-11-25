@@ -1,808 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Époque Labs · Cosmetics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-    /* Base */
-    :root {
-      --bg-main: #f7ecdf;
-      --bg-panel: #f4e3d4;
-      --bg-chip: #f9efe4;
-      --accent: #d4aa63;
-      --accent-soft: rgba(212,170,99,0.18);
-      --ink: #2b1811;
-      --ink-soft: #7b5b47;
-      --border-soft: rgba(0,0,0,0.06);
-      --radius-lg: 28px;
-      --radius-md: 18px;
-      --shadow-soft: 0 22px 55px rgba(0,0,0,0.06);
-      --shadow-pill: 0 10px 24px rgba(0,0,0,0.07);
-      --transition-fast: 220ms ease-out;
-      --font-serif: "Playfair Display", "Times New Roman", serif;
-      --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: radial-gradient(circle at top left, #fdf6ee 0%, var(--bg-main) 48%, #f3e4d6 100%);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Layout shell */
-    .page-shell {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px 80px;
-    }
-
-    header.nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .nav__logo {
-      font-family: var(--font-serif);
-      letter-spacing: 0.08em;
-      font-size: 34px;
-      text-transform: none;
-      margin-bottom: 10px;
-    }
-
-    .nav__subtitle {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      color: var(--ink-soft);
-      opacity: 0.85;
-      margin-bottom: 24px;
-    }
-
-    .nav__links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 26px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .nav__link {
-      position: relative;
-      padding-bottom: 4px;
-      color: var(--ink-soft);
-      opacity: 0.9;
-    }
-
-    .nav__link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width var(--transition-fast);
-    }
-
-    .nav__link:hover::after {
-      width: 100%;
-    }
-
-    .nav__link--active {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .nav__link--active::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero {
-      background: #f9efe4;
-      border-radius: 40px;
-      padding: 40px 32px 36px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      right: -140px;
-      top: -120px;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.8), transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .hero__kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    .hero__title {
-      font-family: var(--font-serif);
-      font-size: clamp(32px, 4vw, 40px);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .hero__lead {
-      max-width: 650px;
-      font-size: 15px;
-      color: var(--ink-soft);
-      margin-bottom: 30px;
-    }
-
-    .hero__grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 32px;
-      align-items: flex-start;
-    }
-
-    .hero__cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 24px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 600;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-                  background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
-      white-space: nowrap;
-    }
-
-    .btn-pill--solid {
-      background: var(--accent);
-      color: #fffdf8;
-      box-shadow: var(--shadow-pill);
-    }
-
-    .btn-pill--solid:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(212,170,99,0.35);
-    }
-
-    .btn-pill--ghost {
-      background: transparent;
-      border: 1px solid rgba(0,0,0,0.14);
-      color: var(--ink-soft);
-    }
-
-    .btn-pill--ghost:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: var(--ink);
-    }
-
-    .hero__note {
-      font-size: 12px;
-      color: var(--ink-soft);
-      opacity: 0.9;
-    }
-
-    .hero__panel {
-      background: rgba(255,255,255,0.72);
-      border-radius: 24px;
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(255,255,255,0.9);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.04);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__panel-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-      margin-bottom: 8px;
-    }
-
-    .hero__panel-title {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .hero__panel-text {
-      font-size: 13px;
-      color: var(--ink-soft);
-      margin-bottom: 14px;
-    }
-
-    .hero__swatches {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .swatch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--bg-chip);
-      border: 1px solid rgba(0,0,0,0.04);
-      font-size: 11px;
-      color: var(--ink-soft);
-    }
-
-    .swatch__dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #c98363;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.7);
-    }
-
-    .swatch__dot--rose { background: #c27d7e; }
-    .swatch__dot--neutral { background: #bf8f6e; }
-    .swatch__dot--wine { background: #5a2331; }
-
-    .hero__panel-footer {
-      font-size: 11px;
-      color: var(--ink-soft);
-      opacity: 0.85;
-    }
-
-    /* Section headings */
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .section__kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      color: var(--ink-soft);
-      margin-bottom: 10px;
-    }
-
-    .section__title {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .section__intro {
-      max-width: 700px;
-      font-size: 14px;
-      color: var(--ink-soft);
-    }
-
-    /* Lip architecture */
-    .lip-architecture {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: var(--bg-panel);
-      border-radius: var(--radius-lg);
-      padding: 24px 22px 22px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card__eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--ink-soft);
-      margin-bottom: 8px;
-    }
-
-    .card__title {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .card__text {
-      font-size: 14px;
-      color: var(--ink-soft);
-      margin-bottom: 18px;
-    }
-
-    .pill-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: var(--bg-chip);
-      color: var(--ink-soft);
-    }
-
-    .card__footer {
-      font-size: 11px;
-      color: var(--ink-soft);
-      opacity: 0.9;
-    }
-
-    .card--outline {
-      background: rgba(249,239,228,0.7);
-    }
-
-    /* Product grid */
-    .product-grid {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .product {
-      background: rgba(249,239,228,0.9);
-      border-radius: var(--radius-md);
-      padding: 18px 18px 16px;
-      border: 1px solid var(--border-soft);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 55%);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-      pointer-events: none;
-    }
-
-    .product:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-soft);
-      border-color: rgba(0,0,0,0.09);
-    }
-
-    .product:hover::before {
-      opacity: 1;
-    }
-
-    .product__label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-      margin-bottom: 6px;
-    }
-
-    .product__name {
-      font-family: var(--font-serif);
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .product__shade {
-      font-size: 13px;
-      color: var(--ink-soft);
-      margin-bottom: 10px;
-    }
-
-    .product__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--ink-soft);
-    }
-
-    .tag {
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    /* Positioning block */
-    .positioning {
-      background: rgba(243,227,211,0.92);
-      border-radius: 30px;
-      padding: 24px 22px;
-      margin-top: 10px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .positioning__label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      color: var(--ink-soft);
-      margin-bottom: 8px;
-    }
-
-    .positioning__text {
-      font-size: 14px;
-      color: var(--ink-soft);
-      max-width: 920px;
-    }
-
-    /* Footer nav */
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--ink-soft);
-    }
-
-    .footer-links a {
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .footer-links a:hover {
-      border-bottom-color: var(--accent);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero__grid,
-      .lip-architecture {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 30px 22px 28px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page-shell {
-        padding-inline: 16px;
-      }
-
-      .hero__title {
-        font-size: 28px;
-      }
-
-      .nav__links {
-        gap: 14px;
-        font-size: 12px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="page-shell">
-    <!-- Top nav + logo (static for this page) -->
-    <header class="nav">
-      <div class="nav__logo">Époque Labs</div>
-      <div class="nav__subtitle">Époque Labs · Cosmetics</div>
-
-      <nav class="nav__links">
-        <a href="#" class="nav__link">Home</a>
-        <a href="#" class="nav__link">Archives</a>
-        <a href="#" class="nav__link">Compendium</a>
-        <a href="#" class="nav__link">Méthode</a>
-        <a href="#" class="nav__link">Collection</a>
-        <a href="#" class="nav__link nav__link--active">Cosmetics</a>
-        <a href="#" class="nav__link">Podcast</a>
-        <a href="#" class="nav__link">Sanctuaire</a>
-        <a href="#" class="nav__link">Connect</a>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero__kicker">Époque Labs · Cosmetics</div>
-      <h1 class="hero__title">Color, written in quiet light.</h1>
-      <p class="hero__lead">
-        The Époque Labs cosmetics collection is intentionally edited—eyes, lips, and curated sets that feel collected rather
-        than crowded. Every shade is designed to sit beside your Époquelle™ ritual and Skincare Without Surgery™ conversations,
-        not compete with them.
-      </p>
-
-      <div class="hero__grid">
-        <div>
-          <div class="hero__cta-row">
-            <button class="btn-pill btn-pill--solid">Explore Époque Maison des Lèvres</button>
-            <button class="btn-pill btn-pill--ghost">Eyes &amp; Holiday 2025 Preview</button>
-          </div>
-          <p class="hero__note">
-            Soft neutrals, modern shimmer, and velvet finishes that feel like an extension of the face you already have, rather
-            than a costume for a different one.
-          </p>
-        </div>
-
-        <aside class="hero__panel">
-          <div class="hero__panel-tag">New · Époque Maison des Lèvres</div>
-          <div class="hero__panel-title">A lip wardrobe in three quiet gestures.</div>
-          <p class="hero__panel-text">
-            Treatment, glass-light gloss, and liquid velvet color—built as a small architecture for the mouth, where expression
-            and confidence begin.
-          </p>
-
-          <div class="hero__swatches">
-            <div class="swatch">
-              <span class="swatch__dot swatch__dot--rose"></span>
-              <span>Rose nude · <strong>Matin de Voile™</strong></span>
-            </div>
-            <div class="swatch">
-              <span class="swatch__dot swatch__dot--neutral"></span>
-              <span>Soft neutral · <strong>Silence Matiné™</strong></span>
-            </div>
-            <div class="swatch">
-              <span class="swatch__dot swatch__dot--wine"></span>
-              <span>Deep wine · <strong>Noir Grenat™</strong></span>
-            </div>
-          </div>
-
-          <p class="hero__panel-footer">
-            Designed for layered wear: vitamin treatment, soft liner, liquid velvet, and a veil of glass-light shine.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- MAISON DES LÈVRES – ARCHITECTURE -->
-    <section class="section">
-      <div class="section__kicker">Époque Maison des Lèvres</div>
-      <h2 class="section__title">The lip line that begins where skincare ends.</h2>
-      <p class="section__intro">
-        Built around one idea: when the skin is cared for, color should feel like punctuation, not performance.
-        Époque Maison des Lèvres pairs clinical care with quietly expressive shades, so lips feel protected, hydrated,
-        and distinctly Époque—at every age.
-      </p>
-
-      <div class="lip-architecture">
-        <article class="card">
-          <div class="card__eyebrow">Pillar I · Treatment</div>
-          <h3 class="card__title">The Lip Treatment Ensemble</h3>
-          <p class="card__text">
-            Conditioning pieces that behave like skincare—smoothing, softening, and shielding the lip surface so that color
-            lays down more beautifully and wears longer.
-          </p>
-          <ul class="pill-list">
-            <li class="pill"><strong>Voile Vitamine E™</strong> · clear vitamin E lipstick</li>
-            <li class="pill"><strong>Baume de Minuit™</strong> · nighttime lip balm</li>
-            <li class="pill"><strong>Éclisse Scrub™</strong> · micro-fine lip exfoliator</li>
-            <li class="pill"><strong>L’Étude Lip Serum™</strong> · lightweight treatment</li>
-            <li class="pill"><strong>Essence de Lèvres™</strong> · sheer gloss-treatment veil</li>
-          </ul>
-          <p class="card__footer">
-            All tones are universal and sheer, chosen so that any skin tone can step into the line beginning with care.
-          </p>
-        </article>
-
-        <article class="card card--outline">
-          <div class="card__eyebrow">Pillars II &amp; III · Color</div>
-          <h3 class="card__title">Glasslight Gloss &amp; Liquid Velvet Color</h3>
-          <p class="card__text">
-            A small, edited wardrobe: two glosses, one clear, and three liquid velvet shades with a soft focus, fabric-like
-            finish. Wear alone, layered, or diffused with fingertip for a blurred Paris-at-dusk lip.
-          </p>
-          <ul class="pill-list">
-            <li class="pill"><strong>Brillantine d’Époque™</strong> · warm nude gloss</li>
-            <li class="pill"><strong>Voix de Satin™</strong> · neutral rose gloss</li>
-            <li class="pill"><strong>Nuage Clair™</strong> · crystal clear gloss</li>
-            <li class="pill"><strong>Matin de Voile™</strong> · rose nude liquid velvet</li>
-            <li class="pill"><strong>Silence Matiné™</strong> · soft neutral liquid velvet</li>
-            <li class="pill"><strong>Noir Grenat™</strong> · deep wine liquid velvet</li>
-          </ul>
-          <p class="card__footer">
-            Shades were selected to be wearable across undertones: fair, medium, olive, deep, and rich. Quiet, not anonymous.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- TREATMENT PRODUCTS -->
-    <section class="section">
-      <div class="section__kicker">Pillar I · Treatment</div>
-      <h2 class="section__title">Care pieces for daily ritual.</h2>
-      <p class="section__intro">
-        Begin with treatment. These formulas are designed to be reached for morning and night—alone on bare lips or as the
-        first step under color.
-      </p>
-
-      <div class="product-grid">
-        <article class="product">
-          <div class="product__label">Lip treatment</div>
-          <h3 class="product__name">Voile Vitamine E™</h3>
-          <p class="product__shade">Clear vitamin E lipstick that melts into a soft protective veil.</p>
-          <div class="product__tags">
-            <span class="tag">Antioxidant-rich</span>
-            <span class="tag">Universal clear</span>
-            <span class="tag">Wears under any shade</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Night care</div>
-          <h3 class="product__name">Baume de Minuit™</h3>
-          <p class="product__shade">A cushiony nighttime balm that softens while you sleep.</p>
-          <div class="product__tags">
-            <span class="tag">Overnight repair</span>
-            <span class="tag">Soft-matte cushion</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Exfoliation</div>
-          <h3 class="product__name">Éclisse Scrub™</h3>
-          <p class="product__shade">Micro-fine sugar polish in a neutral base—no grainy afterfeel.</p>
-          <div class="product__tags">
-            <span class="tag">Pre-color prep</span>
-            <span class="tag">Smooths texture</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Serum veil</div>
-          <h3 class="product__name">L’Étude Lip Serum™</h3>
-          <p class="product__shade">Lightweight, clinical-feeling treatment for days when lips need more.</p>
-          <div class="product__tags">
-            <span class="tag">Featherweight texture</span>
-            <span class="tag">Can be worn alone</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Treatment gloss</div>
-          <h3 class="product__name">Essence de Lèvres™</h3>
-          <p class="product__shade">Sheer, softly warm gloss that behaves like care and looks like glass.</p>
-          <div class="product__tags">
-            <span class="tag">Sheer tint</span>
-            <span class="tag">Layering-friendly</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- GLOSS + LIQUID VELVET PRODUCTS -->
-    <section class="section">
-      <div class="section__kicker">Pillars II &amp; III · Color</div>
-      <h2 class="section__title">Glass-light gloss &amp; liquid velvet color.</h2>
-      <p class="section__intro">
-        Three glosses. Three liquid velvets. Enough to build a signature lip for work, evening, and the kind of days where a
-        single deep shade says everything.
-      </p>
-
-      <div class="product-grid">
-        <!-- Glosses -->
-        <article class="product">
-          <div class="product__label">Gloss · Nude</div>
-          <h3 class="product__name">Brillantine d’Époque™</h3>
-          <p class="product__shade">Warm nude gloss—peach-beige with a whisper of gold micro-shimmer.</p>
-          <div class="product__tags">
-            <span class="tag">Everyday neutral</span>
-            <span class="tag">Works on all tones</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Gloss · Rose</div>
-          <h3 class="product__name">Voix de Satin™</h3>
-          <p class="product__shade">Neutral rose gloss that feels elegant, grown, and softly luminous.</p>
-          <div class="product__tags">
-            <span class="tag">Desk to dinner</span>
-            <span class="tag">Soft-shine finish</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Gloss · Clear</div>
-          <h3 class="product__name">Nuage Clair™</h3>
-          <p class="product__shade">Pure glass finish—over liner, over lipstick, or on bare lips alone.</p>
-          <div class="product__tags">
-            <span class="tag">Universal</span>
-            <span class="tag">Hero gloss</span>
-          </div>
-        </article>
-
-        <!-- Liquid Velvet -->
-        <article class="product">
-          <div class="product__label">Liquid velvet · Rose nude</div>
-          <h3 class="product__name">Matin de Voile™</h3>
-          <p class="product__shade">Dusty rose-nude with a soft, semi-matte veil—your “day camera” lip.</p>
-          <div class="product__tags">
-            <span class="tag">Universally flattering</span>
-            <span class="tag">Soft-focus finish</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Liquid velvet · Neutral</div>
-          <h3 class="product__name">Silence Matiné™</h3>
-          <p class="product__shade">Beige-mink neutral for the quiet, sculpted lip that looks like skin, not makeup.</p>
-          <div class="product__tags">
-            <span class="tag">No-makeup makeup</span>
-            <span class="tag">Layers with any gloss</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="product__label">Liquid velvet · Deep wine</div>
-          <h3 class="product__name">Noir Grenat™</h3>
-          <p class="product__shade">Blackened garnet—rich, wardrobe-deepening, and still distinctly wearable.</p>
-          <div class="product__tags">
-            <span class="tag">Evening or editorial</span>
-            <span class="tag">Blurs softly at the edge</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- POSITIONING + CROSS-LINKS -->
-    <section class="section">
-      <div class="positioning">
-        <div class="positioning__label">Positioning</div>
-        <p class="positioning__text">
-          The Époque Labs cosmetics collection is designed as a frame, not a mask. These pieces are selected to work beside
-          your skincare and Époquelle™ ritual—soft structure for the face you already have, rather than a costume for a
-          different one. Color is edited, not endless, so that every choice feels deliberate.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#">Époquelle™ Collection</a>
-        <a href="#">Skincare Without Surgery™ Podcast</a>
-        <a href="#">Return Home</a>
-      </div>
-    </section>
+<section class="el-hero el-hero-lips">
+  <p class="el-eyebrow">
+    ÉPOQUE LABS · ÉPOQUE MAISON DES LÈVRES™
+  </p>
+
+  <h1 class="el-title">
+    The mouth, written in quiet light.
+  </h1>
+
+  <p class="el-intro">
+    Époque Maison des Lèvres™ is a small lip house inside Époque Labs—treatment,
+    glass-light gloss, and liquid velvet color composed like sentences across the mouth.
+    Every formula is built to sit beside Époquelle™ skincare and Skincare Without Surgery™
+    conversations, so the face feels considered as a whole, not divided into parts.
+  </p>
+
+  <p class="el-intro">
+    Shades are intentionally few, deliberately edited, and designed to feel
+    like structure rather than costume: soft neutrals, deep wine, and a
+    clear architecture of shine.
+  </p>
+
+  <div class="el-hero-actions">
+    <a href="#lip-wardrobe" class="el-btn el-btn-primary">
+      Explore the Lip Wardrobe
+    </a>
+    <a href="#lip-ritual" class="el-btn el-btn-ghost">
+      Begin with the Lip Ritual
+    </a>
   </div>
-</body>
-</html>
+</section>
+
+
+<!-- 01 · THE HOUSE STATEMENT -->
+
+<section id="lip-house" class="el-section el-section-wide">
+  <p class="el-eyebrow">LES COULEURS D’ÉPOQUE™ · HOUSE STATEMENT</p>
+
+  <h2 class="el-heading">
+    A lip line that begins where skincare ends.
+  </h2>
+
+  <p class="el-body">
+    When the skin is cared for, color should feel like punctuation, not performance.
+    Époque Maison des Lèvres™ pairs clinical-feeling care with quietly expressive
+    shades, so lips feel protected, hydrated, and distinctly Époque—at every age.
+  </p>
+
+  <blockquote class="el-quote">
+    Les Couleurs d’Époque™ — crafted in quiet elegance, worn in undeniable presence.
+  </blockquote>
+</section>
+
+
+<!-- 02 · LIP RITUAL (TREATMENT PILLAR) -->
+
+<section id="lip-ritual" class="el-section el-section-grid">
+  <p class="el-eyebrow">PILLAR I · THE LIP RITUAL</p>
+
+  <h2 class="el-heading">
+    Care pieces for daily ritual.
+  </h2>
+
+  <p class="el-body">
+    The Maison line begins with care. These formulas behave like skincare—smoothing,
+    softening, and shielding the lip surface so every shade lays down more beautifully
+    and wears longer. Morning and night, alone or under color.
+  </p>
+
+  <div class="el-card-grid">
+
+    <article class="el-card">
+      <h3 class="el-card-title">Voile Vitamine E™</h3>
+      <p class="el-card-sub">Clear vitamin&nbsp;E lipstick · Universal veil</p>
+      <p class="el-card-body">
+        A clear veil of restorative luxury. Enriched with vitamin&nbsp;E, this
+        treatment stick melts on contact, wrapping the mouth in weightless hydration
+        and a soft, glass-like sheen. The first step in every Époque lip ritual.
+      </p>
+      <ul class="el-tag-row">
+        <li>Antioxidant-rich</li>
+        <li>Wears under any shade</li>
+        <li>Day or night</li>
+      </ul>
+    </article>
+
+    <article class="el-card">
+      <h3 class="el-card-title">Baume de Minuit™</h3>
+      <p class="el-card-sub">Night balm · Soft-matte cushion</p>
+      <p class="el-card-body">
+        A cushiony nighttime balm that softens as you sleep. Lips wake smoother,
+        more supple, and ready for color with less tug and fewer lines.
+      </p>
+      <ul class="el-tag-row">
+        <li>Overnight repair</li>
+        <li>Feather-soft texture</li>
+        <li>No heavy residue</li>
+      </ul>
+    </article>
+
+    <article class="el-card">
+      <h3 class="el-card-title">Éclisse Scrub™</h3>
+      <p class="el-card-sub">Micro-fine sugar exfoliator</p>
+      <p class="el-card-body">
+        A neutral-base sugar polish with a micro-fine grain. Smooths away roughness
+        without a gritty afterfeel, leaving the lip line refined and ready for
+        precise application.
+      </p>
+      <ul class="el-tag-row">
+        <li>Pre-color prep</li>
+        <li>No grainy film</li>
+        <li>Softens texture</li>
+      </ul>
+    </article>
+
+    <article class="el-card">
+      <h3 class="el-card-title">L’Étude Lip Serum™</h3>
+      <p class="el-card-sub">Lightweight serum veil</p>
+      <p class="el-card-body">
+        A featherweight, clinical-feeling treatment for days when lips need more.
+        Wears alone for a bare, cared-for look or under color for extra comfort and
+        a soft, diffused finish.
+      </p>
+      <ul class="el-tag-row">
+        <li>Featherweight slip</li>
+        <li>Can be worn alone</li>
+        <li>Layer under velvet</li>
+      </ul>
+    </article>
+
+    <article class="el-card el-card-span">
+      <h3 class="el-card-title">Essence de Lèvres™</h3>
+      <p class="el-card-sub">Sheer gloss-treatment veil</p>
+      <p class="el-card-body">
+        Hydration, light, and a whisper of fullness. This gloss-treatment hybrid
+        behaves like care and looks like glass, bringing soft plumpness without sting
+        or tingling—only elegance.
+      </p>
+      <ul class="el-tag-row">
+        <li>Glass-light shine</li>
+        <li>Soft fullness (no burn)</li>
+        <li>Wears over any shade</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <p class="el-footnote">
+    All treatment pieces are universal and sheer, chosen so any skin tone can step
+    into the line beginning with care.
+  </p>
+</section>
+
+
+<!-- 03 · COLOR PILLAR (GLOSS + VELVET) -->
+
+<section id="lip-wardrobe" class="el-section el-section-wide">
+  <p class="el-eyebrow">PILLARS II &amp; III · COLOR WARDROBE</p>
+
+  <h2 class="el-heading">
+    A small, edited wardrobe of gloss and velvet.
+  </h2>
+
+  <p class="el-body">
+    Color in Époque Maison des Lèvres™ is quiet by design. Two glass-light glosses,
+    one crystal clear, and three liquid velvet shades with a soft-focus, fabric-like
+    finish. Worn alone, layered, or diffused with fingertip for a blurred
+    Paris-at-dusk lip.
+  </p>
+
+  <!-- Glasslight Gloss Line -->
+  <section class="el-subsection">
+    <h3 class="el-subheading">
+      Glasslight Gloss Line
+      <span class="el-subtag">“Light, lacquer, and the subtle architecture of shine.”</span>
+    </h3>
+
+    <div class="el-card-grid">
+
+      <article class="el-card">
+        <h4 class="el-card-title">Brillantine d’Époque™</h4>
+        <p class="el-card-sub">Warm nude gloss · Soft gold micro-shimmer</p>
+        <p class="el-card-body">
+          Soft peach-beige with quiet gold reflection. A warm nude that reads as
+          polished skin rather than glitter—perfect alone or as a finishing veil
+          over Matin de Voile™.
+        </p>
+        <ul class="el-tag-row">
+          <li>Everyday nude</li>
+          <li>Subtle dimension</li>
+          <li>Suited to all tones</li>
+        </ul>
+      </article>
+
+      <article class="el-card">
+        <h4 class="el-card-title">Voix de Satin™</h4>
+        <p class="el-card-sub">Neutral rose gloss · Satin sheen</p>
+        <p class="el-card-body">
+          A neutral rose-beige with satin shine—elegant, grown, and calm on the
+          mouth. Lends quiet color to bare lips or softens the edge of deeper
+          shades like Noir Grenat™.
+        </p>
+        <ul class="el-tag-row">
+          <li>Universal rose</li>
+          <li>Office to evening</li>
+          <li>Layer-friendly</li>
+        </ul>
+      </article>
+
+      <article class="el-card">
+        <h4 class="el-card-title">Nuage Clair™</h4>
+        <p class="el-card-sub">Crystal clear gloss · Glass-light finish</p>
+        <p class="el-card-body">
+          Pure clarity with Époque restraint. Wears alone for a clean, light-catching
+          lip or over any Maison shade without altering its undertone.
+        </p>
+        <ul class="el-tag-row">
+          <li>Glass effect</li>
+          <li>Non-sticky</li>
+          <li>Works over everything</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Liquid Velvet Line -->
+  <section class="el-subsection">
+    <h3 class="el-subheading">
+      Liquid Velvet Line
+      <span class="el-subtag">“Soft-matte veils for women who speak without raising their voice.”</span>
+    </h3>
+
+    <div class="el-card-grid">
+
+      <article class="el-card">
+        <h4 class="el-card-title">Matin de Voile™</h4>
+        <p class="el-card-sub">Rose nude liquid velvet</p>
+        <p class="el-card-body">
+          Soft-matte with a morning-light hush. A muted rose-nude that feels like
+          silk and looks like breathless quiet—the everyday lip, perfected.
+        </p>
+        <ul class="el-tag-row">
+          <li>Day-to-night neutral</li>
+          <li>Soft-focus finish</li>
+          <li>Beautiful under gloss</li>
+        </ul>
+      </article>
+
+      <article class="el-card">
+        <h4 class="el-card-title">Silence Matiné™</h4>
+        <p class="el-card-sub">Soft neutral liquid velvet</p>
+        <p class="el-card-body">
+          Beige-mink neutrality. The “no-makeup makeup” matte that frames the face
+          without announcing itself. Worn alone or as a base, it leaves only
+          structure and intention.
+        </p>
+        <ul class="el-tag-row">
+          <li>Understated chic</li>
+          <li>Medium-depth neutral</li>
+          <li>Pairs with any gloss</li>
+        </ul>
+      </article>
+
+      <article class="el-card">
+        <h4 class="el-card-title">Noir Grenat™</h4>
+        <p class="el-card-sub">Deep wine liquid velvet</p>
+        <p class="el-card-body">
+          Garnet depth, midnight certainty. A deep wine shade shaped for evenings,
+          impact, and the unspoken pull of quiet seduction. Bold without volume,
+          powerful without noise.
+        </p>
+        <ul class="el-tag-row">
+          <li>Statement shade</li>
+          <li>Soft-matte, not flat</li>
+          <li>Dial down with Voix de Satin™</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <p class="el-footnote">
+    The Maison des Lèvres palette was edited to be wearable across undertones:
+    fair, medium, olive, deep, and rich. Quiet, not anonymous.
+  </p>
+</section>
+
+
+<!-- 04 · CLOSING POSITIONING -->
+
+<section class="el-section el-section-narrow">
+  <p class="el-eyebrow">POSITIONING</p>
+
+  <h2 class="el-heading">
+    A frame for the face you already have.
+  </h2>
+
+  <p class="el-body">
+    Époque Maison des Lèvres™ is not a maximal lip bar. It is a considered wardrobe
+    of care, gloss, and velvet that sits beside Époquelle™ skincare as a final,
+    quiet gesture. A frame rather than a mask, for women whose presence is already
+    doing the work.
+  </p>
+
+  <div class="el-links">
+    <a href="/epoquelle" class="el-link">Explore the Époquelle™ Collection</a>
+    <a href="/podcast" class="el-link">Skincare Without Surgery™ Podcast</a>
+    <a href="/" class="el-link">Return Home</a>
+  </div>
+</section>
+
 
