@@ -863,6 +863,12 @@ footer.site-footer{
   line-height:1.6;
   opacity:.9;
 }
+footer.site-footer {
+  background:#241613;
+  color:#f9f3ec;
+  padding:24px 1.5rem 26px;
+  margin-top:52px;
+}
 
 
 
