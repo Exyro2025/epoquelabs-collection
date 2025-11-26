@@ -21,7 +21,6 @@
       --pill-bg:#f9efe3;
       --pill-border:#e1c9aa;
       --chip-bg:#f2dfca;
-      --chip-deep:#d8b29a;
       --chip-velvet:#c69a8b;
       --chip-wine:#4b151d;
       --shadow-soft:0 28px 70px rgba(0,0,0,.06);
@@ -33,35 +32,11 @@
     body{
       margin:0;
       font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#fffdf9 0,#f7e9da 55%,#f2dfcf 100%);
       color:var(--ink);
-      min-height:100vh;
-      position:relative;
-      /* base warm gradient */
-      background:
-        radial-gradient(circle at top,#fffdf9 0,#f7e9da 55%,#f2dfcf 100%);
     }
 
-    /* velvet texture overlay */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:-1;
-      background-image:
-        radial-gradient(circle at 0 0,rgba(255,255,255,.42) 0,transparent 55%),
-        radial-gradient(circle at 100% 100%,rgba(255,255,255,.32) 0,transparent 55%),
-        repeating-linear-gradient(135deg,
-          rgba(255,255,255,.10) 0,
-          rgba(255,255,255,.10) 2px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 4px
-        );
-      mix-blend-mode:soft-light;
-      opacity:.8;
-    }
-
-    .lips-page{
+    main.lips-page{
       min-height:100vh;
       padding:72px 5vw 96px;
       max-width:1200px;
@@ -81,6 +56,28 @@
       color:var(--ink-soft);
     }
 
+    /* BRAND HIERARCHY BAND -------------------------------- */
+
+    .brand-band{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 18px;
+      align-items:center;
+      margin-bottom:18px;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--ink-soft);
+    }
+
+    .brand-pill{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(156,117,87,.25);
+      background:rgba(255,255,255,.8);
+      font-weight:500;
+    }
+
     /* HERO -------------------------------------------------- */
 
     .hero{
@@ -93,20 +90,18 @@
       gap:32px;
       position:relative;
       overflow:hidden;
+      margin-bottom:32px;
     }
 
-    /* portrait-style lighting */
     .hero::before{
       content:"";
       position:absolute;
-      inset:-35%;
+      inset:-40%;
       background:
-        radial-gradient(ellipse at 50% -40%,rgba(255,255,255,.70) 0,transparent 68%),
-        radial-gradient(circle at 10% 10%,rgba(255,255,255,.65) 0,transparent 55%),
+        radial-gradient(circle at 10% 0,rgba(255,255,255,.6) 0,transparent 55%),
         radial-gradient(circle at 90% 100%,rgba(255,255,255,.55) 0,transparent 55%);
-      opacity:.9;
+      opacity:.7;
       pointer-events:none;
-      mix-blend-mode:soft-light;
     }
 
     .hero-inner{
@@ -115,9 +110,9 @@
     }
 
     .hero h1{
-      font-size:2.6rem;
+      font-size:2.5rem;
       line-height:1.08;
-      margin-top:12px;
+      margin-top:10px;
       margin-bottom:18px;
     }
 
@@ -176,8 +171,7 @@
     .hero-tagline-small{
       font-size:.85rem;
       color:var(--ink-soft);
-      margin-top:10px;
-      max-width:32rem;
+      margin-top:6px;
     }
 
     /* Hero shade panel */
@@ -187,7 +181,7 @@
       z-index:1;
       border-radius:30px;
       padding:22px 22px 20px;
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.76);
       backdrop-filter:blur(14px);
       display:flex;
       flex-direction:column;
@@ -243,7 +237,7 @@
     /* HOUSE STATEMENT -------------------------------------- */
 
     .house-statement{
-      margin-top:40px;
+      margin-top:12px;
       padding:18px 22px;
       border-radius:999px;
       background:rgba(255,255,255,.9);
@@ -265,7 +259,7 @@
     /* PILLARS --------------------------------------------- */
 
     .pillars{
-      margin-top:56px;
+      margin-top:48px;
       display:grid;
       grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr);
       gap:28px;
@@ -308,7 +302,7 @@
     .item-pill{
       background:rgba(255,255,255,.9);
       border-radius:999px;
-      padding:10px 16px;
+      padding:7px 14px;
       display:flex;
       flex-wrap:wrap;
       justify-content:space-between;
@@ -321,11 +315,73 @@
     .item-name{
       font-weight:600;
       font-family:'Playfair Display',serif;
-      font-size:.9rem;
+      font-size:.85rem;
     }
 
     .item-note{
       color:var(--ink-soft);
+    }
+
+    /* LA GALERIE CAPSULES --------------------------------- */
+
+    .capsule-section{
+      margin-top:56px;
+      background:var(--paper-deep);
+      border-radius:var(--radius-xl);
+      padding:26px 26px 26px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .capsule-eyebrow{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--ink-soft);
+      margin-bottom:6px;
+    }
+
+    .capsule-section h2{
+      font-size:1.45rem;
+      margin-bottom:8px;
+    }
+
+    .capsule-section > p{
+      font-size:.94rem;
+      color:var(--ink-soft);
+      max-width:46rem;
+      margin-bottom:20px;
+    }
+
+    .capsule-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .capsule-card{
+      background:rgba(255,255,255,.92);
+      border-radius:18px;
+      padding:14px 14px 13px;
+      font-size:.86rem;
+      color:var(--ink-soft);
+      border:1px solid rgba(232,199,168,.9);
+    }
+
+    .capsule-title{
+      font-family:'Playfair Display',serif;
+      font-size:1rem;
+      margin-bottom:4px;
+      color:var(--ink);
+    }
+
+    .capsule-tag{
+      display:inline-block;
+      margin-top:6px;
+      font-size:.76rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--ink-soft);
+      opacity:.8;
     }
 
     /* FOOTER NOTE ----------------------------------------- */
@@ -340,8 +396,50 @@
     .footer-note a{
       color:var(--gold);
       text-decoration:none;
+      border-bottom:1px solid rgba(199,156,84,.25);
+      padding-bottom:1px;
     }
-    .footer-note a:hover{text-decoration:underline;}
+    .footer-note a:hover{
+      border-bottom-color:rgba(199,156,84,.7);
+    }
+
+    /* SITE FOOTER (GLOBAL STRIP) -------------------------- */
+
+    footer.site-footer{
+      background:#241613;
+      color:#f9f3ec;
+      padding:24px 1.5rem 26px;
+      margin-top:52px;
+    }
+
+    .footer-inner{
+      max-width:1200px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .footer-nav{
+      margin-bottom:1.2rem;
+    }
+
+    .footer-nav a{
+      margin:0 .75rem;
+      font-size:.86rem;
+      text-decoration:none;
+      color:#f3e4d6;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .footer-nav a:hover{
+      color:#f7cf8a;
+    }
+
+    .footer-copy{
+      font-size:.82rem;
+      line-height:1.6;
+      opacity:.9;
+    }
 
     /* RESPONSIVE ------------------------------------------ */
 
@@ -352,17 +450,23 @@
       .pillars{
         grid-template-columns:1fr;
       }
-      .lips-page{
+      .capsule-grid{
+        grid-template-columns:1fr 1fr;
+      }
+      main.lips-page{
         padding:56px 5vw 80px;
       }
     }
 
-    @media (max-width:600px){
+    @media (max-width:640px){
       .hero{
         padding:28px 22px 26px;
       }
       .hero h1{
-        font-size:2.1rem;
+        font-size:2rem;
+      }
+      .capsule-grid{
+        grid-template-columns:1fr;
       }
     }
   </style>
@@ -377,15 +481,14 @@
       <div class="eyebrow">Époque Labs · Époque Maison des Lèvres™</div>
       <h1>The lip, refined to a whisper.</h1>
       <p>
-        Époque Maison des Lèvres™ is a quiet lip house inside Époque Labs—treatment, glass-light
-        gloss, and liquid velvet color designed to feel like soft expression, not performance.
-        Every formula sits beside your Époquelle™ ritual and Skincare Without Surgery™
-        conversations so the mouth, face, and daily care read as one story—refined, intentional,
-        beautifully understated.
+        Époque Maison des Lèvres™ is a quiet lip house inside Époque Labs—treatment, glass-light gloss,
+        and liquid velvet color designed to feel like soft expression, not performance. Every formula
+        sits beside your Époquelle™ ritual and Skincare Without Surgery™ conversations so the mouth,
+        face, and daily care read as one story—refined, intentional, beautifully understated.
       </p>
       <div class="hero-actions">
         <a href="#ritual" class="btn-main">Explore the Lip Ritual</a>
-        <a href="#couleurs" class="btn-ghost">View Les Couleurs d’Époque™</a>
+        <a href="#color" class="btn-ghost">View Les Couleurs d’Époque™</a>
       </div>
       <div class="hero-tagline-small">
         A small wardrobe of shades—rose nude, soft neutral, deep wine, and glass-light gloss—that
@@ -417,14 +520,14 @@
       </div>
 
       <small>
-        One rose nude, one quiet neutral, one garnet wine, and three gloss gestures that read as glass,
-        not glitter—built so any age, any undertone can step in without feeling over-made.
+        One rose nude, one quiet neutral, one garnet wine, and three gloss gestures that read as
+        glass, not glitter—built so any age, any undertone can step in without feeling over-made.
       </small>
     </aside>
   </section>
 
   <!-- HOUSE STATEMENT -->
-  <section id="couleurs" class="house-statement">
+  <section class="house-statement">
     <strong>Les Couleurs d’Époque™</strong>
     <span>crafted in quiet elegance, worn in undeniable presence.</span>
     <span>Every shade is meant to read as punctuation, not performance.</span>
@@ -437,9 +540,9 @@
       <div class="pillar-label">Pillar I · The Lip Ritual</div>
       <h2>The Lip Treatment Ensemble</h2>
       <p>
-        Begin with care. These formulas behave like skincare—smoothing, softening, and shielding the
-        lip surface so color lays down more beautifully and wears longer. Morning and night, alone
-        on bare lips or as the first step under color.
+        Begin with care. These formulas behave like skincare—smoothing, softening, and shielding
+        the lip surface so color lays down more beautifully and wears longer. Morning and night,
+        alone on bare lips or as the first step under color.
       </p>
 
       <div class="item-grid">
@@ -467,13 +570,13 @@
     </article>
 
     <!-- Pillars II & III -->
-    <article class="pillar-card">
+    <article class="pillar-card" id="color">
       <div class="pillar-label">Pillars II &amp; III · Color</div>
       <h2>Glasslight Gloss &amp; Liquid Velvet Color</h2>
       <p>
         A deliberate edit: two glosses and three liquid velvet shades with a soft-focus,
-        fabric-like finish. Wear alone, layered over treatment, or diffused with fingertip for
-        a blurred Paris-at-dusk lip that looks lived-in, not labored.
+        fabric-like finish. Wear alone, layered over treatment, or diffused with fingertip for a
+        blurred Paris-at-dusk lip that looks lived-in, not labored.
       </p>
 
       <div class="item-grid">
@@ -505,21 +608,30 @@
     </article>
   </section>
 
+  <!-- CROSS-LINK TO SKINCARE & PODCAST -->
+  <section class="footer-note">
+    For the skin that sits beneath the color, guests are guided back to the
+    <a href="/products.html">Époquelle™ Collection</a> and the
+    <a href="/podcast.html">Skincare Without Surgery™ podcast</a>&mdash;so the mouth, face, and ritual read as one story.
+  </section>
+
+</main>
+
 <!-- GLOBAL FOOTER STRIP -->
 <footer class="site-footer">
   <div class="footer-inner">
-
     <nav class="footer-nav">
       <a href="/index.html">Home</a>
       <a href="/cosmetics.html">Cosmetics</a>
       <a href="/compendium.html">Compendium</a>
       <a href="/podcast.html">Podcast</a>
     </nav>
-
     <p class="footer-copy">
       © 2025 Époque Labs™. All rights reserved.<br>
       Époquelle™, La Méthode Émile™, and Compendium d’Aragon™ are protected trademarks.
     </p>
-
   </div>
 </footer>
+
+</body>
+</html>
