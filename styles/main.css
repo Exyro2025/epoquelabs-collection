@@ -870,6 +870,45 @@ footer.site-footer {
   margin-top:52px;
 }
 
+/* SITE FOOTER (GLOBAL STRIP) -------------------------- */
+
+body footer.site-footer{
+  background:#241613;
+  color:#f9f3ec;
+  padding:24px 1.5rem 26px;
+  margin-top:52px;
+}
+
+body footer.site-footer .footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  text-align:center;
+}
+
+body footer.site-footer .footer-nav{
+  margin-bottom:1.2rem;
+}
+
+body footer.site-footer .footer-nav a{
+  margin:0 .75rem;
+  font-size:.86rem;
+  text-decoration:none;
+  color:#f3e4d6;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+body footer.site-footer .footer-nav a:hover{
+  color:#f7cf8a;
+}
+
+body footer.site-footer .footer-copy{
+  font-size:.82rem;
+  line-height:1.6;
+  opacity:.9;
+}
+
+
 
 
 
