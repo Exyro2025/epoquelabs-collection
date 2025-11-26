@@ -611,6 +611,119 @@ details.reservation-terms .rt-body {
   }
 </style>
 
+/* -------------------------------------------
+   ÉPOQUE LUXE REFINEMENTS — DO NOT MODIFY
+--------------------------------------------*/
+
+/* Softer luxury gradient background */
+body{
+  background:
+    radial-gradient(circle at top left, #fffdf9 0%, #f6e9db 48%, #f2ded0 100%);
+}
+
+/* Hero title refinement — more elegant spacing */
+.hero h1{
+  letter-spacing:-0.5px;
+  font-weight:600;
+  font-size:2.65rem;
+}
+
+/* Paragraph refinement — smoother reading texture */
+.hero p,
+.pillar-card p{
+  font-size:1.03rem;
+  line-height:1.75;
+  color:var(--ink-soft);
+}
+
+/* Card refinement — more sculptural edges, lifted shadow */
+.pillar-card,
+.shade-panel,
+.shade-grid{
+  border-radius:32px;
+  box-shadow:0 32px 80px rgba(0,0,0,.07);
+}
+
+/* Shade pills — more couture, less rounded-bubble */
+.shade-pill{
+  border-radius:22px;
+  padding:6px 14px 6px 8px;
+  border:1px solid rgba(199,156,84,.28);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(8px);
+}
+
+/* Item pills — slimmer, more elegant */
+.item-pill{
+  border-radius:18px;
+  padding:9px 16px;
+  border:1px solid rgba(220,190,160,.45);
+  background:rgba(255,255,255,.8);
+}
+
+/* Buttons — stronger luxury finish */
+.btn-main{
+  background:linear-gradient(130deg,#d7b278 0%, #c89c5c 100%);
+  box-shadow:0 14px 40px rgba(180,135,70,.35);
+}
+
+.btn-main:hover{
+  box-shadow:0 20px 54px rgba(180,135,70,.42);
+}
+
+.btn-ghost{
+  background:rgba(255,255,255,.7);
+  border:1px solid rgba(0,0,0,.05);
+}
+
+/* House statement — softer translucency, more couture spacing */
+.house-statement{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(220,190,160,.35);
+  padding:22px 30px;
+  font-size:.9rem;
+  letter-spacing:.01em;
+}
+
+/* Footer note — cinematically soft and centered */
+.footer-note{
+  opacity:.92;
+  line-height:1.6;
+  margin-top:56px;
+  font-size:.9rem;
+  text-align:center;
+}
+.footer-note a{
+  color:#c79c54;
+  font-weight:500;
+}
+.footer-note a:hover{
+  opacity:.8;
+}
+
+/* Header eyebrow text — finer grain */
+.eyebrow{
+  font-size:.75rem;
+  letter-spacing:.2em;
+  color:rgba(110,82,69,.75);
+}
+
+/* Improve spacing in pillars */
+.pillars{
+  gap:36px;
+  margin-top:72px;
+}
+
+/* Responsive refinement */
+@media(max-width:600px){
+  .hero h1{ font-size:2.2rem; }
+  .pillar-card,
+  .shade-panel,
+  .shade-grid{
+    border-radius:28px;
+  }
+}
+
 
 
 
