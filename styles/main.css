@@ -108,13 +108,14 @@ footer{
 --------------------------------- */
 .collection-hero{
   background:
-    url('../assets/assets/images/wax-seal-e.svg') no-repeat right 6% top 120px,
-    url('../assets/assets/images/blueprint-pattern.svg') repeat,
+    url('../assets/images/wax-seal-e.svg') no-repeat right 6% top 120px,
+    url('../assets/images/blueprint-pattern.svg') repeat,
     radial-gradient(1200px 800px at 75% 10%, rgba(179,139,89,.10), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,.015), rgba(0,0,0,0)),
     #fdf8f3;
   background-size: 360px auto, 520px auto, 100% 100%, 100% 100%, auto;
 }
+
 @media (max-width:1024px){
   .collection-hero{
     background-position: right 3% bottom -100px, center, center, center, center;
