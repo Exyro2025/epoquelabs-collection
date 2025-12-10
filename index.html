@@ -181,8 +181,7 @@
   Époquelle™, La Méthode Émile™, and Compendium d’Aragon™ are protected trademarks.
 </footer>
 
- <!-- Époque Labs Concierge™ — Privacy-first Chatbase Embed (All-in-One) -->
-<!-- 1) Privacy + Reset Logic -->
+ <!-- 1) Session cleanup + prevent auto-open -->
 <script>
   // Remove any Chatbase session data (covers current & future keys)
   function clearChatbaseState() {
@@ -197,6 +196,20 @@
       console.warn('Chatbase clear error:', e);
     }
   }
+
+  // Prevent Chatbase widget from auto-opening on page load
+  window.addEventListener("load", function () {
+    // Clear session so greeting stays clean
+    clearChatbaseState();
+
+    // Force the widget to remain closed even if Chatbase tries to auto-open
+    const interval = setInterval(() => {
+      if (window.chatbase && window.chatbase.hideChat) {
+        window.chatbase.hideChat();   // keep the bubble closed
+        clearInterval(interval);      // stop checking once applied
+      }
+    }, 50);
+  });
 
   // Clear when the visitor leaves/reloads the page
   window.addEventListener('beforeunload', clearChatbaseState);
@@ -218,14 +231,7 @@
 <!-- 2) Hide "Recent chats" UI + force clean start on bubble open -->
 <script>
 (function privacyUI(){
-  function clearChatbaseState() {
-    try {
-      const keys = Object.keys(localStorage);
-      for (const k of keys) {
-        if (k.toLowerCase().includes('chatbase')) localStorage.removeItem(k);
-      }
-    } catch(_) {}
-  }
+  // Reuse the same clearChatbaseState defined above
 
   const hideRecents = () => {
     document.querySelectorAll(
@@ -252,7 +258,7 @@
   window.addEventListener('click', hideRecents);
   window.addEventListener('scroll', hideRecents);
 
-  // Clear when new session opens
+  // Clear when new session opens (when user clicks the bubble)
   document.addEventListener('click', e => {
     const bubble = e.target.closest('[id*="chatbase"][class*="bubble"], [class*="cb-"]');
     if (bubble) {
@@ -282,7 +288,7 @@
   const onLoad=function(){
     const s=document.createElement("script");
     s.src="https://www.chatbase.co/embed.min.js";
-    s.id="-J10pm9ReTGdJUJW7Y_ai";      /* ← keep your exact Chatbase Agent ID */
+    s.id="-J10pm9ReTGdJUJW7Y_ai";  // your agent ID
     s.domain="www.chatbase.co";
     document.body.appendChild(s);
   };
@@ -291,6 +297,6 @@
   else{window.addEventListener("load",onLoad)}
 })();
 </script>
- 
+
 </body>
 </html>
