@@ -639,7 +639,6 @@ body{
 }
 
 /* PODCAST HERO WITH COVER */
-
 .hero {
   background: #f7e6d7;          /* keep or tweak to match site */
   padding: 80px 20px;
@@ -669,7 +668,6 @@ body{
   flex: 1;
 }
 
-/* Optional: tighten hero text if needed */
 .hero-title {
   margin-bottom: 0.75rem;
 }
