@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Collection | Époque Labs</title>
+  <title>The Époquelle™ Collection | Époque Labs</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- Your global styles (keep as-is) -->
   <link rel="stylesheet" href="styles/main.css" />
 
   <style>
@@ -73,57 +72,59 @@
       margin:3rem auto 0;
       padding:0 1.5rem;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:2rem;
     }
     .product-card{
       background:#fffdfb;
       padding:2rem;
-      border-radius:14px;
-      box-shadow:0 6px 16px rgba(0,0,0,.06);
-      text-align:center;
+      border-radius:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.06);
+      text-align:left;
       transition:transform .3s ease, box-shadow .3s ease;
     }
     .product-card:hover{
       transform:translateY(-4px);
-      box-shadow:0 10px 24px rgba(0,0,0,.09);
+      box-shadow:0 18px 40px rgba(0,0,0,.08);
     }
     .product-card h3{
       font-family:'Playfair Display',serif;
-      font-size:1.3rem;
-      margin-bottom:.4rem;
+      font-size:1.35rem;
+      margin-bottom:.35rem;
     }
     .product-card .eyebrow{
-      font-size:.9rem;
-      letter-spacing:.05em;
+      font-size:.8rem;
+      letter-spacing:.14em;
       text-transform:uppercase;
       opacity:.7;
+      margin-bottom:.4rem;
     }
     .product-card p{
       font-size:.95rem;
-      opacity:.9;
+      opacity:.95;
     }
     .product-card .hairline{
       height:1px;
       background:linear-gradient(90deg,transparent,#eadfd3,transparent);
-      margin:.6rem 0 1rem;
+      margin:.7rem 0 1rem;
     }
-    .product-card .date{
+    .product-card .note{
       margin-top:1rem;
-      font-size:.9rem;
-      opacity:.7;
+      font-size:.88rem;
+      color:#6b5748;
     }
 
     a.btn{
       display:inline-block;
       text-decoration:none;
       cursor:pointer;
-      padding:12px 20px;
+      padding:11px 20px;
       border-radius:999px;
       font-weight:600;
       letter-spacing:.02em;
       transition:transform .08s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      font-size:.92rem;
+      font-size:.9rem;
+      margin-top:1.3rem;
     }
     a.btn:active{transform:translateY(1px);}
     .btn.primary{
@@ -140,58 +141,6 @@
     .btn.outline:hover{
       background:#1a1a1a;
       color:#fff;
-    }
-
-    /* --- RESERVATION ACCORDION --- */
-    .reservation-policy, .waitlist-policy{
-      margin-top:1.25rem;
-      text-align:left;
-      font-size:.9rem;
-      color:#4a4a4a;
-    }
-    details.reservation-terms{
-      margin-top:12px;
-      text-align:left;
-      font-size:.9rem;
-    }
-    details.reservation-terms summary{
-      cursor:pointer;
-      font-weight:600;
-      color:#2b1d1a;
-      list-style:none;
-      position:relative;
-      padding-left:1rem;
-    }
-    details.reservation-terms summary::-webkit-details-marker{display:none}
-    details.reservation-terms summary::before{
-      content:"▸";
-      position:absolute;
-      left:0;
-      top:.05rem;
-      line-height:1;
-      transition:transform .2s ease;
-    }
-    details.reservation-terms[open] summary::before{
-      transform:rotate(90deg);
-    }
-    details.reservation-terms .rt-body{
-      margin-top:.6rem;
-      padding-top:.4rem;
-      color:#4a4a4a;
-      line-height:1.6;
-      font-size:.96rem;
-    }
-    .rt-list{
-      margin:0;
-      padding-left:1.1rem;
-      display:grid;
-      gap:.45rem;
-    }
-    @media (min-width:980px){
-      .rt-list{
-        column-count:2;
-        column-gap:2rem;
-      }
     }
 
     /* --- DAILY RITUAL --- */
@@ -262,35 +211,6 @@
       color:#6b5748;
     }
 
-    /* --- COMPARISON TABLE --- */
-    .comparison-section{
-      padding:80px 20px;
-      background:#fff;
-    }
-    .comparison-section h2{
-      text-align:center;
-      font-size:2em;
-      margin-bottom:40px;
-      color:#1a1a1a;
-      font-family:'Playfair Display',serif;
-    }
-    .comparison-table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:.95rem;
-      font-family:'Inter',sans-serif;
-    }
-    .comparison-table thead tr{
-      background:#f4f4f4;
-      color:#333;
-    }
-    .comparison-table th,
-    .comparison-table td{
-      padding:12px;
-      text-align:left;
-      border-top:1px solid #ddd;
-    }
-
     /* --- SPA MUSIC --- */
     .spa-music-section{
       text-align:center;
@@ -320,8 +240,8 @@
 </head>
 <body>
   <header>
-    <h1>The Collection</h1>
-    <p>Scientific Formulas Guided by Ritual</p>
+    <h1>The Époquelle™ Collection</h1>
+    <p>Scientific formulas guided by ritual, designed to live quietly on the skin.</p>
   </header>
 
   <nav>
@@ -337,118 +257,88 @@
   </nav>
 
   <!-- SIGNATURE COLLECTION -->
-  <p class="section-intro">
-  Époquelle™ is the home ritual collection of Époque Labs — the consumer-facing extension of our internal
-  Époque MD work. Each formula is crafted under <em>La Méthode Émile™</em> to support visible regeneration,
-  barrier integrity, and a repeatable daily ritual that can stand beside in-clinic care.
-</p>
-
+  <section class="page-section">
+    <div class="container">
+      <h2 class="section-title">A Four-Phase Ritual for Regeneration</h2>
+      <p class="section-intro">
+        Époquelle™ is the home ritual expression of Époque Labs—clinical formulas translated into a
+        simple, repeatable sequence: cleanse, focus, regenerate, seal. Each phase is designed to
+        stand alone yet read as one continuous story on the skin.
+      </p>
+      <p class="section-intro" style="font-size:.95rem;color:#6b5748;margin-bottom:0;">
+        Époque MD formulations for in-clinic use remain within a private professional portal.
+        This page reflects the consumer-facing Époquelle™ Collection inspired by that work.
+      </p>
 
       <div class="products-grid">
-
-        <!-- Scellé — Finishing Serum -->
-        <div class="product-card" id="scelle">
-          <h3>Scellé<span style="font-size:0.6em;vertical-align:super;">™</span> — Finishing Serum</h3>
-          <p class="tagline"><em>Where the clinic ends, your ritual begins.</em></p>
+        <!-- Phase I -->
+        <div class="product-card">
+          <div class="eyebrow">Phase I · Cleanse</div>
+          <h3>Transforming Cleansing Cream</h3>
           <div class="hairline"></div>
-          <p>The silken seal applied in-clinic—now for home. Locks in actives, reinforces the barrier, and extends results from No. 6 &amp; No. 9. Dermatologist tested for sensitive skin.</p>
-          <p class="date">Coming Spring 2026</p>
-          <a class="btn outline" href="/connect.html?topic=scelle-waitlist">Join Waitlist · Scellé™</a>
+          <p>
+            A cream-to-oil-to-milk cleanser that dissolves sunscreen and daily buildup while
+            keeping hydration sealed within the barrier. Built for those who believe cleansing
+            should feel ceremonial—quiet, sensorial, never stripping.
+          </p>
+          <p class="note">
+            Launch timing is coordinated with the full Époquelle™ system; detailed INCI and
+            protocol notes are shared directly with partnering clinics.
+          </p>
+          <a class="btn outline" href="connect.html?topic=cleansing-ritual">Join Waitlist · Cleansing Ritual</a>
         </div>
 
-        <!-- No. 6 -->
-        <div class="product-card" id="no6">
-          <h3>No. 6 — Concentré Réparateur — Mémoire Voûtée™</h3>
-          <div class="eyebrow">Precision Peptide Eye Concentrate</div>
+        <!-- Phase II -->
+        <div class="product-card">
+          <div class="eyebrow">Phase II · Focus</div>
+          <h3>Precision Eye Concentrate</h3>
           <div class="hairline"></div>
-          <p>Reawakens the skin’s vaulted memory with precision peptides and BIO-Placenta for visible line softening and dermal repair. Formulated specifically for the orbital area—delicate, precise, and clinically potent.</p>
-
-          <a class="btn primary" href="#reserve-no6" aria-label="Reserve No. 6 — $75 Deposit">Reserve No. 6 — $75 Deposit</a>
-
-          <div class="reservation-policy">
-            <p><strong>Reservation Policy</strong><br>
-              A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch.
-              Deposits are <strong>non-refundable once production begins</strong> (estimated within 60 days of order).<br><br>
-              The remaining balance will be automatically billed <strong>30 days before shipment</strong> to your payment method on file.
-              Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
-              Each batch ships within <strong>4–5 months</strong> of reservation — crafted for stability, potency, and precision.
-            </p>
-          </div>
-
-          <details class="reservation-terms">
-            <summary>Terms of Reservation &amp; Purchase</summary>
-            <div class="rt-body">
-              <ul class="rt-list">
-                <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
-                <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
-                <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
-                <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
-                <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
-                <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:conact.epoch@proton.me">conact.epoch@proton.me</a>.</li>
-              </ul>
-            </div>
-          </details>
+          <p>
+            A targeted concentrate for the orbital area, pairing clinical peptides with
+            barrier-supportive actives to soften visible lines and signs of fatigue without
+            heaviness. Designed for delicate tissue, daily use, and layering under treatment.
+          </p>
+          <p class="note">
+            Optimized for morning and evening application; professional protocols may integrate
+            devices or peels around this step.
+          </p>
+          <a class="btn outline" href="connect.html?topic=eye-focus">Join Waitlist · Eye Focus</a>
         </div>
 
-        <!-- No. 9 -->
-        <div class="product-card" id="no9">
-          <h3>No. 9 — Le Rituel Renouveau™</h3>
-          <div class="eyebrow">Regenerative Ritual Serum</div>
+        <!-- Phase III -->
+        <div class="product-card">
+          <div class="eyebrow">Phase III · Regenerate</div>
+          <h3>Peptide Renewal Serum</h3>
           <div class="hairline"></div>
-          <p>A regenerative peptide serum for face + neck. Syn-Ake and Matrixyl® 3000 refine micro-tension and structure. Delivery is optimized by Pro-Lipo Neo; a refining complex enhances tone and contour.</p>
-
-          <a class="btn primary" href="#reserve-no9" aria-label="Reserve No. 9 — $75 Deposit">Reserve No. 9 — $75 Deposit</a>
-
-          <div class="reservation-policy">
-            <p><strong>Reservation Policy</strong><br>
-              A <strong>$75 deposit</strong> secures your bottle in the upcoming Époquelle batch.
-              Deposits are <strong>non-refundable once production begins</strong> (estimated within 60 days of order).<br><br>
-              The remaining balance will be automatically billed <strong>30 days before shipment</strong> to your payment method on file.
-              Customers using installment services (Afterpay™, Klarna™, etc.) follow their provider’s billing cycle.<br><br>
-              Each batch ships within <strong>4–5 months</strong> of reservation — handcrafted for stability, potency, and precision.
-            </p>
-          </div>
-
-          <details class="reservation-terms">
-            <summary>Terms of Reservation &amp; Purchase</summary>
-            <div class="rt-body">
-              <ul class="rt-list">
-                <li><strong>Deposit:</strong> $75 reserves your bottle; <em>non-refundable once production begins</em> (≈60 days from order).</li>
-                <li><strong>Balance:</strong> Auto-billed 30 days before shipment. If billing fails, update payment within 7 days to retain the reservation.</li>
-                <li><strong>Lead time:</strong> Ships within <strong>4–5 months</strong> of reservation.</li>
-                <li><strong>Changes:</strong> Address updates allowed until final billing; orders cannot be canceled after final billing is processed.</li>
-                <li><strong>IP &amp; Trademark:</strong> Formulas and marks remain the property of Époque Labs LLC; unauthorized resale/duplication is prohibited.</li>
-                <li><strong>Governing law:</strong> State of Wyoming, USA. Support: <a href="mailto:conact.epoch@proton.me">conact.epoch@proton.me</a>.</li>
-              </ul>
-            </div>
-          </details>
+          <p>
+            A regenerative serum for face and neck that works on texture, tone, and micro-tension.
+            Clinical-grade peptide complexes are delivered in a refined vehicle to sit comfortably
+            under seal, guiding visible renewal over time rather than in a single “before and after.”
+          </p>
+          <p class="note">
+            Ideal for long-horizon results where firmness, clarity, and refinement are prioritized
+            over instant drama.
+          </p>
+          <a class="btn outline" href="connect.html?topic=peptide-renewal">Join Waitlist · Peptide Ritual</a>
         </div>
 
-        <!-- No. 13 -->
-        <div class="product-card" id="no13">
-          <h3>No. 13 — Crème de l’Hydrofermé™</h3>
-          <div class="eyebrow">Transforming Cleansing Cream</div>
+        <!-- Phase IV -->
+        <div class="product-card">
+          <div class="eyebrow">Phase IV · Seal</div>
+          <h3>Finishing Barrier Veil</h3>
           <div class="hairline"></div>
-          <p>A cream-to-oil-to-milk cleanser that dissolves impurities while sealing hydration within the skin’s barrier. Crafted for those who believe cleansing should feel ceremonial — a sensorial prelude to regeneration.</p>
-
-          <a class="btn outline" href="/connect.html?topic=hydroferme-waitlist">Join Waitlist · Crème de l’Hydrofermé™</a>
-
-          <div class="waitlist-policy">
-            <p><strong>Waitlist Information</strong><br>
-              Be among the first notified when <em>Crème de l’Hydrofermé™</em> opens for pre-order.
-              Early waitlist members receive exclusive first-access and a complimentary deluxe mini from Époque Labs upon full reservation.<br><br>
-              Estimated release: <strong>Spring 2026</strong>.
-            </p>
-          </div>
+          <p>
+            The final veil that locks in actives and restores quiet to the surface of the skin.
+            Lightweight yet buffering, it extends the work of the prior phases while maintaining
+            comfort for sensitive, post-procedure, or refinement-focused skin.
+          </p>
+          <p class="note">
+            Created to sit between clinic and daily life—applied at home, informed by in-clinic
+            conversations.
+          </p>
+          <a class="btn outline" href="connect.html?topic=finishing-veil">Join Waitlist · Finishing Veil</a>
         </div>
-          <p style="max-width:800px;margin:2.5rem auto 0 auto;font-size:0.95rem;color:#5b4a3c;text-align:center;">
-          <strong>Époque MD · Clinical Use Only</strong><br>
-          Époque MD formulas are reserved for licensed clinics and are accessed through our private
-          professional portal. They inform the Époquelle™ collection shown here but are not available
-          for direct consumer purchase on this site.
-        </p>
-
-      </div><!-- /products-grid -->
+      </div>
     </div>
   </section>
 
@@ -459,9 +349,8 @@
         <div class="ritual-heading">
           <h2>The Époquelle™ Daily Ritual</h2>
           <p>
-            A simple, clinically mapped sequence you can live with every day. The same four pillars—
-            cleanse, focus, regenerate, seal—repeated morning and night, with intensity adjusted
-            by your clinician.
+            A mapped sequence you can live with every day. The same four pillars—cleanse, focus,
+            regenerate, seal—repeated morning and night, with intensity adjusted by your clinician.
           </p>
         </div>
 
@@ -471,24 +360,26 @@
             <h3>Morning · Éclat &amp; Protection</h3>
             <div class="sub">Light, hydrating, SPF-ready</div>
             <p>
-              Keep it light, hydrating, and protective while preparing the skin for SPF and makeup.
+              Keep it light and protective while preparing the skin for SPF and the day’s exposure.
             </p>
             <ul class="ritual-steps">
               <li>
-                <strong>Step 1 · Cleanse — No. 13</strong><br>
-                Massage onto dry skin until it melts to oil, then emulsify with water into a milk. Rinse gently.
+                <strong>Step 1 · Cleanse</strong><br>
+                Massage the transforming cream onto dry skin until it melts to oil, then emulsify
+                with water into a milk. Rinse gently.
               </li>
               <li>
-                <strong>Step 2 · Eye Focus — No. 6</strong><br>
-                Press a rice-grain amount around the orbital bone, avoiding direct contact with the eye.
+                <strong>Step 2 · Focus</strong><br>
+                Press a rice-grain amount of eye concentrate around the orbital bone, avoiding
+                direct contact with the eye.
               </li>
               <li>
-                <strong>Step 3 · Regenerate — No. 9</strong><br>
-                Apply 1–2 pumps to face, neck and décolleté for peptide-driven firmness and tone.
+                <strong>Step 3 · Regenerate</strong><br>
+                Apply 1–2 pumps of peptide serum to face, neck, and décolleté.
               </li>
               <li>
-                <strong>Step 4 · Seal — Scellé™</strong><br>
-                Finish with a whisper-thin layer to lock in actives and support barrier comfort.
+                <strong>Step 4 · Seal</strong><br>
+                Finish with a whisper-thin layer of barrier veil to lock in actives.
               </li>
               <li>
                 <strong>Final · SPF</strong><br>
@@ -502,24 +393,25 @@
             <h3>Evening · Repair &amp; Renewal</h3>
             <div class="sub">Deeper repair, slower ritual</div>
             <p>
-              Evening is where deeper repair happens. The same pillars, with slower application and longer contact time.
+              Evening is where deeper repair happens. The same pillars, with slower application and
+              longer contact time.
             </p>
             <ul class="ritual-steps">
               <li>
-                <strong>Step 1 · Cleanse — No. 13</strong><br>
-                Use as a first and second cleanse to dissolve SPF, makeup, and pollutants.
+                <strong>Step 1 · Cleanse</strong><br>
+                Use the cream as first and second cleanse to dissolve SPF, pollution, and the day.
               </li>
               <li>
-                <strong>Step 2 · Eye Focus — No. 6</strong><br>
+                <strong>Step 2 · Focus</strong><br>
                 Press gently into expression lines and areas of fatigue around the eyes.
               </li>
               <li>
-                <strong>Step 3 · Regenerate — No. 9</strong><br>
+                <strong>Step 3 · Regenerate</strong><br>
                 Apply 1–2 pumps, taking time to massage along jawline, cheekbones, and neck.
               </li>
               <li>
-                <strong>Step 4 · Seal — Scellé™</strong><br>
-                Layer last as an overnight finishing veil to support barrier repair and prolong in-clinic results.
+                <strong>Step 4 · Seal</strong><br>
+                Layer the finishing veil last to support barrier repair and prolong in-clinic results.
               </li>
             </ul>
             <p class="ritual-note">
@@ -531,63 +423,6 @@
       </div>
     </div>
   </section>
-
-   <!-- COMPARISON · HOUSE POSITIONING -->
-  <section class="comparison-section">
-    <div class="container">
-      <h2 class="comparison-section-title">How Époque Labs Compares</h2>
-
-      <p class="section-intro" style="margin-bottom:2.5rem;">
-        Époque Labs sits between heritage houses and clinical laboratories—rooted in
-        dermal philosophy, developed for protocol, and released in controlled cycles
-        rather than mass retail.
-      </p>
-
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Époque Labs</th>
-            <th>Luxury Indie Skincare</th>
-            <th>Prestige Retail Brand</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Formulation Philosophy</td>
-            <td>Guided by La Méthode Émile™ and Compendium d’Aragon™</td>
-            <td>Founders’ preference or trend-driven</td>
-            <td>Marketing-led concepts</td>
-          </tr>
-          <tr>
-            <td>Clinical Peptide Architecture</td>
-            <td>Protocol-level peptide design for specific zones</td>
-            <td>Occasional peptides, often in story-level doses</td>
-            <td>Broad “anti-aging” complexes</td>
-          </tr>
-          <tr>
-            <td>Fragrance &amp; Sensitivity</td>
-            <td>Fragrance-neutral, barrier-respectful by design</td>
-            <td>Mixed: some fragrance-free, some perfumed</td>
-            <td>Signature scent is often central to the launch</td>
-          </tr>
-          <tr>
-            <td>Clinical Integration</td>
-            <td>Developed alongside Époque MD™ protocols and clinic use</td>
-            <td>Occasional spa or facialist collaborations</td>
-            <td>Counter experience and retail training focus</td>
-          </tr>
-          <tr>
-            <td>Batch &amp; Release Strategy</td>
-            <td>Small, controlled runs with reservation or waitlist</td>
-            <td>Rolling inventory with periodic sell-outs</td>
-            <td>Continuous production to fill shelves globally</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
 
   <!-- SOUNDscape -->
   <section class="spa-music-section">
@@ -665,6 +500,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
