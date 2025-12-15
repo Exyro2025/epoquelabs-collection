@@ -978,7 +978,6 @@ body footer.site-footer .footer-copy{
   line-height:1.6;
   opacity:.9;
 }
-
 /* ===== Honorwell Hero — final ===== */
 .hero-epoquelle .honorwell-block{
   max-width: 1120px;
@@ -1051,6 +1050,31 @@ body footer.site-footer .footer-copy{
   .hero-epoquelle .honorwell-content{ margin: 0 auto; }
   .hero-epoquelle .honorwell-text{ margin: 0 auto; }
 }
+/* ===== Honorwell typography match (scoped) ===== */
+.hero-epoquelle{
+  font-family: 'Inter', sans-serif;
+  color:#2b1d1a;
+}
+
+.hero-epoquelle .honorwell-title{
+  font-family:'Playfair Display', serif;
+  font-weight:600;                 /* matches your other titles */
+  letter-spacing:-0.2px;
+}
+
+.hero-epoquelle .honorwell-text{
+  font-family:'Inter', sans-serif;
+  font-size:1.05rem;               /* match your global p size */
+  line-height:1.85;
+  color:#4b433c;                   /* same “ink” as other sections */
+  opacity:1;                       /* stop the faded look */
+}
+
+.hero-epoquelle .honorwell-mini{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+}
+
 
 
 
