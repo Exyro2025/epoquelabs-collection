@@ -979,6 +979,79 @@ body footer.site-footer .footer-copy{
   opacity:.9;
 }
 
+/* ===== Honorwell Hero — final ===== */
+.hero-epoquelle .honorwell-block{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3.25rem;
+  align-items: start;
+  padding: 5.25rem 1.5rem 5rem;
+  text-align: left;
+}
+
+.hero-epoquelle .honorwell-lockup{ padding-top: .35rem; }
+
+.hero-epoquelle .honorwell-mini{
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: rgba(43,29,26,.62);
+  line-height: 1.6;
+}
+.hero-epoquelle .honorwell-mini.muted{ color: rgba(43,29,26,.45); }
+
+.hero-epoquelle .honorwell-rule{
+  display: block;
+  width: 54px;
+  height: 1px;
+  margin: .9rem 0 .95rem;
+  background: rgba(179,139,89,.35);
+}
+
+.hero-epoquelle .honorwell-content{ max-width: 760px; }
+
+.hero-epoquelle .honorwell-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 3.4vw, 3.05rem);
+  line-height: 1.08;
+  margin: 0 0 .9rem;
+  color: #2b1d1a;
+}
+
+.hero-epoquelle .honorwell-hairline{
+  display:block;
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(179,139,89,.55), rgba(179,139,89,.15));
+  margin: 0 0 1.25rem;
+}
+
+.hero-epoquelle .honorwell-text{
+  font-size: 1.04rem;
+  line-height: 1.95;
+  color: rgba(43,29,26,.76);
+  margin: 0;
+  max-width: 62ch;
+}
+
+@media (max-width: 900px){
+  .hero-epoquelle .honorwell-block{
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    padding: 4.25rem 1.25rem 4rem;
+    text-align: center;
+  }
+  .hero-epoquelle .honorwell-rule,
+  .hero-epoquelle .honorwell-hairline{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-epoquelle .honorwell-content{ margin: 0 auto; }
+  .hero-epoquelle .honorwell-text{ margin: 0 auto; }
+}
+
 
 
 
