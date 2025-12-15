@@ -1,940 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Époque Labs · Lip Rituals in Quiet Light</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Époque Labs · Lip rituals designed in quiet light. Modern luminance, soft colour, and treatment-level care." />
+  <meta charset="UTF-8">
+  <title>Époque Maison des Lèvres™ · Les Couleurs d’Époque™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts to match the main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ------------------------------
-       RESET
-    ------------------------------ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --cream:#fefaf6;
+      --paper:#f5e4d4;
+      --paper-deep:#f0ddc8;
+      --ink:#2b1d1a;
+      --ink-soft:#6e5245;
+      --gold:#c79c54;
+      --pill-bg:#f9efe3;
+      --pill-border:#e1c9aa;
+      --chip-bg:#f2dfca;
+      --chip-deep:#d8b29a;
+      --chip-velvet:#c69a8b;
+      --chip-wine:#4b151d;
+      --shadow-soft:0 28px 70px rgba(0,0,0,.06);
+      --radius-xl:28px;
     }
 
-    /* ------------------------------
-       BASE
-    ------------------------------ */
-    :root {
-      --bg: #fefaf6;
-      --bg-soft: #f7efe6;
-      --bg-deep: #e9d8c7;
-      --ink: #2a1f1c;
-      --ink-soft: #6f5950;
-      --ink-muted: #a08a7c;
-      --accent: #b88b63;
-      --accent-soft: rgba(184,139,99,0.08);
-      --border-soft: rgba(58,41,33,0.07);
-      --shadow-soft: 0 18px 45px rgba(27, 15, 9, 0.14);
-      --radius-card: 22px;
-      --radius-pill: 999px;
-      --max-width: 1120px;
-      --transition: all 0.26s ease;
-      --letter-wide: 0.22em;
+    *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      min-height:100vh;
+      position:relative;
+      /* base warm gradient */
+      background:
+        radial-gradient(circle at top,#fffdf9 0,#f7e9da 55%,#f2dfcf 100%);
     }
 
-    html, body {
-      height: 100%;
+    /* velvet texture overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      background-image:
+        radial-gradient(circle at 0 0,rgba(255,255,255,.42) 0,transparent 55%),
+        radial-gradient(circle at 100% 100%,rgba(255,255,255,.32) 0,transparent 55%),
+        repeating-linear-gradient(135deg,
+          rgba(255,255,255,.10) 0,
+          rgba(255,255,255,.10) 2px,
+          rgba(255,255,255,0) 2px,
+          rgba(255,255,255,0) 4px
+        );
+      mix-blend-mode:soft-light;
+      opacity:.8;
     }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fffaf3 0, var(--bg) 46%, #f4e5d7 100%);
-      color: var(--ink);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
+    .lips-page{
+      min-height:100vh;
+      padding:72px 5vw 96px;
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    h1,h2,h3,h4{
+      font-family:'Playfair Display',serif;
+      margin:0;
+      color:var(--ink);
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--ink);
+    .eyebrow{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      color:var(--ink-soft);
     }
 
-    p {
-      font-size: 0.98rem;
-      color: var(--ink-soft);
+    /* HERO -------------------------------------------------- */
+
+    .hero{
+      background:linear-gradient(135deg,#f9eee3 0,#f4ddc8 45%,#f0d3bc 100%);
+      border-radius:36px;
+      padding:40px 40px 36px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(280px,2.3fr);
+      gap:32px;
+      position:relative;
+      overflow:hidden;
     }
 
-    /* ------------------------------
-       LAYOUT
-    ------------------------------ */
-    .page-shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.75rem 1.5rem 4.5rem;
+    /* portrait-style lighting */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-35%;
+      background:
+        radial-gradient(ellipse at 50% -40%,rgba(255,255,255,.70) 0,transparent 68%),
+        radial-gradient(circle at 10% 10%,rgba(255,255,255,.65) 0,transparent 55%),
+        radial-gradient(circle at 90% 100%,rgba(255,255,255,.55) 0,transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+      mix-blend-mode:soft-light;
     }
 
-    @media (min-width: 1024px) {
-      .page-shell {
-        padding: 2.75rem 0 5.25rem;
+    .hero-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1{
+      font-size:2.6rem;
+      line-height:1.08;
+      margin-top:12px;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      margin:0 0 24px;
+      font-size:1.02rem;
+      line-height:1.7;
+      color:var(--ink-soft);
+      max-width:34rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn-main,
+    .btn-ghost{
+      border-radius:999px;
+      padding:11px 22px;
+      font-size:.88rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:all .22s ease;
+    }
+
+    .btn-main{
+      background:linear-gradient(135deg,#d3a861,#c18c48);
+      color:#fff;
+      border-color:rgba(0,0,0,.04);
+      box-shadow:0 14px 40px rgba(111,73,19,.32);
+    }
+
+    .btn-main:hover{
+      transform:translateY(-1px);
+      box-shadow:0 18px 52px rgba(111,73,19,.4);
+    }
+
+    .btn-ghost{
+      background:rgba(255,255,255,.65);
+      border-color:rgba(0,0,0,.04);
+      color:var(--ink-soft);
+    }
+
+    .btn-ghost:hover{
+      background:#fff;
+    }
+
+    .hero-tagline-small{
+      font-size:.85rem;
+      color:var(--ink-soft);
+      margin-top:10px;
+      max-width:32rem;
+    }
+
+    /* Hero shade panel */
+
+    .shade-panel{
+      position:relative;
+      z-index:1;
+      border-radius:30px;
+      padding:22px 22px 20px;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(14px);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .shade-panel h3{
+      font-size:1.1rem;
+      margin-bottom:2px;
+    }
+
+    .shade-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .shade-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius:999px;
+      padding:6px 11px 6px 6px;
+      border:1px solid var(--pill-border);
+      background:var(--pill-bg);
+      font-size:.78rem;
+      color:var(--ink-soft);
+      white-space:nowrap;
+    }
+
+    .shade-chip{
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      background:var(--chip-bg);
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+
+    .chip-rose{background:var(--chip-bg);}
+    .chip-neutral{background:var(--chip-velvet);}
+    .chip-clear{
+      background:radial-gradient(circle at 30% 20%,#ffffff 0,#f0ddcc 60%,#d7b9aa 100%);
+    }
+    .chip-wine{background:var(--chip-wine);}
+    .chip-soft{background:#d9b2a1;}
+
+    .shade-panel small{
+      font-size:.72rem;
+      color:var(--ink-soft);
+      opacity:.8;
+    }
+
+    /* HOUSE STATEMENT -------------------------------------- */
+
+    .house-statement{
+      margin-top:40px;
+      padding:18px 22px;
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      border:1px solid #edd7c3;
+      font-size:.86rem;
+      color:var(--ink-soft);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 18px;
+      align-items:center;
+    }
+
+    .house-statement strong{
+      font-family:'Playfair Display',serif;
+      font-weight:600;
+      color:var(--ink);
+    }
+
+    /* PILLARS --------------------------------------------- */
+
+    .pillars{
+      margin-top:56px;
+      display:grid;
+      grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr);
+      gap:28px;
+    }
+
+    .pillar-card{
+      background:var(--paper);
+      border-radius:var(--radius-xl);
+      padding:26px 26px 22px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .pillar-label{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--ink-soft);
+      margin-bottom:6px;
+    }
+
+    .pillar-card h2{
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .pillar-card p{
+      font-size:.95rem;
+      color:var(--ink-soft);
+      margin-bottom:18px;
+    }
+
+    .item-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
+    .item-pill{
+      background:rgba(255,255,255,.9);
+      border-radius:999px;
+      padding:10px 16px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:6px 12px;
+      font-size:.8rem;
+      align-items:center;
+      border:1px solid #edd7c3;
+    }
+
+    .item-name{
+      font-weight:600;
+      font-family:'Playfair Display',serif;
+      font-size:.9rem;
+    }
+
+    .item-note{
+      color:var(--ink-soft);
+    }
+
+    /* FOOTER NOTE ----------------------------------------- */
+
+    .footer-note{
+      margin-top:40px;
+      font-size:.86rem;
+      color:var(--ink-soft);
+      max-width:40rem;
+    }
+
+    .footer-note a{
+      color:var(--gold);
+      text-decoration:none;
+    }
+    .footer-note a:hover{text-decoration:underline;}
+
+    /* RESPONSIVE ------------------------------------------ */
+
+    @media (max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+      .pillars{
+        grid-template-columns:1fr;
+      }
+      .lips-page{
+        padding:56px 5vw 80px;
       }
     }
 
-    /* ------------------------------
-       NAV
-    ------------------------------ */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1.25rem;
-      margin-bottom: 1.75rem;
-      background: rgba(255, 252, 246, 0.82);
-      border-radius: 999px;
-      border: 1px solid rgba(99, 78, 64, 0.12);
-      backdrop-filter: blur(18px);
-      position: sticky;
-      top: 1rem;
-      z-index: 10;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-    }
-
-    .logo-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-sub {
-      font-size: 0.65rem;
-      letter-spacing: var(--letter-wide);
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    .nav-links a {
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid transparent;
-      transition: var(--transition);
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--ink);
-      border-bottom-color: rgba(42,31,28,0.4);
-    }
-
-    .nav-pill {
-      padding: 0.4rem 0.95rem;
-      border-radius: var(--radius-pill);
-      background: var(--ink);
-      color: #fdf7ee;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border: 1px solid rgba(0,0,0,0.15);
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        padding-inline: 1rem;
-        gap: 1rem;
+    @media (max-width:600px){
+      .hero{
+        padding:28px 22px 26px;
       }
-      .nav-links {
-        display: none;
+      .hero h1{
+        font-size:2.1rem;
       }
     }
-
-    /* ------------------------------
-       HERO
-    ------------------------------ */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 2.75rem;
-      margin-top: 2rem;
-      margin-bottom: 3.25rem;
-      align-items: flex-end;
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2.2rem;
-      }
-    }
-
-    .hero-kicker {
-      font-size: 0.72rem;
-      letter-spacing: var(--letter-wide);
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.85rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.35rem, 3vw, 2.9rem);
-      line-height: 1.11;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-title span {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .hero-copy {
-      max-width: 30rem;
-      font-size: 0.98rem;
-    }
-
-    .hero-tagline {
-      margin-top: 0.8rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.6rem;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.8rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      background: none;
-      outline: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: var(--transition);
-      font-weight: 500;
-    }
-
-    .btn-primary {
-      background: #2b1f1c;
-      color: #fffaf4;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      background: #1f1512;
-      transform: translateY(-1px);
-      box-shadow: 0 24px 55px rgba(25,10,3,0.3);
-    }
-
-    .btn-ghost {
-      border-color: rgba(66, 48, 40, 0.4);
-      color: var(--ink-soft);
-      background: rgba(255,255,255,0.3);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.76);
-      border-color: rgba(66, 48, 40, 0.7);
-    }
-
-    .hero-meta {
-      align-self: stretch;
-      position: relative;
-    }
-
-    .hero-panel {
-      background: linear-gradient(145deg, #f9efe3 0%, #fdf7f0 40%, #f5e2d0 100%);
-      border-radius: 28px;
-      padding: 1.75rem 1.55rem 1.85rem;
-      border: 1px solid rgba(77,55,43,0.1);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 18% -22%;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.6), transparent 55%);
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-
-    .hero-panel-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-panel-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-panel-sub {
-      font-size: 0.86rem;
-      color: var(--ink-soft);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-panel-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 1.25rem;
-      font-size: 0.78rem;
-    }
-
-    .hero-stat-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--ink-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-stat-main {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-    }
-
-    .hero-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-    }
-
-    .hero-pill {
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      border: 1px solid rgba(138, 102, 71, 0.2);
-      font-size: 0.72rem;
-      color: var(--ink-soft);
-    }
-
-    .hero-badge {
-      position: absolute;
-      right: 0.75rem;
-      bottom: -0.4rem;
-      background: #221614;
-      color: #fff6ec;
-      padding: 0.7rem 1.15rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.3);
-      box-shadow: 0 14px 26px rgba(10,0,0,0.45);
-    }
-
-    .hero-badge span {
-      color: #e4c5aa;
-    }
-
-    @media (max-width: 880px) {
-      .hero-panel {
-        padding: 1.5rem 1.35rem 2.1rem;
-      }
-      .hero-badge {
-        position: static;
-        margin-top: 1rem;
-        display: inline-flex;
-      }
-    }
-
-    /* ------------------------------
-       COLLECTION HEADER
-    ------------------------------ */
-    .section {
-      margin-bottom: 3.25rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-kicker {
-      font-size: 0.72rem;
-      letter-spacing: var(--letter-wide);
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .section-sub {
-      max-width: 23rem;
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-    }
-
-    @media (max-width: 720px) {
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* ------------------------------
-       PRODUCT GRID
-    ------------------------------ */
-    .grid {
-      display: grid;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 720px) {
-      .grid--3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 719px) {
-      .grid--3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .product-card {
-      background: rgba(255, 252, 248, 0.96);
-      border-radius: var(--radius-card);
-      border: 1px solid var(--border-soft);
-      padding: 1.4rem 1.35rem 1.3rem;
-      box-shadow: 0 12px 26px rgba(37, 20, 10, 0.08);
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .product-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.6), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 42px rgba(37, 20, 10, 0.16);
-    }
-
-    .product-card:hover::before {
-      opacity: 1;
-    }
-
-    .product-tagline {
-      font-size: 0.7rem;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .product-title {
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .product-finish {
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .product-copy {
-      font-size: 0.86rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .product-meta-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.76rem;
-    }
-
-    .pill-soft {
-      padding: 0.35rem 0.9rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(50,36,29,0.2);
-      background: rgba(252, 246, 239, 0.9);
-      color: var(--ink-soft);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 0.68rem;
-      white-space: nowrap;
-    }
-
-    .product-link {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.19em;
-      color: var(--ink-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .product-link span {
-      font-size: 0.9rem;
-      transform: translateY(1px);
-    }
-
-    /* ------------------------------
-       SHADE STORIES
-    ------------------------------ */
-    .shade-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 880px) {
-      .shade-grid {
-        grid-template-columns: 1.5fr 1.1fr;
-      }
-    }
-
-    .shade-card {
-      background: #f7efe4;
-      border-radius: 24px;
-      padding: 1.5rem 1.45rem 1.35rem;
-      border: 1px solid rgba(72, 52, 41, 0.18);
-      box-shadow: 0 14px 28px rgba(33, 19, 11, 0.14);
-    }
-
-    .shade-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 1.15rem;
-      margin-bottom: 1rem;
-    }
-
-    .shade-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(253, 247, 241, 0.9);
-      border: 1px solid rgba(108,80,64,0.24);
-      font-size: 0.76rem;
-    }
-
-    .shade-dot {
-      width: 15px;
-      height: 15px;
-      border-radius: 999px;
-      background: #d4a58a;
-      box-shadow: 0 0 0 1px rgba(122, 88, 66, 0.6);
-    }
-
-    .shade-dot--rose {
-      background: #e0a3a0;
-      box-shadow: 0 0 0 1px rgba(143, 83, 80, 0.5);
-    }
-
-    .shade-dot--nude {
-      background: #dfb69a;
-      box-shadow: 0 0 0 1px rgba(134, 93, 62, 0.48);
-    }
-
-    .shade-dot--deep {
-      background: #8a4b38;
-      box-shadow: 0 0 0 1px rgba(49, 23, 12, 0.6);
-    }
-
-    .shade-list {
-      list-style: none;
-      margin-top: 0.7rem;
-      font-size: 0.86rem;
-      color: var(--ink-soft);
-    }
-
-    .shade-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    .quote-card {
-      border-radius: 24px;
-      border: 1px solid rgba(85, 60, 46, 0.2);
-      padding: 1.3rem 1.4rem;
-      background: radial-gradient(circle at top left, #fdf7f0 0, #f3e4d6 100%);
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      box-shadow: 0 12px 24px rgba(33, 19, 11, 0.18);
-    }
-
-    .quote-line {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.02rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .quote-source {
-      margin-top: 0.55rem;
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    /* ------------------------------
-       RITUAL FOOTER
-    ------------------------------ */
-    .ritual-footer {
-      margin-top: 3.2rem;
-      padding-top: 2.4rem;
-      border-top: 1px solid rgba(71, 53, 43, 0.15);
-      display: grid;
-      gap: 1.8rem;
-    }
-
-    @media (min-width: 720px) {
-      .ritual-footer {
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-        align-items: flex-start;
-      }
-    }
-
-    .ritual-note-heading {
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .ritual-note-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .ritual-note-copy {
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      max-width: 25rem;
-    }
-
-    .ritual-list {
-      list-style: none;
-      font-size: 0.86rem;
-      color: var(--ink-soft);
-    }
-
-    .ritual-list li {
-      padding: 0.4rem 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .ritual-list-label {
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      white-space: nowrap;
-    }
-
-    .ritual-list-text {
-      max-width: 18rem;
-    }
-
-    .footer-meta {
-      margin-top: 1.7rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <!-- NAV -->
-    <header class="nav">
-      <div class="nav-left">
-        <div>
-          <div class="logo-mark">Époque Labs</div>
-          <div class="logo-sub">Clinical Ritual · Modern Skin</div>
+
+<main class="lips-page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Époque Labs · Époque Maison des Lèvres™</div>
+      <h1>The lip, refined to a whisper.</h1>
+      <p>
+        Époque Maison des Lèvres™ is a quiet lip house inside Époque Labs—treatment, glass-light
+        gloss, and liquid velvet color designed to feel like soft expression, not performance.
+        Every formula sits beside your Époquelle™ ritual and Skincare Without Surgery™
+        conversations so the mouth, face, and daily care read as one story—refined, intentional,
+        beautifully understated.
+      </p>
+      <div class="hero-actions">
+        <a href="#ritual" class="btn-main">Explore the Lip Ritual</a>
+        <a href="#couleurs" class="btn-ghost">View Les Couleurs d’Époque™</a>
+      </div>
+      <div class="hero-tagline-small">
+        A small wardrobe of shades—rose nude, soft neutral, deep wine, and glass-light gloss—that
+        speaks in low volume but unmistakable presence.
+      </div>
+    </div>
+
+    <aside class="shade-panel">
+      <div class="eyebrow">New · Les Couleurs d’Époque™</div>
+      <h3>A lip wardrobe in three quiet gestures.</h3>
+
+      <div class="shade-row">
+        <div class="shade-pill">
+          <span class="shade-chip chip-rose"></span>
+          <span>Rose nude · <strong>Matin de Voile™</strong></span>
+        </div>
+        <div class="shade-pill">
+          <span class="shade-chip chip-soft"></span>
+          <span>Soft neutral · <strong>Silence Matiné™</strong></span>
+        </div>
+        <div class="shade-pill">
+          <span class="shade-chip chip-wine"></span>
+          <span>Deep wine · <strong>Noir Grenat™</strong></span>
+        </div>
+        <div class="shade-pill">
+          <span class="shade-chip chip-clear"></span>
+          <span>Crystal clear · <strong>Nuage Clair™</strong></span>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#collection">Colour &amp; Care</a>
-        <a href="#shades">Shade stories</a>
-        <a href="#ritual">Application</a>
-        <span class="nav-pill">Lip Suite · Pinnacle</span>
-      </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="hero-kicker">Lip Colour · In Quiet Light</div>
-        <h1 class="hero-title">
-          A lip ritual written in <span>quiet light</span>.
-        </h1>
-        <p class="hero-copy">
-          Softly-structured colour. Treatment-level care. Each formula in the Pinnacle Lip Suite is designed to live
-          between skin care and statement—never heavy, always composed.
-        </p>
-        <p class="hero-tagline">
-          Three textures · Two finishes · One curated suite
-        </p>
-        <div class="hero-actions">
-          <button class="btn-primary">View the full suite</button>
-          <button class="btn-ghost">Download ingredients brief</button>
+      <small>
+        One rose nude, one quiet neutral, one garnet wine, and three gloss gestures that read as glass,
+        not glitter—built so any age, any undertone can step in without feeling over-made.
+      </small>
+    </aside>
+  </section>
+
+  <!-- HOUSE STATEMENT -->
+  <section id="couleurs" class="house-statement">
+    <strong>Les Couleurs d’Époque™</strong>
+    <span>crafted in quiet elegance, worn in undeniable presence.</span>
+    <span>Every shade is meant to read as punctuation, not performance.</span>
+  </section>
+
+  <!-- PILLARS -->
+  <section id="ritual" class="pillars">
+    <!-- Pillar I -->
+    <article class="pillar-card">
+      <div class="pillar-label">Pillar I · The Lip Ritual</div>
+      <h2>The Lip Treatment Ensemble</h2>
+      <p>
+        Begin with care. These formulas behave like skincare—smoothing, softening, and shielding the
+        lip surface so color lays down more beautifully and wears longer. Morning and night, alone
+        on bare lips or as the first step under color.
+      </p>
+
+      <div class="item-grid">
+        <div class="item-pill">
+          <span class="item-name">Voile Vitamine E™</span>
+          <span class="item-note">clear vitamin E veil · universal, under any shade</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">Baume de Minuit™</span>
+          <span class="item-note">night balm · cushiony, soft-matte comfort while you sleep</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">Éclisse Scrub™</span>
+          <span class="item-note">micro-fine sugar polish · no grainy afterfeel</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">L’Étude Lip Serum™</span>
+          <span class="item-note">featherweight treatment veil · day or night, worn alone or under gloss</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">Essence de Lèvres™</span>
+          <span class="item-note">sheer gloss-treatment veil · soft warmth and glass-like light</span>
         </div>
       </div>
+    </article>
 
-      <aside class="hero-meta">
-        <div class="hero-panel">
-          <div class="hero-panel-label">This edit</div>
-          <h2 class="hero-panel-title">Pinnacle Lip Suite</h2>
-          <p class="hero-panel-sub">
-            A curated ensemble of gloss, veil, and treatment—designed for clients who want the comfort of care
-            with the polish of couture colour.
-          </p>
-          <div class="hero-panel-grid">
-            <div>
-              <div class="hero-stat-label">Textures</div>
-              <div class="hero-stat-main">
-                Cushion gloss · Light-veil lipstick · Overnight treatment balm.
-              </div>
-            </div>
-            <div>
-              <div class="hero-stat-label">Finish philosophy</div>
-              <div class="hero-stat-main">
-                Luminous, not loud. Colour that feels as if it belongs to the wearer, not the tube.
-              </div>
-            </div>
-          </div>
-          <div class="hero-pill-row">
-            <div class="hero-pill">Non-sticky luminance</div>
-            <div class="hero-pill">Clinical-grade actives</div>
-            <div class="hero-pill">Dermatologist-aligned</div>
-          </div>
-          <div class="hero-badge">
-            Designed for <span>&nbsp;Époque Studios&nbsp;</span>
-          </div>
+    <!-- Pillars II & III -->
+    <article class="pillar-card">
+      <div class="pillar-label">Pillars II &amp; III · Color</div>
+      <h2>Glasslight Gloss &amp; Liquid Velvet Color</h2>
+      <p>
+        A deliberate edit: two glosses and three liquid velvet shades with a soft-focus,
+        fabric-like finish. Wear alone, layered over treatment, or diffused with fingertip for
+        a blurred Paris-at-dusk lip that looks lived-in, not labored.
+      </p>
+
+      <div class="item-grid">
+        <div class="item-pill">
+          <span class="item-name">Brillantine d’Époque™</span>
+          <span class="item-note">warm nude gloss · peach-beige light with quiet shimmer</span>
         </div>
-      </aside>
-    </section>
-
-    <!-- COLLECTION -->
-    <section id="collection" class="section">
-      <div class="section-header">
-        <div>
-          <div class="section-kicker">The collection</div>
-          <h2 class="section-title">Lip rituals for daylight, candlelight, and everything in between.</h2>
+        <div class="item-pill">
+          <span class="item-name">Voix de Satin™</span>
+          <span class="item-note">neutral rose gloss · soft, adult, never sweet</span>
         </div>
-        <p class="section-sub">
-          Each piece in the Pinnacle Lip Suite is intentionally minimal—meant to be layered,
-          edited, and lived in. No clutter, no redundancy. Just precise, modern utility.
-        </p>
-      </div>
-
-      <div class="grid grid--3">
-        <!-- Card 1 -->
-        <article class="product-card">
-          <div class="product-tagline">Gloss · Soft Radiance</div>
-          <h3 class="product-title">Liquid Veil Lipgloss</h3>
-          <div class="product-finish">Glass-free shine with a silk-veil finish.</div>
-          <p class="product-copy">
-            Cushioned gloss that catches light without feeling sticky. Designed for clients who want
-            a refined sheen that reads as skin care, not sparkle.
-          </p>
-          <div class="product-meta-row">
-            <span class="pill-soft">Pinnacle · Long-wear gloss</span>
-            <a href="#" class="product-link">
-              View shades <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="product-card">
-          <div class="product-tagline">Lip Colour · Quiet Pigment</div>
-          <h3 class="product-title">Light Veil Lipstick</h3>
-          <div class="product-finish">Weightless satin with soft-focus edges.</div>
-          <p class="product-copy">
-            A modern lipstick that feels like nothing on the lips. The pigment is calibrated to move
-            with the wearer—diffused, forgiving, and camera-ready without looking “done.”
-          </p>
-          <div class="product-meta-row">
-            <span class="pill-soft">Cream-satin · Buildable</span>
-            <a href="#" class="product-link">
-              Meet signature nudes <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="product-card">
-          <div class="product-tagline">Treatment · Night Ritual</div>
-          <h3 class="product-title">Lip Treatment Ensemble</h3>
-          <div class="product-finish">Conditioning complex for recovery and repair.</div>
-          <p class="product-copy">
-            A concentrated treatment balm to reset the lip surface overnight. Formulated to support
-            smoother application, softer lines, and colour that sits more elegantly by morning.
-          </p>
-          <div class="product-meta-row">
-            <span class="pill-soft">Overnight · Treatment-first</span>
-            <a href="#" class="product-link">
-              View ritual steps <span>↗</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SHADE STORIES -->
-    <section id="shades" class="section">
-      <div class="section-header">
-        <div>
-          <div class="section-kicker">Shade stories</div>
-          <h2 class="section-title">Nudes that read as memory, not makeup.</h2>
+        <div class="item-pill">
+          <span class="item-name">Nuage Clair™</span>
+          <span class="item-note">crystal clear gloss · glass-light shine over any lip</span>
         </div>
-        <p class="section-sub">
-          The Pinnacle palette is intentionally edited: soft neutrals, lived-in roses, and a single
-          deep shade to anchor the story. Each hue is meant to belong on the wearer’s face—not just in the component.
-        </p>
-      </div>
-
-      <div class="shade-grid">
-        <article class="shade-card">
-          <h3 class="product-title">The Pinnacle Edit</h3>
-          <p class="product-copy">
-            Instead of dozens of almost-identical nudes, Pinnacle offers a concise wardrobe:
-            one quiet beige, one rosewood, one lived-in berry—and a universal deep cocoa for edge and definition.
-          </p>
-
-          <div class="shade-chip-row">
-            <div class="shade-chip">
-              <span class="shade-dot shade-dot--nude"></span>
-              <span>Soft Linen Nude · everyday veil</span>
-            </div>
-            <div class="shade-chip">
-              <span class="shade-dot shade-dot--rose"></span>
-              <span>Quiet Rosewood · interview ready</span>
-            </div>
-            <div class="shade-chip">
-              <span class="shade-dot shade-dot--deep"></span>
-              <span>Cocoa Trace · evening contour</span>
-            </div>
-          </div>
-
-          <ul class="shade-list">
-            <li>• Designed to photograph beautifully in both clinical light and candlelight.</li>
-            <li>• Harmonised undertones to minimise the “too orange / too grey” effect on diverse skin.</li>
-            <li>• Curated specifically for Époque Labs clientele—no redundant shades, no guesswork.</li>
-          </ul>
-        </article>
-
-        <aside class="quote-card">
-          <p class="quote-line">
-            “Colour should look like it has always belonged to the wearer—never the other way around.”
-          </p>
-          <p>
-            The Pinnacle Lip Suite was developed as an extension of skin care: pigment that feels like
-            a final, luminous layer of treatment rather than a costume. The finish is intentional, modern,
-            and quietly persuasive.
-          </p>
-          <p class="quote-source">
-            Époque Labs · Shade Philosophy
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- RITUAL FOOTER -->
-    <section id="ritual" class="ritual-footer">
-      <div>
-        <div class="ritual-note-heading">Application ritual</div>
-        <h2 class="ritual-note-title">Three steps. One composed lip.</h2>
-        <p class="ritual-note-copy">
-          Clients can wear each formula alone, but the suite was designed to layer.
-          The result is a lip that looks finished yet unforced—suitable for clinic, boardroom,
-          and after-dark without a full rework.
-        </p>
-      </div>
-
-      <div>
-        <ul class="ritual-list">
-          <li>
-            <span class="ritual-list-label">Step 01 · Treat</span>
-            <span class="ritual-list-text">
-              Apply a thin layer of Lip Treatment Ensemble and allow it to settle for 3–5 minutes.
-              Tissue-blot before colour for a smoother, more even surface.
-            </span>
-          </li>
-          <li>
-            <span class="ritual-list-label">Step 02 · Define</span>
-            <span class="ritual-list-text">
-              Sketch the natural lip line with a soft-toned pencil, focusing on corners and Cupid’s bow.
-              The line should look like shadow, not liner.
-            </span>
-          </li>
-          <li>
-            <span class="ritual-list-label">Step 03 · Veil</span>
-            <span class="ritual-list-text">
-              Sweep Light Veil Lipstick from centre outward, then tap Liquid Veil Lipgloss onto the centre
-              of the lower lip for a controlled, luminous highlight.
-            </span>
-          </li>
-        </ul>
-
-        <div class="footer-meta">
-          Époque Labs · Pinnacle Lip Suite · For professional studio use and elevated daily wear.
+        <div class="item-pill">
+          <span class="item-name">Matin de Voile™</span>
+          <span class="item-note">rose nude liquid velvet · everyday hush, “your lip but quieter”</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">Silence Matiné™</span>
+          <span class="item-note">soft neutral liquid velvet · bare-face structure, no theatre</span>
+        </div>
+        <div class="item-pill">
+          <span class="item-name">Noir Grenat™</span>
+          <span class="item-note">deep wine velvet · evening certainty, volume in low voice</span>
         </div>
       </div>
-    </section>
-  </div>
+    </article>
+  </section>
+
+  <!-- CROSS-LINK TO SKINCARE & PODCAST -->
+  <section class="footer-note">
+    For the skin that sits beneath the color, guests are guided back to the
+    <a href="/products.html">Époquelle™ Collection</a> and the
+    <a href="/podcast.html">Skincare Without Surgery™ podcast</a>—so the mouth, face, and ritual read as one story.
+  </section>
+
+</main>
+
 </body>
 </html>
+
 
 
