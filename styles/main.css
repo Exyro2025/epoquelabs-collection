@@ -1125,6 +1125,21 @@ body footer.site-footer .footer-copy{
   }
   .frame.wide{ aspect-ratio: 16 / 10; }
 }
+/* Color section visual pairing */
+.color-visual{
+  margin: 2.5rem auto 0;
+  max-width: 1120px;
+  padding: 0 24px;
+}
+
+/* Desktop: align slightly right, editorial style */
+@media (min-width: 900px){
+  .color-visual{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 
 
 
