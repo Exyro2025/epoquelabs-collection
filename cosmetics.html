@@ -444,11 +444,11 @@
   </section>
 
   <!-- PILLARS -->
-  <!-- PILLARS -->
+<!-- PILLARS -->
 <section id="ritual" class="pillars">
 
-  <!-- ROW 1: Pillar I + Silence Matiné -->
-  <div class="pillar-row">
+  <!-- Pillar I + Silence Matiné -->
+  <div class="pillar-split">
     <article class="pillar-card">
       <div class="pillar-label">Pillar I · The Lip Ritual</div>
       <h2>The Lip Treatment Ensemble</h2>
@@ -459,12 +459,13 @@
       </p>
 
       <div class="item-grid">
-        <!-- your item-pill blocks -->
+        <!-- your item-pill blocks here -->
       </div>
     </article>
 
     <figure class="maison-figure">
       <div class="frame portrait">
+        <!-- IMPORTANT: make this src match your real filename + folder -->
         <img src="assets/images/silence-matine.png"
              alt="Silence Matiné™ — soft neutral liquid velvet"
              loading="lazy">
@@ -472,18 +473,9 @@
     </figure>
   </div>
 
-  <!-- Noir Grenat “divider” -->
-  <figure class="maison-figure full">
-    <div class="frame banner">
-      <img src="assets/images/noir-grenat.png"
-           alt="Noir Grenat™ — deep wine velvet"
-           loading="lazy">
-    </div>
-  </figure>
-
-  <!-- ROW 2: Pillars II & III + Voix de Satin -->
-  <div class="pillar-row">
-    <article class="pillar-card" id="color">
+  <!-- Pillars II & III + Voix de Satin -->
+  <div class="pillar-split" id="color">
+    <article class="pillar-card">
       <div class="pillar-label">Pillars II &amp; III · Color</div>
       <h2>Glasslight Gloss &amp; Liquid Velvet Color</h2>
       <p>
@@ -493,8 +485,17 @@
       </p>
 
       <div class="item-grid">
-        <!-- your item-pill blocks -->
+        <!-- your item-pill blocks here -->
       </div>
+
+      <!-- Noir Grenat lives INSIDE the card (quiet spotlight), not as a big divider -->
+      <figure class="maison-figure noir-spotlight">
+        <div class="frame banner">
+          <img src="assets/images/noir-grenat.png"
+               alt="Noir Grenat™ — deep wine velvet"
+               loading="lazy">
+        </div>
+      </figure>
     </article>
 
     <figure class="maison-figure">
