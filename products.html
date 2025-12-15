@@ -333,6 +333,46 @@
   text-align: center;
 }
 
+.honorwell-block{
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.honorwell-kicker{
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .75rem;
+  opacity: .6;
+  margin-bottom: .6rem;
+}
+
+.honorwell-title{
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.honorwell-text{
+  font-size: 1rem;
+  color: #4a3b32;
+  max-width: 520px;
+}
+@media (max-width: 900px){
+  .honorwell-block{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .honorwell-text{
+    margin: 0 auto;
+  }
+}
+
+
 
   </style>
 </head>
@@ -362,15 +402,21 @@
   <section class="hero-epoquelle">
     <div class="hero-inner">
       <div class="hero-kicker">Époque Labs · Époquelle™ Collection</div>
-<h1 class="collection-hero-title">
-  A ritual of refinement—designed to live quietly on skin.
-</h1>
+<div class="honorwell-block">
+  <div class="honorwell-kicker">Époque Labs · Honorwell Standard</div>
 
-      <p class="hero-sub">
-        Époquelle™ translates clinical dermal work into a simple, livable sequence:
-        cleanse, illuminate, hydrate, seal. Each step is meant to feel ceremonial but
-        never theatrical—sitting comfortably beside daily life, not competing with it.
-      </p>
+  <h1 class="honorwell-title">
+    Formulated under the Honorwell Standard.
+  </h1>
+
+  <p class="honorwell-text">
+    Honorwell is Époque Labs’ internal framework for dermal integrity—governing
+    formulation restraint, clinical relevance, ingredient necessity, and
+    long-term skin compatibility. Nothing is added for novelty. Nothing remains
+    without purpose.
+  </p>
+</div>
+
     </div>
   </section>
 
