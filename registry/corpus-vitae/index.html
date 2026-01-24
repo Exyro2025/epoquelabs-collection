@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CHANGE ONLY THIS TITLE -->
+  <title>Corpus Vitae — Registry Plate I</title>
+
+  <!-- Always prevent indexing -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #0b0b0b 0%, #000 90%);
+      font-family: "Georgia", serif;
+      color: rgba(255,255,255,0.72);
+      overflow: hidden;
+    }
+
+    /* Époque Archive Grid */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header */
+    header {
+      position: absolute;
+      top: 28px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      z-index: 2;
+    }
+
+    /* Installation Frame */
+    .installation {
+      position: absolute;
+      inset: 90px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 160px rgba(0,0,0,0.92);
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer Plaque */
+    footer {
+      position: absolute;
+      bottom: 26px;
+      width: 100%;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      opacity: 0.38;
+      z-index: 2;
+    }
+
+    footer span {
+      font-style: italic;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DO NOT CHANGE -->
+  <header>
+    Époque Labs — Archive Doctrine Registry Viewer
+  </header>
+
+  <!-- CHANGE ONLY THIS URL -->
+  <div class="installation">
+    <iframe
+      src="https://outer-oak-93905471.figma.site"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- CHANGE ONLY THIS LINE -->
+  <footer>
+    Registry Plate I — <span>Corpus Vitae</span> — Private Installation
+  </footer>
+
+</body>
+</html>
+
+
+
+
